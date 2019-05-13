@@ -43,15 +43,21 @@
             this.group2 = this.Factory.CreateRibbonGroup();
             this.buttonSettings = this.Factory.CreateRibbonButton();
             this.buttonApply = this.Factory.CreateRibbonButton();
+            this.group3 = this.Factory.CreateRibbonGroup();
+            this.buttonFont = this.Factory.CreateRibbonButton();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.group2.SuspendLayout();
+            this.group3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab1
             // 
             this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tab1.Groups.Add(this.group1);
+            this.tab1.Groups.Add(this.group3);
             this.tab1.Groups.Add(this.group2);
             this.tab1.Label = "Проверка оформления работ";
             this.tab1.Name = "tab1";
@@ -92,6 +98,17 @@
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonApply_Click);
             // 
+            // group3
+            // 
+            this.group3.Items.Add(this.buttonFont);
+            this.group3.Name = "group3";
+            // 
+            // buttonFont
+            // 
+            this.buttonFont.Label = "Шрифт";
+            this.buttonFont.Name = "buttonFont";
+            this.buttonFont.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonFont_Click);
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -104,6 +121,8 @@
             this.group1.PerformLayout();
             this.group2.ResumeLayout(false);
             this.group2.PerformLayout();
+            this.group3.ResumeLayout(false);
+            this.group3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -116,6 +135,10 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonSettings;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonApply;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group3;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonFont;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 
     partial class ThisRibbonCollection

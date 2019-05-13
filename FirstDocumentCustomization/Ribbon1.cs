@@ -17,7 +17,7 @@ namespace FirstDocumentCustomization
     {
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
-            
+            fontDialog1.ShowColor = true;
         }
 
         private void buttonApply_Click(object sender, RibbonControlEventArgs e)
@@ -36,5 +36,17 @@ namespace FirstDocumentCustomization
             Settings newForm = new Settings();
             newForm.Show();
         }
+
+        private void buttonFont_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (fontDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            System.Configuration.Configuration currentConfig = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            currentConfig.AppSettings.Settings["nameFontOfOST"].Value = fontDialog1.Font.Name.ToString();
+            currentConfig.AppSettings.Settings["sizeFontOfOST"].Value = fontDialog1.Font.Size.ToString();
+            currentConfig.AppSettings.Settings["colorFontOfOST"].Value = colorDialog1.Color.Name.ToString();
+        }
+ 
     }
 }
