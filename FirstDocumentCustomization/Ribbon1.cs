@@ -51,10 +51,12 @@ namespace FirstDocumentCustomization
         private void comboBoxAlignmentText_TextChanged(object sender, RibbonControlEventArgs e)
         {
             System.Configuration.Configuration currentConfig = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            if (comboBoxAlignmentText. == 0)
-            {
-                currentConfig.AppSettings.Settings["nameFontOfOST"].Value = fontDialog1.Font.Name.ToString();
-            }
+            var items = comboBoxAlignmentText.Items;
+
+            var aligmentTextValue = items[0];
+            if (aligmentTextValue.Label.Contains("По левому краю"))
+                currentConfig.AppSettings.Settings["alignmentText"].Value = "0";
+            
         }
     }
 }

@@ -162,7 +162,6 @@
             // 
             this.group2.Items.Add(this.buttonSettings);
             this.group2.Name = "group2";
-            this.group2.Visible = false;
             // 
             // buttonSettings
             // 
