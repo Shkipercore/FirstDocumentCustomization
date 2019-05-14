@@ -47,6 +47,14 @@ namespace FirstDocumentCustomization
             currentConfig.AppSettings.Settings["sizeFontOfOST"].Value = fontDialog1.Font.Size.ToString();
             currentConfig.AppSettings.Settings["colorFontOfOST"].Value = colorDialog1.Color.Name.ToString();
         }
- 
+
+        private void comboBoxAlignmentText_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+            System.Configuration.Configuration currentConfig = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            if (comboBoxAlignmentText. == 0)
+            {
+                currentConfig.AppSettings.Settings["nameFontOfOST"].Value = fontDialog1.Font.Name.ToString();
+            }
+        }
     }
 }
