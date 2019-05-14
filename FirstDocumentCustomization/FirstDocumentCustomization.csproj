@@ -157,6 +157,7 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="MySettings.cs" />
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
