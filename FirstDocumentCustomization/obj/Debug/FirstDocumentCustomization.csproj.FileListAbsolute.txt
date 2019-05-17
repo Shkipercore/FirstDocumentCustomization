@@ -1,0 +1,40 @@
+C:\Users\Seryakov.av\source\repos\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.dll
+C:\Users\Seryakov.av\source\repos\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.pdb
+C:\Users\Seryakov.av\source\repos\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.dll.manifest
+C:\Users\Seryakov.av\source\repos\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.vsto
+C:\Users\Seryakov.av\source\repos\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\Seryakov.av\source\repos\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.Properties.Resources.resources
+C:\Users\Seryakov.av\source\repos\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csproj.GenerateResource.cache
+C:\Users\Seryakov.av\source\repos\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csproj.CoreCompileInputs.cache
+C:\Users\Seryakov.av\source\repos\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csproj.CopyComplete
+C:\Users\Seryakov.av\source\repos\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.dll
+C:\Users\Seryakov.av\source\repos\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.pdb
+C:\Users\Seryakov.av\source\repos\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.Ribbon1.resources
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.dll
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.pdb
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.dll.manifest
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.vsto
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.Properties.Resources.resources
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.Ribbon1.resources
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csproj.GenerateResource.cache
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csproj.CoreCompileInputs.cache
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csproj.CopyComplete
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.dll
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.pdb
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.Settings.resources
+C:\Shkiper\old pc\Магистратура\Диссер\FirstDocumentCustomization\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csprojAssemblyReference.cache
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.dll
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.pdb
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.dll.manifest
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.vsto
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csprojAssemblyReference.cache
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.Properties.Resources.resources
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.Ribbon1.resources
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.Settings.resources
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csproj.GenerateResource.cache
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csproj.CoreCompileInputs.cache
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csproj.CopyComplete
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.dll
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.pdb
