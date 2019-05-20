@@ -33,6 +33,28 @@ namespace FirstDocumentCustomization
         }
 
 
+
+        private static string GetPropertyOfConfig(string property, string tagName, string configName)
+        {
+            string m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+            string reference = "not found value in XML";
+            System.Xml.XmlDocument _XmlDocument = new System.Xml.XmlDocument();
+            _XmlDocument.Load(m_exePath + "\\" + configName);
+
+            foreach (XmlElement _XmlElement in _XmlDocument.GetElementsByTagName(tagName))
+            {
+                foreach (XmlElement XmlElementChild in _XmlElement)
+                {
+                    if (XmlElementChild.Name == property) { reference = XmlElementChild.InnerText; }
+                }
+            
+            }
+
+            return reference;
+        }
+
+
         static void AddUpdateAppSettings(string key, string value)
         {
             try

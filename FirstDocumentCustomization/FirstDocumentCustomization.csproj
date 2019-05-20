@@ -210,6 +210,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config.xml" />
     <Content Include="Gostconfig.xml">
       <SubType>Designer</SubType>
     </Content>

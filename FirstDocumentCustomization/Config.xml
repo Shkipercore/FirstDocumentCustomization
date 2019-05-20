@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigSetting>
+  <nameFontOfOST>Times New Roman</nameFontOfOST>
+  <colorFontOfOST>Black</colorFontOfOST>
+  <sizeFontOfOST>14</sizeFontOfOST>
+  <alignmentText></alignmentText>
+  <widthOfOST></widthOfOST>
+  <hightOfOST></hightOfOST>
+  <nameFontForFooterOfOST></nameFontForFooterOfOST>
+  <alignmentFooter></alignmentFooter>
+  <alignmentHeader></alignmentHeader>
+</ConfigSetting>
