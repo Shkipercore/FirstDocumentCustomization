@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Application = Microsoft.Office.Interop.Word.Application;
 using System.Configuration;
 using System.Collections.Specialized;
+using System.Xml;
 
 namespace FirstDocumentCustomization
 {
@@ -57,6 +58,68 @@ namespace FirstDocumentCustomization
             if (aligmentTextValue.Label.Contains("По левому краю"))
                 currentConfig.AppSettings.Settings["alignmentText"].Value = "0";
             
+        }
+
+        private void buttonSaveSettings_Click(object sender, RibbonControlEventArgs e)
+        {
+            List<Settings> users = new List<Settings>();
+
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load("Config.xml");
+
+            XmlElement xRoot = xDoc.DocumentElement;
+            // создаем объект settings
+            XmlElement settingsElem = xDoc.CreateElement("settings");
+            // создаем атрибут name
+            XmlAttribute nameAttr = xDoc.CreateAttribute("name");
+            // создаем элементы
+            XmlElement nameFontOfOSTElem = xDoc.CreateElement("nameFontOfOST");
+            XmlElement colorFontOfOSTElem = xDoc.CreateElement("colorFontOfOST");
+            XmlElement sizeFontOfOSTElem = xDoc.CreateElement("sizeFontOfOST");
+            XmlElement alignmentTextElem = xDoc.CreateElement("alignmentText");
+            //XmlElement widthOfOSTElem = xDoc.CreateElement("widthOfOST");
+            //XmlElement hightOfOSTElem = xDoc.CreateElement("hightOfOST");
+            //XmlElement nameFontForFooterOfOSTElem = xDoc.CreateElement("nameFontForFooterOfOST");
+            //XmlElement alignmentFooterElem = xDoc.CreateElement("alignmentFooter");
+            //XmlElement alignmentHeaderElem = xDoc.CreateElement("alignmentHeader");
+
+
+            foreach (XmlElement xnode in xRoot)
+            {
+                Settings settings = new Settings();
+                XmlNode attr = xnode.Attributes.GetNamedItem("name");
+                if (attr == null)
+                {
+                    xDoc.Load("Config.xml");
+                    XmlText nameText = xDoc.CreateTextNode("Диплом");
+                    nameAttr.AppendChild(nameText);
+                    settingsElem.Attributes.Append(nameAttr);
+                    xRoot.AppendChild(settingsElem);
+                    xDoc.Save("Config.xml");
+
+                }
+
+                foreach (XmlNode childnode in xnode.ChildNodes)
+                {
+                    if (childnode.Name == "nameFontOfOST")
+
+                    {
+                        xDoc.Load("Config.xml");
+                        XmlText nameFontOfOSTText = xDoc.CreateTextNode("Calibri");
+                        nameFontOfOSTElem.AppendChild(nameFontOfOSTText);
+                        xDoc.Save("Config.xml");
+                    }
+                    if (childnode.Name == "colorFontOfOST")
+                    {
+                        xDoc.Load("Config.xml");
+                        XmlText colorFontOfOSTText = xDoc.CreateTextNode("Red");
+                        nameFontOfOSTElem.AppendChild(colorFontOfOSTText);
+                        xDoc.Save("Config.xml");
+                    }
+                }
+                
+            }
+
         }
     }
 }

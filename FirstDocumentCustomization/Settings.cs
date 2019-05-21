@@ -97,31 +97,6 @@ namespace FirstDocumentCustomization
         {
 
 
-            //AddUpdateAppSettings("nameFontOfOST", "Andreyonelove");
-            //var keyOfupdate = ReadSetting("nameFontOfOST");
-
-            // Create the XmlDocument.
-            XmlDocument doc = new XmlDocument();
-            string m_progectPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            //doc.Load("FirstDocumentCustomization.dll.config");
-            doc.Load(m_progectPath + "\\"+ "FirstDocumentCustomization.dll.config");
-
-            // Add a price element.
-            var newElem = doc.GetElementsByTagName("appSettings"); // /doc.CreateElement("price");
-            
-            
-            
-            newElem.InnerText = "10.95";
-            doc.DocumentElement.AppendChild(newElem);
-
-            // Save the document to a file. White space is
-            // preserved (no white space).
-            doc.PreserveWhitespace = true;
-            doc.Save("data.xml");
-
-
-
-
         }
     }
 }

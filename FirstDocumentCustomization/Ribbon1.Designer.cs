@@ -47,6 +47,7 @@
             this.buttonApply = this.Factory.CreateRibbonButton();
             this.group3 = this.Factory.CreateRibbonGroup();
             this.buttonFont = this.Factory.CreateRibbonButton();
+            this.comboBoxAlignmentText = this.Factory.CreateRibbonComboBox();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.editBoxLeftIndent = this.Factory.CreateRibbonEditBox();
             this.editBoxRightIndent = this.Factory.CreateRibbonEditBox();
@@ -58,7 +59,7 @@
             this.buttonSettings = this.Factory.CreateRibbonButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.comboBoxAlignmentText = this.Factory.CreateRibbonComboBox();
+            this.buttonSaveSettings = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.group3.SuspendLayout();
@@ -80,6 +81,7 @@
             // 
             this.group1.Items.Add(this.comboBoxSelectionWork);
             this.group1.Items.Add(this.buttonApply);
+            this.group1.Items.Add(this.buttonSaveSettings);
             this.group1.Name = "group1";
             // 
             // comboBoxSelectionWork
@@ -112,6 +114,21 @@
             this.buttonFont.Label = "Шрифт";
             this.buttonFont.Name = "buttonFont";
             this.buttonFont.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonFont_Click);
+            // 
+            // comboBoxAlignmentText
+            // 
+            ribbonDropDownItemImpl4.Label = "По левому краю";
+            ribbonDropDownItemImpl5.Label = "По центру";
+            ribbonDropDownItemImpl6.Label = "По правому краю";
+            ribbonDropDownItemImpl7.Label = "По ширине";
+            this.comboBoxAlignmentText.Items.Add(ribbonDropDownItemImpl4);
+            this.comboBoxAlignmentText.Items.Add(ribbonDropDownItemImpl5);
+            this.comboBoxAlignmentText.Items.Add(ribbonDropDownItemImpl6);
+            this.comboBoxAlignmentText.Items.Add(ribbonDropDownItemImpl7);
+            this.comboBoxAlignmentText.Label = "Выравнивание текста";
+            this.comboBoxAlignmentText.Name = "comboBoxAlignmentText";
+            this.comboBoxAlignmentText.Text = null;
+            this.comboBoxAlignmentText.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.comboBoxAlignmentText_TextChanged);
             // 
             // group4
             // 
@@ -169,19 +186,11 @@
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonSettings_Click);
             // 
-            // comboBoxAlignmentText
+            // buttonSaveSettings
             // 
-            ribbonDropDownItemImpl4.Label = "По левому краю";
-            ribbonDropDownItemImpl5.Label = "По центру";
-            ribbonDropDownItemImpl6.Label = "По правому краю";
-            ribbonDropDownItemImpl7.Label = "По ширине";
-            this.comboBoxAlignmentText.Items.Add(ribbonDropDownItemImpl4);
-            this.comboBoxAlignmentText.Items.Add(ribbonDropDownItemImpl5);
-            this.comboBoxAlignmentText.Items.Add(ribbonDropDownItemImpl6);
-            this.comboBoxAlignmentText.Items.Add(ribbonDropDownItemImpl7);
-            this.comboBoxAlignmentText.Label = "Выравнивание текста";
-            this.comboBoxAlignmentText.Name = "comboBoxAlignmentText";
-            this.comboBoxAlignmentText.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.comboBoxAlignmentText_TextChanged);
+            this.buttonSaveSettings.Label = "Сохранить";
+            this.buttonSaveSettings.Name = "buttonSaveSettings";
+            this.buttonSaveSettings.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonSaveSettings_Click);
             // 
             // Ribbon1
             // 
@@ -223,6 +232,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBoxLineSpacing;
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator1;
         internal Microsoft.Office.Tools.Ribbon.RibbonComboBox comboBoxAlignmentText;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonSaveSettings;
     }
 
     partial class ThisRibbonCollection
