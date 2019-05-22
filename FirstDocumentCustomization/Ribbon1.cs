@@ -62,7 +62,6 @@ namespace FirstDocumentCustomization
 
         private void buttonSaveSettings_Click(object sender, RibbonControlEventArgs e)
         {
-            List<Settings> users = new List<Settings>();
 
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load("Config.xml");
@@ -83,6 +82,11 @@ namespace FirstDocumentCustomization
             //XmlElement alignmentFooterElem = xDoc.CreateElement("alignmentFooter");
             //XmlElement alignmentHeaderElem = xDoc.CreateElement("alignmentHeader");
 
+            XmlText nameText = xDoc.CreateTextNode("Диплом");
+            nameAttr.AppendChild(nameText);
+            settingsElem.Attributes.Append(nameAttr);
+            xRoot.AppendChild(settingsElem);
+            xDoc.Save("Config.xml");
 
             foreach (XmlElement xnode in xRoot)
             {
@@ -90,7 +94,6 @@ namespace FirstDocumentCustomization
                 XmlNode attr = xnode.Attributes.GetNamedItem("name");
                 if (attr == null)
                 {
-                    xDoc.Load("Config.xml");
                     XmlText nameText = xDoc.CreateTextNode("Диплом");
                     nameAttr.AppendChild(nameText);
                     settingsElem.Attributes.Append(nameAttr);
@@ -104,20 +107,18 @@ namespace FirstDocumentCustomization
                     if (childnode.Name == "nameFontOfOST")
 
                     {
-                        xDoc.Load("Config.xml");
                         XmlText nameFontOfOSTText = xDoc.CreateTextNode("Calibri");
                         nameFontOfOSTElem.AppendChild(nameFontOfOSTText);
                         xDoc.Save("Config.xml");
                     }
                     if (childnode.Name == "colorFontOfOST")
                     {
-                        xDoc.Load("Config.xml");
                         XmlText colorFontOfOSTText = xDoc.CreateTextNode("Red");
                         nameFontOfOSTElem.AppendChild(colorFontOfOSTText);
                         xDoc.Save("Config.xml");
                     }
                 }
-                
+
             }
 
         }

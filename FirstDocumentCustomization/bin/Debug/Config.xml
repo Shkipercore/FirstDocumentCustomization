@@ -1,14 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ConfigSettings>
-  <Settings name ="Курсовая">
+  <Settings name="Курсовая">
     <nameFontOfOST>Times New Roman</nameFontOfOST>
     <colorFontOfOST>Black</colorFontOfOST>
     <sizeFontOfOST>14</sizeFontOfOST>
-    <alignmentText></alignmentText>
-    <widthOfOST></widthOfOST>
-    <hightOfOST></hightOfOST>
-    <nameFontForFooterOfOST></nameFontForFooterOfOST>
-    <alignmentFooter></alignmentFooter>
-    <alignmentHeader></alignmentHeader>
-    </Settings>
+    <alignmentText>
+    </alignmentText>
+    <widthOfOST>
+    </widthOfOST>
+    <hightOfOST>
+    </hightOfOST>
+    <nameFontForFooterOfOST>
+    </nameFontForFooterOfOST>
+    <alignmentFooter>
+    </alignmentFooter>
+    <alignmentHeader>
+    </alignmentHeader>
+  </Settings>
 </ConfigSettings>
