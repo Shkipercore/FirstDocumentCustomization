@@ -37,12 +37,12 @@ namespace FirstDocumentCustomization
 
             if (widthPage != gostOptions.GetWidthOfOST())
             {
-                AddCommet("Не корректно указаны размеры страницы, указан Ширина " + gostOptions.GetWidthOfOST() + ",а нужна Ширина" + gostOptions.GetWidthOfOST(), rangeForAddCommit);
+                AddComment("Не корректно указаны размеры страницы, указан Ширина " + gostOptions.GetWidthOfOST() + ",а нужна Ширина" + gostOptions.GetWidthOfOST(), rangeForAddCommit);
             }
 
             if (gostOptions.GetHightOfOST() != highestPage)
             {
-                AddCommet("Не корректно указаны размеры страницы, указан  Высота " + highestPage + ", а нужна Высота " + gostOptions.GetHightOfOST(), rangeForAddCommit);
+                AddComment("Не корректно указаны размеры страницы, указан  Высота " + highestPage + ", а нужна Высота " + gostOptions.GetHightOfOST(), rangeForAddCommit);
             }
         }
 
@@ -86,7 +86,7 @@ namespace FirstDocumentCustomization
                     var alignmentImage = shap.Range.Paragraphs.Alignment;
                     if (alignmentImage != WdParagraphAlignment.wdAlignParagraphCenter)
                     {
-                        AddCommet("Необходимо установить орентацию по " + WdParagraphAlignment.wdAlignParagraphCenter.ToString() + " для данного рисунка", shap.Range);
+                        AddComment("Необходимо установить орентацию по " + WdParagraphAlignment.wdAlignParagraphCenter.ToString() + " для данного рисунка", shap.Range);
                     }
                 }
             }
@@ -102,11 +102,11 @@ namespace FirstDocumentCustomization
 
                 if (fontNameTable != gostOptions.GetNameFontOfOST())
                 {
-                    AddCommet("Не коректно выбран шрифт для таблицы", table.Range);
+                    AddComment("Не коректно выбран шрифт для таблицы", table.Range);
                 }
                 if (sizeFontTable != gostOptions.GetSizeFontOfOST())
                 {
-                    AddCommet("Не коректно выбран шрифт для таблицы", table.Range);
+                    AddComment("Не коректно выбран шрифт для таблицы", table.Range);
                 }
 
 
@@ -168,11 +168,11 @@ namespace FirstDocumentCustomization
                     {
                         if (fontSize != gostOptions.GetSizeFontOfOST())
                         {
-                            AddCommet("Некорректен размер шрифта, должен стоять" + gostOptions.GetSizeFontOfOST(), p.Range);
+                            AddComment("Некорректен размер шрифта, должен стоять" + gostOptions.GetSizeFontOfOST(), p.Range);
                         }
                         if (fontName != gostOptions.GetNameFontOfOST())
                         {
-                            AddCommet("Не корректен тип шрифта, должен стоять " + gostOptions.GetNameFontOfOST(), p.Range);
+                            AddComment("Не корректен тип шрифта, должен стоять " + gostOptions.GetNameFontOfOST(), p.Range);
                         }
                     }
 
@@ -226,14 +226,14 @@ namespace FirstDocumentCustomization
                         texForComment.Append("\n Не коррректен размер шрифта, установлен" + fontSize + ", а должен быть установлен " + gostOptions.GetSizeFontOfOST());
                     }
 
-                    AddCommet(texForComment.ToString(), range);
+                    AddComment(texForComment.ToString(), range);
                 }
 
             }
 
         }
 
-        private void AddCommet(String textComment, Word.Range range)
+        private void AddComment(String textComment, Word.Range range)
         {
             if (range.Text != "\r\a")
             {
@@ -254,7 +254,7 @@ namespace FirstDocumentCustomization
                 {
                     textForComment.Append("\n Не корректно указан размер шрифта " + p.Range.Font.Size + ", необходимо установить " + gostOptions.GetNameFontOfOST());
                 }
-                AddCommet(textForComment.ToString(), p.Range);
+                AddComment(textForComment.ToString(), p.Range);
             }
 
         }

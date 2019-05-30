@@ -158,8 +158,10 @@
   -->
   <ItemGroup>
     <Compile Include="Cheсker.cs" />
+    <Compile Include="EditorXML.cs" />
     <Compile Include="GostOptions.cs" />
     <Compile Include="MySettings.cs" />
+    <Compile Include="ReaderXML.cs" />
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
