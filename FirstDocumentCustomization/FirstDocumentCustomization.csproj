@@ -157,6 +157,8 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Cheсker.cs" />
+    <Compile Include="GostOptions.cs" />
     <Compile Include="MySettings.cs" />
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>

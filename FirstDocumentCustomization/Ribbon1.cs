@@ -25,11 +25,37 @@ namespace FirstDocumentCustomization
         {
             Word.Document currentDocument = Globals.ThisAddIn.Application.ActiveDocument;
             var nameFont = ConfigurationManager.AppSettings.Get("nameFontOfOST");
+            var colorFont = ConfigurationManager.AppSettings.Get("colorFontOfOST");
+            var lineSpacing = ConfigurationManager.AppSettings.Get("lineSpacing");
+            var sizeFont = ConfigurationManager.AppSettings.Get("sizeFont");
+            var width = ConfigurationManager.AppSettings.Get("wight");
+            var highest = ConfigurationManager.AppSettings.Get("highest");
+            var leftIndent = ConfigurationManager.AppSettings.Get("leftIndent");
+            var firstLineIndent = ConfigurationManager.AppSettings.Get("firstLineIndent");
+            var fontFooter = ConfigurationManager.AppSettings.Get("fontFooter");
+            var alignment = ConfigurationManager.AppSettings.Get("alignment");
+            var alignmentHeader = ConfigurationManager.AppSettings.Get("alignmentHeader");
+            var alignmentFooter = ConfigurationManager.AppSettings.Get("alignmentFooter");
             var pointOfCentimetrLine = Globals.ThisAddIn.Application.CentimetersToPoints(1.5f);
             var widthSpacing = Globals.ThisAddIn.Application.CentimetersToPoints(1.5f);
             var hightSpacing = Globals.ThisAddIn.Application.CentimetersToPoints(1.5f);
-            ChekerGOST checker = new ChekerGOST(currentDocument, nameFont, WdColor.wdColorBlack, pointOfCentimetrLine, 14, WdParagraphAlignment.wdAlignParagraphJustify, widthSpacing, hightSpacing, "TimesNewRome", WdParagraphAlignment.wdAlignParagraphCenter);
-            checker.Check();
+
+            GostOptions gostOptions = new GostOptions(currentDocument, 
+                                                      nameFont,  
+                                                      colorFont, 
+                                                      Convert.ToInt32(lineSpacing),
+                                                      Convert.ToInt32(sizeFont), 
+                                                      Convert.ToInt32(width),
+                                                      Convert.ToInt32(highest),
+                                                      Convert.ToInt32(leftIndent),
+                                                      Convert.ToInt32(firstLineIndent),
+                                                      fontFooter,
+                                                      alignment,
+                                                      alignmentHeader,
+                                                      alignmentFooter);
+
+
+            Checker checker = new Checker(gostOptions);
         }
 
         private void buttonSettings_Click(object sender, RibbonControlEventArgs e)
@@ -82,11 +108,11 @@ namespace FirstDocumentCustomization
             //XmlElement alignmentFooterElem = xDoc.CreateElement("alignmentFooter");
             //XmlElement alignmentHeaderElem = xDoc.CreateElement("alignmentHeader");
 
-            XmlText nameText = xDoc.CreateTextNode("Диплом");
-            nameAttr.AppendChild(nameText);
-            settingsElem.Attributes.Append(nameAttr);
-            xRoot.AppendChild(settingsElem);
-            xDoc.Save("Config.xml");
+            //XmlText nameText = xDoc.CreateTextNode("Диплом");
+            //nameAttr.AppendChild(nameText);
+            //settingsElem.Attributes.Append(nameAttr);
+            //xRoot.AppendChild(settingsElem);
+            //xDoc.Save("Config.xml");
 
             foreach (XmlElement xnode in xRoot)
             {
