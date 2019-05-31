@@ -3,18 +3,12 @@
   <Settings name="Курсовая">
     <nameFontOfOST>Times New Roman</nameFontOfOST>
     <colorFontOfOST>Black</colorFontOfOST>
-    <sizeFontOfOST>14</sizeFontOfOST>
-    <alignmentText>
-    </alignmentText>
-    <widthOfOST>
-    </widthOfOST>
-    <hightOfOST>
-    </hightOfOST>
-    <nameFontForFooterOfOST>
-    </nameFontForFooterOfOST>
-    <alignmentFooter>
-    </alignmentFooter>
-    <alignmentHeader>
-    </alignmentHeader>
+    <sizeFontOfOST>27,75</sizeFontOfOST>
+    <alignmentText></alignmentText>
+    <widthOfOST></widthOfOST>
+    <hightOfOST></hightOfOST>
+    <nameFontForFooterOfOST></nameFontForFooterOfOST>
+    <alignmentFooter></alignmentFooter>
+    <alignmentHeader></alignmentHeader>
   </Settings>
 </ConfigSettings>

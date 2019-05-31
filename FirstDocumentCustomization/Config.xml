@@ -3,11 +3,14 @@
   <Settings name ="Курсовая">
     <nameFontOfOST>Times New Roman</nameFontOfOST>
     <colorFontOfOST>Black</colorFontOfOST>
+    <lineSpacingOfOST></lineSpacingOfOST>
     <sizeFontOfOST>14</sizeFontOfOST>
-    <alignmentText></alignmentText>
     <widthOfOST></widthOfOST>
     <hightOfOST></hightOfOST>
+    <leftIndentOfOST></leftIndentOfOST>
+    <firstLineIndentOfOST></firstLineIndentOfOST>
     <nameFontForFooterOfOST></nameFontForFooterOfOST>
+    <alignmentTextOfOST></alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
     <alignmentHeader></alignmentHeader>
     </Settings>

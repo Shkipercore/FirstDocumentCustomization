@@ -89,63 +89,13 @@ namespace FirstDocumentCustomization
         private void buttonSaveSettings_Click(object sender, RibbonControlEventArgs e)
         {
 
-            XmlDocument xDoc = new XmlDocument();
-            xDoc.Load("Config.xml");
-
-            XmlElement xRoot = xDoc.DocumentElement;
-            // создаем объект settings
-            XmlElement settingsElem = xDoc.CreateElement("settings");
-            // создаем атрибут name
-            XmlAttribute nameAttr = xDoc.CreateAttribute("name");
-            // создаем элементы
-            XmlElement nameFontOfOSTElem = xDoc.CreateElement("nameFontOfOST");
-            XmlElement colorFontOfOSTElem = xDoc.CreateElement("colorFontOfOST");
-            XmlElement sizeFontOfOSTElem = xDoc.CreateElement("sizeFontOfOST");
-            XmlElement alignmentTextElem = xDoc.CreateElement("alignmentText");
-            //XmlElement widthOfOSTElem = xDoc.CreateElement("widthOfOST");
-            //XmlElement hightOfOSTElem = xDoc.CreateElement("hightOfOST");
-            //XmlElement nameFontForFooterOfOSTElem = xDoc.CreateElement("nameFontForFooterOfOST");
-            //XmlElement alignmentFooterElem = xDoc.CreateElement("alignmentFooter");
-            //XmlElement alignmentHeaderElem = xDoc.CreateElement("alignmentHeader");
-
-            //XmlText nameText = xDoc.CreateTextNode("Диплом");
-            //nameAttr.AppendChild(nameText);
-            //settingsElem.Attributes.Append(nameAttr);
-            //xRoot.AppendChild(settingsElem);
-            //xDoc.Save("Config.xml");
-
-            foreach (XmlElement xnode in xRoot)
-            {
-                Settings settings = new Settings();
-                XmlNode attr = xnode.Attributes.GetNamedItem("name");
-                if (attr == null)
-                {
-                    XmlText nameText = xDoc.CreateTextNode("Диплом");
-                    nameAttr.AppendChild(nameText);
-                    settingsElem.Attributes.Append(nameAttr);
-                    xRoot.AppendChild(settingsElem);
-                    xDoc.Save("Config.xml");
-
-                }
-
-                foreach (XmlNode childnode in xnode.ChildNodes)
-                {
-                    if (childnode.Name == "nameFontOfOST")
-
-                    {
-                        XmlText nameFontOfOSTText = xDoc.CreateTextNode("Calibri");
-                        nameFontOfOSTElem.AppendChild(nameFontOfOSTText);
-                        xDoc.Save("Config.xml");
-                    }
-                    if (childnode.Name == "colorFontOfOST")
-                    {
-                        XmlText colorFontOfOSTText = xDoc.CreateTextNode("Red");
-                        nameFontOfOSTElem.AppendChild(colorFontOfOSTText);
-                        xDoc.Save("Config.xml");
-                    }
-                }
-
-            }
+            EditorXML editorXML = new EditorXML();
+            editorXML.AddElement(
+                                 fontDialog1.Font.Name.ToString(),
+                                 colorDialog1.Color.Name.ToString(),
+                                 fontDialog1.Font.Size.ToString()
+                                 //editBoxLineSpacing.Text.ToString()
+                                 );
 
         }
     }
