@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ConfigSettings>
-  <Settings name="Курсовая">
-    <nameFontOfOST>Times New Roman</nameFontOfOST>
+  <Settings name="Курсовая работа">
+    <nameFontOfOST>Jokerman</nameFontOfOST>
     <colorFontOfOST>Black</colorFontOfOST>
-    <sizeFontOfOST>27,75</sizeFontOfOST>
-    <alignmentText></alignmentText>
+    <lineSpacingOfOST>11,25</lineSpacingOfOST>
+    <sizeFontOfOST>1.5</sizeFontOfOST>
     <widthOfOST></widthOfOST>
     <hightOfOST></hightOfOST>
+    <leftIndentOfOST></leftIndentOfOST>
+    <firstLineIndentOfOST></firstLineIndentOfOST>
     <nameFontForFooterOfOST></nameFontForFooterOfOST>
+    <alignmentTextOfOST></alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
     <alignmentHeader></alignmentHeader>
   </Settings>

@@ -90,11 +90,11 @@ namespace FirstDocumentCustomization
         {
 
             EditorXML editorXML = new EditorXML();
-            editorXML.AddElement(
+            editorXML.AddElement(comboBoxSelectionWork.Text,
                                  fontDialog1.Font.Name.ToString(),
                                  colorDialog1.Color.Name.ToString(),
-                                 fontDialog1.Font.Size.ToString()
-                                 //editBoxLineSpacing.Text.ToString()
+                                 fontDialog1.Font.Size.ToString(),
+                                 editBoxLineSpacing.Text
                                  );
 
         }

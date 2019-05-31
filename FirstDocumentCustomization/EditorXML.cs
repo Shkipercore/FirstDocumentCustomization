@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -11,6 +13,7 @@ namespace FirstDocumentCustomization
     public class EditorXML
     {
         private XmlDocument xDoc;
+        string m_exePath = Environment.CurrentDirectory;
 
         public bool CreateNode(string nodeAttributeName)
         {
@@ -50,10 +53,10 @@ namespace FirstDocumentCustomization
         }
 
 
-        public string AddElement(//string tagName,
+        public string AddElement(string tagName,
                                  string nameFont,
                                  string colorFont,
-                                 //string lineSpacing, 
+                                 string lineSpacing, 
                                  string sizeFont
                                  //string width,
                                  //string hight,
@@ -70,12 +73,12 @@ namespace FirstDocumentCustomization
 
             foreach (XElement xe in root.Elements("Settings").ToList())
 
-                if (xe.Attribute("name").Value == "Курсовая")
+                if (xe.Attribute("name").Value == tagName)
 
                 {
                     xe.Element("nameFontOfOST").Value = nameFont;
                     xe.Element("colorFontOfOST").Value = colorFont;
-                    //xe.Element("lineSpacingOfOST").Value = lineSpacing;
+                    xe.Element("lineSpacingOfOST").Value = lineSpacing;
                     xe.Element("sizeFontOfOST").Value = sizeFont;
                     //xe.Element("widthOfOST").Value = width;
                     //xe.Element("hightOfOST").Value = hight;
@@ -112,7 +115,7 @@ namespace FirstDocumentCustomization
             //xDoc.Save("users.xml");
 
             return false;
-
+ 
         }
     }
 }
