@@ -3,12 +3,12 @@
   <Settings name ="Курсовая работа">
     <nameFontOfOST>Times New Roman</nameFontOfOST>
     <colorFontOfOST>Black</colorFontOfOST>
-    <lineSpacingOfOST></lineSpacingOfOST>
+    <lineSpacingOfOST>789</lineSpacingOfOST>
     <sizeFontOfOST>14</sizeFontOfOST>
     <widthOfOST></widthOfOST>
     <hightOfOST></hightOfOST>
-    <leftIndentOfOST></leftIndentOfOST>
-    <firstLineIndentOfOST></firstLineIndentOfOST>
+    <leftIndentOfOST>123</leftIndentOfOST>
+    <firstLineIndentOfOST>456</firstLineIndentOfOST>
     <nameFontForFooterOfOST></nameFontForFooterOfOST>
     <alignmentTextOfOST></alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>

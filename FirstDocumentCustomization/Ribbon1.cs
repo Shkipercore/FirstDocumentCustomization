@@ -92,10 +92,46 @@ namespace FirstDocumentCustomization
             EditorXML editorXML = new EditorXML();
             editorXML.AddElement(comboBoxSelectionWork.Text,
                                  fontDialog1.Font.Name.ToString(),
-                                 colorDialog1.Color.Name.ToString(),
+                                 fontDialog1.Color.Name.ToString(),
                                  fontDialog1.Font.Size.ToString(),
-                                 editBoxLineSpacing.Text
+                                 editBoxLineSpacing.Text,
+                                 editBoxLeftIndent.Text,
+                                 editBoxFirstLineIndent.Text
                                  );
+
+        }
+
+        private void buttonAddWork_Click(object sender, RibbonControlEventArgs e)
+        {
+            //comboBoxSelectionWork.Items.Add(editBoxAddWork.Text);
+            var tagName = comboBoxSelectionWork.Text;
+            editBoxLeftIndent.Text = getValueOFXMLForBoxies(tagName, "leftIndentOfOST");
+
+        }
+
+        private string getValueOFXMLForBoxies(string tagName, string elementName)
+        {
+            ReaderXML readerXML = new ReaderXML();
+            var dictionary = readerXML.LoadPropertyOfXML(tagName);
+
+            string valueOfDictionary = "";
+
+            if (dictionary.TryGetValue(elementName, out valueOfDictionary))
+            {
+                ///write to log
+            }
+
+            return valueOfDictionary;
+        }
+
+
+        private void comboBoxSelectionWork_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+
+        }
+
+        private void comboBoxSelectionWork_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

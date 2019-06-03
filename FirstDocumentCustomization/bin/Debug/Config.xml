@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ConfigSettings>
   <Settings name="Курсовая работа">
-    <nameFontOfOST>Jokerman</nameFontOfOST>
+    <nameFontOfOST>Yu Gothic</nameFontOfOST>
     <colorFontOfOST>Black</colorFontOfOST>
-    <lineSpacingOfOST>11,25</lineSpacingOfOST>
-    <sizeFontOfOST>1.5</sizeFontOfOST>
+    <lineSpacingOfOST>8,25</lineSpacingOfOST>
+    <sizeFontOfOST>24</sizeFontOfOST>
     <widthOfOST></widthOfOST>
     <hightOfOST></hightOfOST>
-    <leftIndentOfOST></leftIndentOfOST>
-    <firstLineIndentOfOST></firstLineIndentOfOST>
+    <leftIndentOfOST>22</leftIndentOfOST>
+    <firstLineIndentOfOST>23</firstLineIndentOfOST>
     <nameFontForFooterOfOST></nameFontForFooterOfOST>
     <alignmentTextOfOST></alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>

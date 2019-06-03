@@ -13,7 +13,7 @@ namespace FirstDocumentCustomization
     public class EditorXML
     {
         private XmlDocument xDoc;
-        string m_exePath = Environment.CurrentDirectory;
+        //string m_exePath = Environment.CurrentDirectory;
 
         public bool CreateNode(string nodeAttributeName)
         {
@@ -57,21 +57,24 @@ namespace FirstDocumentCustomization
                                  string nameFont,
                                  string colorFont,
                                  string lineSpacing, 
-                                 string sizeFont
+                                 string sizeFont,
                                  //string width,
                                  //string hight,
-                                 //string leftIndent,
-                                 //string firstLineIndent,
+                                 string leftIndent,
+                                 string firstLineIndent
                                  //string nameFontForFooter,
                                  //string alignmentText,
                                  //string alignmentFooter,
                                  //string alignmentHeader
                                                             )
         {
+
+
             XDocument xdoc = XDocument.Load("Config.xml");
             XElement root = xdoc.Element("ConfigSettings");
 
             foreach (XElement xe in root.Elements("Settings").ToList())
+            {
 
                 if (xe.Attribute("name").Value == tagName)
 
@@ -82,14 +85,16 @@ namespace FirstDocumentCustomization
                     xe.Element("sizeFontOfOST").Value = sizeFont;
                     //xe.Element("widthOfOST").Value = width;
                     //xe.Element("hightOfOST").Value = hight;
-                    //xe.Element("leftIndentOfOST").Value = leftIndent;
-                    //xe.Element("firstLineIndentOfOST").Value = firstLineIndent;
+                    xe.Element("leftIndentOfOST").Value = leftIndent;
+                    xe.Element("firstLineIndentOfOST").Value = firstLineIndent;
                     //xe.Element("nameFontForFooterOfOST").Value = nameFontForFooter;
                     //xe.Element("alignmentTextOfOST").Value = alignmentText;
                     //xe.Element("alignmentFooterOfOST").Value = alignmentFooter;
                     //xe.Element("alignmentHeaderOfOST").Value = alignmentHeader;
 
                 }
+            }
+
             xdoc.Save("Config.xml");
             return nameFont;
 
