@@ -22,12 +22,24 @@ namespace FirstDocumentCustomization
             {
                 if (xe.Attribute("name").Value == tagName)
                 {
+<<<<<<< HEAD
+                    property.Add("nameFontOfOST", xe.Element("nameFontOfOST").Value);
+                    property.Add("lineSpacingOfOST", xe.Element("lineSpacingOfOST").Value);
                     property.Add("leftIndentOfOST", xe.Element("leftIndentOfOST").Value);
-
+                    property.Add("firstLineIndentOfOST", xe.Element("firstLineIndentOfOST").Value);
+=======
+                    property.Add("leftIndentOfOST", xe.Element("leftIndentOfOST").Value);
+>>>>>>> config
 
                 }
             }
 
+<<<<<<< HEAD
+=======
+                }
+            }
+
+>>>>>>> config
             return property;
 
         }

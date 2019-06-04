@@ -160,14 +160,7 @@
     <Compile Include="Cheсker.cs" />
     <Compile Include="EditorXML.cs" />
     <Compile Include="GostOptions.cs" />
-    <Compile Include="MySettings.cs" />
     <Compile Include="ReaderXML.cs" />
-    <Compile Include="Settings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -177,7 +170,6 @@
     <Compile Include="Ribbon1.Designer.cs">
       <DependentUpon>Ribbon1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThisDocument.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -189,9 +181,6 @@
     </Compile>
     <EmbeddedResource Include="Ribbon1.resx">
       <DependentUpon>Ribbon1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings.resx">
-      <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="FirstDocumentCustomization_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
@@ -215,9 +204,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Gostconfig.xml">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>

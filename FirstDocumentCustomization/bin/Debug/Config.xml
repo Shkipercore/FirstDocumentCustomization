@@ -1,14 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ConfigSettings>
   <Settings name="Курсовая работа">
+<<<<<<< HEAD
+    <nameFontOfOST>Microsoft Uighur</nameFontOfOST>
+    <colorFontOfOST>Black</colorFontOfOST>
+    <lineSpacingOfOST>8,25</lineSpacingOfOST>
+    <sizeFontOfOST></sizeFontOfOST>
+=======
     <nameFontOfOST>Yu Gothic</nameFontOfOST>
     <colorFontOfOST>Black</colorFontOfOST>
     <lineSpacingOfOST>8,25</lineSpacingOfOST>
     <sizeFontOfOST>24</sizeFontOfOST>
+>>>>>>> config
     <widthOfOST></widthOfOST>
     <hightOfOST></hightOfOST>
     <leftIndentOfOST>22</leftIndentOfOST>
     <firstLineIndentOfOST>23</firstLineIndentOfOST>
+    <nameFontForFooterOfOST></nameFontForFooterOfOST>
+    <alignmentTextOfOST></alignmentTextOfOST>
+    <alignmentFooter></alignmentFooter>
+    <alignmentHeader></alignmentHeader>
+  </Settings>
+  <Settings name="Лабораторная работа">
+    <nameFontOfOST>Calibri</nameFontOfOST>
+    <colorFontOfOST>Blue</colorFontOfOST>
+    <lineSpacingOfOST>4</lineSpacingOfOST>
+    <sizeFontOfOST>12</sizeFontOfOST>
+    <widthOfOST></widthOfOST>
+    <hightOfOST></hightOfOST>
+    <leftIndentOfOST>5</leftIndentOfOST>
+    <firstLineIndentOfOST>6</firstLineIndentOfOST>
+    <nameFontForFooterOfOST></nameFontForFooterOfOST>
+    <alignmentTextOfOST></alignmentTextOfOST>
+    <alignmentFooter></alignmentFooter>
+    <alignmentHeader></alignmentHeader>
+  </Settings>
+  <Settings name="ВКР">
+    <nameFontOfOST>Arial</nameFontOfOST>
+    <colorFontOfOST>Red</colorFontOfOST>
+    <lineSpacingOfOST>7</lineSpacingOfOST>
+    <sizeFontOfOST>16</sizeFontOfOST>
+    <widthOfOST></widthOfOST>
+    <hightOfOST></hightOfOST>
+    <leftIndentOfOST>8</leftIndentOfOST>
+    <firstLineIndentOfOST>9</firstLineIndentOfOST>
     <nameFontForFooterOfOST></nameFontForFooterOfOST>
     <alignmentTextOfOST></alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
