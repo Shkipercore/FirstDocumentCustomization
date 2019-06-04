@@ -44,13 +44,10 @@
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.comboBoxSelectionWork = this.Factory.CreateRibbonComboBox();
-<<<<<<< HEAD
             this.editBoxAddWork = this.Factory.CreateRibbonEditBox();
             this.buttonAddWork = this.Factory.CreateRibbonButton();
-=======
             this.buttonApply = this.Factory.CreateRibbonButton();
             this.buttonSaveSettings = this.Factory.CreateRibbonButton();
->>>>>>> config
             this.group3 = this.Factory.CreateRibbonGroup();
             this.buttonFont = this.Factory.CreateRibbonButton();
             this.comboBoxAlignmentText = this.Factory.CreateRibbonComboBox();
@@ -63,17 +60,9 @@
             this.editBoxIntervalAfter = this.Factory.CreateRibbonEditBox();
             this.editBoxLineSpacing = this.Factory.CreateRibbonEditBox();
             this.group2 = this.Factory.CreateRibbonGroup();
-            this.buttonApply = this.Factory.CreateRibbonButton();
-            this.buttonSaveSettings = this.Factory.CreateRibbonButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-<<<<<<< HEAD
             this.buttonLoadProperty = this.Factory.CreateRibbonButton();
-=======
-            this.editBoxFirstLineIndent = this.Factory.CreateRibbonEditBox();
-            this.editBoxAddWork = this.Factory.CreateRibbonEditBox();
-            this.buttonAddWork = this.Factory.CreateRibbonButton();
->>>>>>> config
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.group3.SuspendLayout();
@@ -117,12 +106,6 @@
             this.editBoxAddWork.Name = "editBoxAddWork";
             this.editBoxAddWork.ShowLabel = false;
             this.editBoxAddWork.Text = null;
-            // 
-            // buttonAddWork
-            // 
-            this.buttonAddWork.Label = "Добавить";
-            this.buttonAddWork.Name = "buttonAddWork";
-            this.buttonAddWork.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonAddWork_Click);
             // 
             // buttonSaveSettings
             // 
@@ -212,15 +195,9 @@
             // 
             // group2
             // 
-<<<<<<< HEAD
-            this.group2.Items.Add(this.buttonApply);
-            this.group2.Items.Add(this.buttonSaveSettings);
             this.group2.Items.Add(this.buttonLoadProperty);
-=======
-            this.group2.Items.Add(this.buttonSettings);
             this.group2.Items.Add(this.buttonApply);
             this.group2.Items.Add(this.buttonSaveSettings);
->>>>>>> config
             this.group2.Name = "group2";
             // 
             // buttonApply
@@ -228,18 +205,6 @@
             this.buttonApply.Label = "Применить";
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonApply_Click);
-            // 
-            // editBoxFirstLineIndent
-            // 
-            this.editBoxFirstLineIndent.Label = "Отступ первой строки";
-            this.editBoxFirstLineIndent.Name = "editBoxFirstLineIndent";
-            this.editBoxFirstLineIndent.Text = null;
-            // 
-            // editBoxAddWork
-            // 
-            this.editBoxAddWork.Label = "editBoxAddWork";
-            this.editBoxAddWork.Name = "editBoxAddWork";
-            this.editBoxAddWork.ShowLabel = false;
             // 
             // buttonAddWork
             // 
@@ -296,10 +261,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBoxFirstLineIndent;
         internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBoxAddWork;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonAddWork;
-<<<<<<< HEAD
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonLoadProperty;
-=======
->>>>>>> config
+
     }
 
     partial class ThisRibbonCollection

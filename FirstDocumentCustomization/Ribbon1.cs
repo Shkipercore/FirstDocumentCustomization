@@ -94,19 +94,13 @@ namespace FirstDocumentCustomization
 
         private void buttonAddWork_Click(object sender, RibbonControlEventArgs e)
         {
-<<<<<<< HEAD
 
             RibbonDropDownItem item1 = Factory.CreateRibbonDropDownItem();
             comboBoxSelectionWork.Items.Add(item1);
             item1.Label = editBoxAddWork.Text;
 
             //comboBoxSelectionWork.Items.Add("Тест");
-=======
-            //comboBoxSelectionWork.Items.Add(editBoxAddWork.Text);
-            var tagName = comboBoxSelectionWork.Text;
-            editBoxLeftIndent.Text = getValueOFXMLForBoxies(tagName, "leftIndentOfOST");
 
->>>>>>> config
         }
 
         private string getValueOFXMLForBoxies(string tagName, string elementName)
@@ -132,7 +126,6 @@ namespace FirstDocumentCustomization
 
         private void comboBoxSelectionWork_SelectedIndexChanged(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             
         }
 
@@ -142,9 +135,6 @@ namespace FirstDocumentCustomization
             editBoxLineSpacing.Text = getValueOFXMLForBoxies(tagName, "lineSpacingOfOST");
             editBoxLeftIndent.Text = getValueOFXMLForBoxies(tagName, "leftIndentOfOST");
             editBoxFirstLineIndent.Text = getValueOFXMLForBoxies(tagName, "firstLineIndentOfOST");
-=======
-
->>>>>>> config
         }
     }
 }

@@ -3,21 +3,18 @@
   <Settings name ="Курсовая работа">
     <nameFontOfOST>Times New Roman</nameFontOfOST>
     <colorFontOfOST>Black</colorFontOfOST>
-<<<<<<< HEAD
     <lineSpacingOfOST>1</lineSpacingOfOST>
     <sizeFontOfOST>14</sizeFontOfOST>
     <widthOfOST></widthOfOST>
     <hightOfOST></hightOfOST>
     <leftIndentOfOST>2</leftIndentOfOST>
     <firstLineIndentOfOST>3</firstLineIndentOfOST>
-=======
     <lineSpacingOfOST>789</lineSpacingOfOST>
     <sizeFontOfOST>14</sizeFontOfOST>
     <widthOfOST></widthOfOST>
     <hightOfOST></hightOfOST>
     <leftIndentOfOST>123</leftIndentOfOST>
     <firstLineIndentOfOST>456</firstLineIndentOfOST>
->>>>>>> config
     <nameFontForFooterOfOST></nameFontForFooterOfOST>
     <alignmentTextOfOST></alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
