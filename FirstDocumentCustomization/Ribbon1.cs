@@ -104,7 +104,6 @@ namespace FirstDocumentCustomization
                 editorXML.CreateNode(editBoxAddWork.Text);
 
             }
-                //comboBoxSelectionWork.Items.Add("Тест");
             
         }
 
