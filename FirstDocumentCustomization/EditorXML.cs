@@ -24,26 +24,32 @@ namespace FirstDocumentCustomization
 
                 XmlElement xRoot = xDoc.DocumentElement;
                 // создаем объект settings
-                XmlElement settingsElem = xDoc.CreateElement("settings");
+                XmlElement settingsElem = xDoc.CreateElement("Settings");
                 // создаем атрибут name
                 XmlAttribute nameAttr = xDoc.CreateAttribute("name");
                 // создаем элементы
                 XmlElement nameFontOfOSTElem = xDoc.CreateElement("nameFontOfOST");
-                XmlElement colorFontOfOSTElem = xDoc.CreateElement("colorFontOfOST");
-                XmlElement lineSpacingElem = xDoc.CreateElement("lineSpacingOfOST");
-                XmlElement sizeFontOfOSTElem = xDoc.CreateElement("sizeFontOfOST");
-                XmlElement widthOfOSTElem = xDoc.CreateElement("widthOfOST");
-                XmlElement hightOfOSTElem = xDoc.CreateElement("hightOfOST");
-                XmlElement leftIndentElem = xDoc.CreateElement("leftIndentOfOST");
-                XmlElement firstLineIndent = xDoc.CreateElement("firstLineIndentOfOST");
-                XmlElement nameFontForFooterOfOSTElem = xDoc.CreateElement("nameFontForFooterOfOST");
-                XmlElement alignmentTextElem = xDoc.CreateElement("alignmentText");
-                XmlElement alignmentFooterElem = xDoc.CreateElement("alignmentFooter");
-                XmlElement alignmentHeaderElem = xDoc.CreateElement("alignmentHeader");
+                //XmlElement colorFontOfOSTElem = xDoc.CreateElement("colorFontOfOST");
+                //XmlElement lineSpacingElem = xDoc.CreateElement("lineSpacingOfOST");
+                //XmlElement sizeFontOfOSTElem = xDoc.CreateElement("sizeFontOfOST");
+                //XmlElement widthOfOSTElem = xDoc.CreateElement("widthOfOST");
+                //XmlElement hightOfOSTElem = xDoc.CreateElement("hightOfOST");
+                //XmlElement leftIndentElem = xDoc.CreateElement("leftIndentOfOST");
+                //XmlElement firstLineIndent = xDoc.CreateElement("firstLineIndentOfOST");
+                //XmlElement nameFontForFooterOfOSTElem = xDoc.CreateElement("nameFontForFooterOfOST");
+                //XmlElement alignmentTextElem = xDoc.CreateElement("alignmentText");
+                //XmlElement alignmentFooterElem = xDoc.CreateElement("alignmentFooter");
+                //XmlElement alignmentHeaderElem = xDoc.CreateElement("alignmentHeader");
 
+                //создаем текстовые значения для элементов
                 XmlText nameText = xDoc.CreateTextNode(nodeAttributeName);
+
+                //добавляем узлы
                 nameAttr.AppendChild(nameText);
+                //companyElem.AppendChild(companyText);
+                //ageElem.AppendChild(ageText);
                 settingsElem.Attributes.Append(nameAttr);
+                settingsElem.AppendChild(nameFontOfOSTElem);
                 xRoot.AppendChild(settingsElem);
                 xDoc.Save("Config.xml");
 

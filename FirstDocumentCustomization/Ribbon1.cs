@@ -84,8 +84,8 @@ namespace FirstDocumentCustomization
             editorXML.AddElement(comboBoxSelectionWork.Text,
                                  fontDialog1.Font.Name.ToString(),
                                  fontDialog1.Color.Name.ToString(),
-                                 fontDialog1.Font.Size.ToString(),
                                  editBoxLineSpacing.Text,
+                                 fontDialog1.Font.Size.ToString(),
                                  editBoxLeftIndent.Text,
                                  editBoxFirstLineIndent.Text
                                  );
@@ -94,13 +94,18 @@ namespace FirstDocumentCustomization
 
         private void buttonAddWork_Click(object sender, RibbonControlEventArgs e)
         {
+            if (editBoxAddWork.Text.Length > 0)
+            {
+                RibbonDropDownItem item1 = Factory.CreateRibbonDropDownItem();
+                comboBoxSelectionWork.Items.Add(item1);
+                item1.Label = editBoxAddWork.Text;
 
-            RibbonDropDownItem item1 = Factory.CreateRibbonDropDownItem();
-            comboBoxSelectionWork.Items.Add(item1);
-            item1.Label = editBoxAddWork.Text;
+                EditorXML editorXML = new EditorXML();
+                editorXML.CreateNode(editBoxAddWork.Text);
 
-            //comboBoxSelectionWork.Items.Add("Тест");
-
+            }
+                //comboBoxSelectionWork.Items.Add("Тест");
+            
         }
 
         private string getValueOFXMLForBoxies(string tagName, string elementName)
@@ -135,6 +140,11 @@ namespace FirstDocumentCustomization
             editBoxLineSpacing.Text = getValueOFXMLForBoxies(tagName, "lineSpacingOfOST");
             editBoxLeftIndent.Text = getValueOFXMLForBoxies(tagName, "leftIndentOfOST");
             editBoxFirstLineIndent.Text = getValueOFXMLForBoxies(tagName, "firstLineIndentOfOST");
+        }
+
+        private void buttonTest_Click(object sender, RibbonControlEventArgs e)
+        {
+            
         }
     }
 }

@@ -46,8 +46,6 @@
             this.comboBoxSelectionWork = this.Factory.CreateRibbonComboBox();
             this.editBoxAddWork = this.Factory.CreateRibbonEditBox();
             this.buttonAddWork = this.Factory.CreateRibbonButton();
-            this.buttonApply = this.Factory.CreateRibbonButton();
-            this.buttonSaveSettings = this.Factory.CreateRibbonButton();
             this.group3 = this.Factory.CreateRibbonGroup();
             this.buttonFont = this.Factory.CreateRibbonButton();
             this.comboBoxAlignmentText = this.Factory.CreateRibbonComboBox();
@@ -60,9 +58,12 @@
             this.editBoxIntervalAfter = this.Factory.CreateRibbonEditBox();
             this.editBoxLineSpacing = this.Factory.CreateRibbonEditBox();
             this.group2 = this.Factory.CreateRibbonGroup();
+            this.buttonLoadProperty = this.Factory.CreateRibbonButton();
+            this.buttonApply = this.Factory.CreateRibbonButton();
+            this.buttonSaveSettings = this.Factory.CreateRibbonButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.buttonLoadProperty = this.Factory.CreateRibbonButton();
+            this.buttonTest = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.group3.SuspendLayout();
@@ -107,11 +108,11 @@
             this.editBoxAddWork.ShowLabel = false;
             this.editBoxAddWork.Text = null;
             // 
-            // buttonSaveSettings
+            // buttonAddWork
             // 
-            this.buttonSaveSettings.Label = "Сохранить";
-            this.buttonSaveSettings.Name = "buttonSaveSettings";
-            this.buttonSaveSettings.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonSaveSettings_Click);
+            this.buttonAddWork.Label = "Добавить";
+            this.buttonAddWork.Name = "buttonAddWork";
+            this.buttonAddWork.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonAddWork_Click);
             // 
             // group3
             // 
@@ -198,7 +199,14 @@
             this.group2.Items.Add(this.buttonLoadProperty);
             this.group2.Items.Add(this.buttonApply);
             this.group2.Items.Add(this.buttonSaveSettings);
+            this.group2.Items.Add(this.buttonTest);
             this.group2.Name = "group2";
+            // 
+            // buttonLoadProperty
+            // 
+            this.buttonLoadProperty.Label = "Загрузить";
+            this.buttonLoadProperty.Name = "buttonLoadProperty";
+            this.buttonLoadProperty.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonLoadProperty_Click);
             // 
             // buttonApply
             // 
@@ -206,17 +214,17 @@
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonApply_Click);
             // 
-            // buttonAddWork
+            // buttonSaveSettings
             // 
-            this.buttonAddWork.Label = "Добавить";
-            this.buttonAddWork.Name = "buttonAddWork";
-            this.buttonAddWork.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonAddWork_Click);
+            this.buttonSaveSettings.Label = "Сохранить";
+            this.buttonSaveSettings.Name = "buttonSaveSettings";
+            this.buttonSaveSettings.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonSaveSettings_Click);
             // 
-            // buttonLoadProperty
+            // buttonTest
             // 
-            this.buttonLoadProperty.Label = "Загрузить";
-            this.buttonLoadProperty.Name = "buttonLoadProperty";
-            this.buttonLoadProperty.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonLoadProperty_Click);
+            this.buttonTest.Label = "Тест";
+            this.buttonTest.Name = "buttonTest";
+            this.buttonTest.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonTest_Click);
             // 
             // Ribbon1
             // 
@@ -262,7 +270,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBoxAddWork;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonAddWork;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonLoadProperty;
-
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonTest;
     }
 
     partial class ThisRibbonCollection
