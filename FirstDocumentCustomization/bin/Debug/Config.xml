@@ -1,20 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ConfigSettings>
-  <Settings name="Курсовая работа">
+  <Settings name ="Курсовая работа">
     <nameFontOfOST>Times New Roman</nameFontOfOST>
     <colorFontOfOST>Black</colorFontOfOST>
-    <lineSpacingOfOST>1</lineSpacingOfOST>
+    <lineSpacingOfOST>1,5</lineSpacingOfOST>
     <sizeFontOfOST>14</sizeFontOfOST>
     <widthOfOST></widthOfOST>
     <hightOfOST></hightOfOST>
-    <leftIndentOfOST>2</leftIndentOfOST>
-    <firstLineIndentOfOST>3</firstLineIndentOfOST>
-    <nameFontForFooterOfOST></nameFontForFooterOfOST>
+    <leftIndentOfOST>1,5</leftIndentOfOST>
+    <firstLineIndentOfOST>0,5</firstLineIndentOfOST>
+    <nameFontForFooterOfOST>Times New Roman</nameFontForFooterOfOST>
     <alignmentTextOfOST></alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
     <alignmentHeader></alignmentHeader>
-  </Settings>
-  <Settings name="Лабораторная работа">
+    </Settings>
+  <Settings name ="Лабораторная работа">
     <nameFontOfOST>Calibri</nameFontOfOST>
     <colorFontOfOST>Blue</colorFontOfOST>
     <lineSpacingOfOST>4</lineSpacingOfOST>
@@ -28,7 +28,7 @@
     <alignmentFooter></alignmentFooter>
     <alignmentHeader></alignmentHeader>
   </Settings>
-  <Settings name="ВКР">
+  <Settings name ="ВКР">
     <nameFontOfOST>Arial</nameFontOfOST>
     <colorFontOfOST>Red</colorFontOfOST>
     <lineSpacingOfOST>7</lineSpacingOfOST>
@@ -41,19 +41,5 @@
     <alignmentTextOfOST></alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
     <alignmentHeader></alignmentHeader>
-  </Settings>
-  <Settings name="test1">
-    <nameFontOfOST>Microsoft Uighur</nameFontOfOST>
-    <colorFontOfOST>Green</colorFontOfOST>
-    <lineSpacingOfOST>324</lineSpacingOfOST>
-    <sizeFontOfOST>12</sizeFontOfOST>
-    <widthOfOST />
-    <hightOfOST />
-    <leftIndentOfOST>123</leftIndentOfOST>
-    <firstLineIndentOfOST>456</firstLineIndentOfOST>
-    <nameFontForFooterOfOST />
-    <alignmentText />
-    <alignmentFooter />
-    <alignmentHeader />
   </Settings>
 </ConfigSettings>

@@ -53,8 +53,10 @@ namespace FirstDocumentCustomization
                 Word.Range headerRange = section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
                 var fontName = headerRange.Font.Name;
                 string aligment = headerRange.Paragraphs.Alignment.ToString();
-                if (!gostOptions.GetNameFontForHeaderOfOST().Equals( fontName) && !gostOptions.alignmentHeader.Equals( aligment))
+
+                if ( gostOptions.alignmentHeader!=null && !gostOptions.GetNameFontForHeaderOfOST().Equals( fontName) && !gostOptions.alignmentHeader.Equals( aligment))
                 {
+   
                     headerRange.Text = headerRange.Text + "  " + " Не корректно офрмлен верхний колонтитул : стоит шрифт " + fontName + "  ,а должен стоять " + gostOptions.GetNameFontForHeaderOfOST() + ", " + " стоит ориентация " + aligment.ToString() + ", должна стоять " + gostOptions.alignmentHeader;
 
                 }

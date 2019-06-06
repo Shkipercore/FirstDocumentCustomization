@@ -59,6 +59,10 @@ namespace FirstDocumentCustomization
 
             //Checker checker = new Checker(gostOptions);
 
+            var options = IniinitializeGostOptions();
+
+            Checker checker = new Checker(options);
+            checker.Check();
 
         }
 
@@ -141,6 +145,9 @@ namespace FirstDocumentCustomization
             editBoxLineSpacing.Text = getValueOFXMLForBoxies(tagName, "lineSpacingOfOST");
             editBoxLeftIndent.Text = getValueOFXMLForBoxies(tagName, "leftIndentOfOST");
             editBoxFirstLineIndent.Text = getValueOFXMLForBoxies(tagName, "firstLineIndentOfOST");
+            string myCurrentlySelectedFont = getValueOFXMLForBoxies(tagName, "nameFontOfOST");
+            string myCurrentlySelectedSize = getValueOFXMLForBoxies(tagName, "sizeFontOfOST");
+            fontDialog1.Font = new System.Drawing.Font(myCurrentlySelectedFont, (float)Convert.ToInt32(myCurrentlySelectedSize));
 
         }
 
@@ -151,19 +158,34 @@ namespace FirstDocumentCustomization
 
         public GostOptions IniinitializeGostOptions()
         {
-            GostOptions gostOptions = new GostOptions(Globals.ThisAddIn.Application.ActiveDocument,
+          GostOptions gostOptions = new GostOptions(Globals.ThisAddIn.Application.ActiveDocument,
                                                       fontDialog1.Font.Name.ToString(),
                                                       fontDialog1.Color.Name.ToString(),
-                                                      Convert.ToInt32(editBoxLineSpacing.Text),
-                                                      Convert.ToInt32(fontDialog1.Font.Size),
-                                                      43,
-                                                      87,
-                                                      Convert.ToInt32(editBoxLeftIndent.Text),
-                                                      Convert.ToInt32(editBoxFirstLineIndent.Text),
-                                                      fontDialog1.Color.Name.ToString(),
+                                                      (float)Convert.ToDouble(editBoxLineSpacing.Text),
+                                                      (float)Convert.ToInt32(fontDialog1.Font.Size),
+                                                      (float)43,
+                                                      (float)87,
+                                                      (float)Convert.ToDouble(editBoxLeftIndent.Text),
+                                                      (float)Convert.ToDouble(editBoxFirstLineIndent.Text),
+                                                      fontDialog1.Font.Name.ToString(),
                                                       "0",
                                                       "0",
                                                       "0");
+
+            //GostOptions gostOptions = new GostOptions();
+            //gostOptions.SetCurrentDocument(Globals.ThisAddIn.Application.ActiveDocument);
+            //gostOptions.SetNameFontOfOST(fontDialog1.Font.Name.ToString());
+            //gostOptions.SetColorFontOfOST(fontDialog1.Color.Name.ToString());
+            //gostOptions.SetLineSpacingOFOST((float)Convert.ToDouble(editBoxLineSpacing.Text));
+            //gostOptions.SetSizeFontOfOST((float)Convert.ToInt32(fontDialog1.Font.Size));
+            //gostOptions.SetWidthOfOST((float)43);
+            //gostOptions.SetHightOfOST((float)87);
+            //gostOptions.SetLeftIndent((float)Convert.ToDouble(editBoxLeftIndent.Text));
+            //gostOptions.SetFirstLineIndent((float)Convert.ToDouble(editBoxFirstLineIndent.Text));
+            //gostOptions.SetNameFontForFooterOfOST(fontDialog1.Font.Name.ToString());
+            //gostOptions.alignmentText = "0";
+            //gostOptions.alignmentFooter = "0";
+            //gostOptions.alignmentHeader = "0";
 
             return gostOptions;
         }

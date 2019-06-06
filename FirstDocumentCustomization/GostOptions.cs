@@ -144,6 +144,7 @@ namespace FirstDocumentCustomization
 
         public string alignmentHeader;
 
+        public GostOptions() { }
         public GostOptions(Word.Document document,
                             String nameFont,
                             String colorFont,
