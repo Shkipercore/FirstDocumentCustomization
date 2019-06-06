@@ -25,39 +25,41 @@ namespace FirstDocumentCustomization
 
         private void buttonApply_Click(object sender, RibbonControlEventArgs e)
         {
-            Word.Document currentDocument = Globals.ThisAddIn.Application.ActiveDocument;
-            var nameFont = ConfigurationManager.AppSettings.Get("nameFontOfOST");
-            var colorFont = ConfigurationManager.AppSettings.Get("colorFontOfOST");
-            var lineSpacing = ConfigurationManager.AppSettings.Get("lineSpacing");
-            var sizeFont = ConfigurationManager.AppSettings.Get("sizeFont");
-            var width = ConfigurationManager.AppSettings.Get("wight");
-            var highest = ConfigurationManager.AppSettings.Get("highest");
-            var leftIndent = ConfigurationManager.AppSettings.Get("leftIndent");
-            var firstLineIndent = ConfigurationManager.AppSettings.Get("firstLineIndent");
-            var fontFooter = ConfigurationManager.AppSettings.Get("fontFooter");
-            var alignment = ConfigurationManager.AppSettings.Get("alignment");
-            var alignmentHeader = ConfigurationManager.AppSettings.Get("alignmentHeader");
-            var alignmentFooter = ConfigurationManager.AppSettings.Get("alignmentFooter");
-            var pointOfCentimetrLine = Globals.ThisAddIn.Application.CentimetersToPoints(1.5f);
-            var widthSpacing = Globals.ThisAddIn.Application.CentimetersToPoints(1.5f);
-            var hightSpacing = Globals.ThisAddIn.Application.CentimetersToPoints(1.5f);
+            //Word.Document currentDocument = Globals.ThisAddIn.Application.ActiveDocument;
+            //var nameFont = ConfigurationManager.AppSettings.Get("nameFontOfOST");
+            //var colorFont = ConfigurationManager.AppSettings.Get("colorFontOfOST");
+            //var lineSpacing = ConfigurationManager.AppSettings.Get("lineSpacing");
+            //var sizeFont = ConfigurationManager.AppSettings.Get("sizeFont");
+            //var width = ConfigurationManager.AppSettings.Get("wight");
+            //var highest = ConfigurationManager.AppSettings.Get("highest");
+            //var leftIndent = ConfigurationManager.AppSettings.Get("leftIndent");
+            //var firstLineIndent = ConfigurationManager.AppSettings.Get("firstLineIndent");
+            //var fontFooter = ConfigurationManager.AppSettings.Get("fontFooter");
+            //var alignment = ConfigurationManager.AppSettings.Get("alignment");
+            //var alignmentHeader = ConfigurationManager.AppSettings.Get("alignmentHeader");
+            //var alignmentFooter = ConfigurationManager.AppSettings.Get("alignmentFooter");
+            //var pointOfCentimetrLine = Globals.ThisAddIn.Application.CentimetersToPoints(1.5f);
+            //var widthSpacing = Globals.ThisAddIn.Application.CentimetersToPoints(1.5f);
+            //var hightSpacing = Globals.ThisAddIn.Application.CentimetersToPoints(1.5f);
 
-            GostOptions gostOptions = new GostOptions(currentDocument, 
-                                                      nameFont,  
-                                                      colorFont, 
-                                                      Convert.ToInt32(lineSpacing),
-                                                      Convert.ToInt32(sizeFont), 
-                                                      Convert.ToInt32(width),
-                                                      Convert.ToInt32(highest),
-                                                      Convert.ToInt32(leftIndent),
-                                                      Convert.ToInt32(firstLineIndent),
-                                                      fontFooter,
-                                                      alignment,
-                                                      alignmentHeader,
-                                                      alignmentFooter);
+            //GostOptions gostOptions = new GostOptions(currentDocument,
+            //                                          nameFont,
+            //                                          colorFont,
+            //                                          Convert.ToInt32(lineSpacing),
+            //                                          Convert.ToInt32(sizeFont),
+            //                                          Convert.ToInt32(width),
+            //                                          Convert.ToInt32(highest),
+            //                                          Convert.ToInt32(leftIndent),
+            //                                          Convert.ToInt32(firstLineIndent),
+            //                                          fontFooter,
+            //                                          alignment,
+            //                                          alignmentHeader,
+            //                                          alignmentFooter);
 
 
-            Checker checker = new Checker(gostOptions);
+            //Checker checker = new Checker(gostOptions);
+
+
         }
 
         private void buttonFont_Click(object sender, RibbonControlEventArgs e)
@@ -74,7 +76,7 @@ namespace FirstDocumentCustomization
             var aligmentTextValue = items[0];
             if (aligmentTextValue.Label.Contains("По левому краю"))
                 currentConfig.AppSettings.Settings["alignmentText"].Value = "0";
-            
+
         }
 
         private void buttonSaveSettings_Click(object sender, RibbonControlEventArgs e)
@@ -104,7 +106,7 @@ namespace FirstDocumentCustomization
                 editorXML.CreateNode(editBoxAddWork.Text);
 
             }
-            
+
         }
 
         private string getValueOFXMLForBoxies(string tagName, string elementName)
@@ -130,7 +132,7 @@ namespace FirstDocumentCustomization
 
         private void comboBoxSelectionWork_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void buttonLoadProperty_Click(object sender, RibbonControlEventArgs e)
@@ -139,11 +141,32 @@ namespace FirstDocumentCustomization
             editBoxLineSpacing.Text = getValueOFXMLForBoxies(tagName, "lineSpacingOfOST");
             editBoxLeftIndent.Text = getValueOFXMLForBoxies(tagName, "leftIndentOfOST");
             editBoxFirstLineIndent.Text = getValueOFXMLForBoxies(tagName, "firstLineIndentOfOST");
+
         }
 
         private void buttonTest_Click(object sender, RibbonControlEventArgs e)
         {
-            
+
         }
+
+        public GostOptions IniinitializeGostOptions()
+        {
+            GostOptions gostOptions = new GostOptions(Globals.ThisAddIn.Application.ActiveDocument,
+                                                      fontDialog1.Font.Name.ToString(),
+                                                      fontDialog1.Color.Name.ToString(),
+                                                      Convert.ToInt32(editBoxLineSpacing.Text),
+                                                      Convert.ToInt32(fontDialog1.Font.Size),
+                                                      43,
+                                                      87,
+                                                      Convert.ToInt32(editBoxLeftIndent.Text),
+                                                      Convert.ToInt32(editBoxFirstLineIndent.Text),
+                                                      fontDialog1.Color.Name.ToString(),
+                                                      "0",
+                                                      "0",
+                                                      "0");
+
+            return gostOptions;
+        }
+        
     }
 }
