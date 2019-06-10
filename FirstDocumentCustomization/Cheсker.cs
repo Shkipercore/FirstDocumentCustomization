@@ -37,7 +37,7 @@ namespace FirstDocumentCustomization
 
             if (widthPage != gostOptions.GetWidthOfOST())
             {
-                AddComment("Не корректно указаны размеры страницы, указан Ширина " + gostOptions.GetWidthOfOST() + ",а нужна Ширина" + gostOptions.GetWidthOfOST(), rangeForAddCommit);
+                AddComment("Не корректно указаны размеры страницы, указан Ширина " + widthPage + ",а нужна Ширина " + gostOptions.GetWidthOfOST(), rangeForAddCommit);
             }
 
             if (gostOptions.GetHightOfOST() != highestPage)
@@ -54,9 +54,9 @@ namespace FirstDocumentCustomization
                 var fontName = headerRange.Font.Name;
                 string aligment = headerRange.Paragraphs.Alignment.ToString();
 
-                if ( gostOptions.alignmentHeader!=null && !gostOptions.GetNameFontForHeaderOfOST().Equals( fontName) && !gostOptions.alignmentHeader.Equals( aligment))
+                if (gostOptions.alignmentHeader != null && !gostOptions.GetNameFontForHeaderOfOST().Equals(fontName) && !gostOptions.alignmentHeader.Equals(aligment))
                 {
-   
+
                     headerRange.Text = headerRange.Text + "  " + " Не корректно офрмлен верхний колонтитул : стоит шрифт " + fontName + "  ,а должен стоять " + gostOptions.GetNameFontForHeaderOfOST() + ", " + " стоит ориентация " + aligment.ToString() + ", должна стоять " + gostOptions.alignmentHeader;
 
                 }
@@ -67,7 +67,7 @@ namespace FirstDocumentCustomization
                 Word.Range footerRange = wordSection.Footers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
                 var fontName = footerRange.Font.Name;
                 var aligment = footerRange.Paragraphs.Alignment;
-                if (!gostOptions.GetNameFontForFooterOfOST().Equals(fontName) && !gostOptions.alignmentFooter.Equals( aligment))
+                if (!gostOptions.GetNameFontForFooterOfOST().Equals(fontName) && !gostOptions.alignmentFooter.Equals(aligment))
                 {
                     footerRange.Text = footerRange.Text + "  " + " Не корректно офрмлен нижний колонтитул : стоит шрифт " + fontName + "  ,а должен стоять " + gostOptions.GetNameFontForFooterOfOST() + ", " + " стоит ориентация " + aligment.ToString() + ", должна стоять " + gostOptions.alignmentFooter;
 
@@ -159,7 +159,7 @@ namespace FirstDocumentCustomization
 
         private void CheckTitlePageDocument(Word.Paragraph p)
         {
-          
+
             if (p.Range.Text != "\r")
             {
                 if (p.Range.Text == "Федеральное государственное бюджетное образовательное учреждение высшего образования")
@@ -205,7 +205,7 @@ namespace FirstDocumentCustomization
                     StringBuilder texForComment = new StringBuilder("Текст не корректно оформлен согласно OST TUSUR: \n");
                     if (leftIndent != gostOptions.GetLeftIndent())
                     {
-                        texForComment.Append("\n Выступ выстовлен не корректно " + leftIndent+" необходимо установить выступ равный = " + gostOptions.GetLeftIndent());
+                        texForComment.Append("\n Выступ выстовлен не корректно " + leftIndent + " необходимо установить выступ равный = " + gostOptions.GetLeftIndent());
                     }
                     if (firstLineIndent != gostOptions.GetFirstLineIndent())
                     {
@@ -306,7 +306,7 @@ namespace FirstDocumentCustomization
                 return false;
 
         }
-      
+
         private string GetHeading(Word.Paragraph paragraph)
         {
             string heading = "";

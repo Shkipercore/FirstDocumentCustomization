@@ -46,8 +46,6 @@ namespace FirstDocumentCustomization
 
                 //добавляем узлы
                 nameAttr.AppendChild(nameText);
-                //companyElem.AppendChild(companyText);
-                //ageElem.AppendChild(ageText);
                 settingsElem.Attributes.Append(nameAttr);
 
                 settingsElem.AppendChild(nameFontOfOSTElem);
