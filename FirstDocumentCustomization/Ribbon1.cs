@@ -79,7 +79,9 @@ namespace FirstDocumentCustomization
 
             var aligmentTextValue = items[0];
             if (aligmentTextValue.Label.Contains("По левому краю"))
+            {
                 currentConfig.AppSettings.Settings["alignmentText"].Value = "0";
+            }
 
         }
 
@@ -116,9 +118,10 @@ namespace FirstDocumentCustomization
         private string getValueOFXMLForBoxies(string tagName, string elementName)
         {
             ReaderXML readerXML = new ReaderXML();
-            var dictionary = readerXML.LoadPropertyOfXML(tagName);
+            var dictionary = readerXML.GetDictionaryPropertyOfXML(tagName);
 
             string valueOfDictionary = "";
+
 
             if (dictionary.TryGetValue(elementName, out valueOfDictionary))
             {
@@ -131,13 +134,25 @@ namespace FirstDocumentCustomization
 
         private void comboBoxSelectionWork_TextChanged(object sender, RibbonControlEventArgs e)
         {
-            var tagName = comboBoxSelectionWork.Text;
-            editBoxLineSpacing.Text = getValueOFXMLForBoxies(tagName, "lineSpacingOfOST");
-            editBoxLeftIndent.Text = getValueOFXMLForBoxies(tagName, "leftIndentOfOST");
-            editBoxFirstLineIndent.Text = getValueOFXMLForBoxies(tagName, "firstLineIndentOfOST");
-            string myCurrentlySelectedFont = getValueOFXMLForBoxies(tagName, "nameFontOfOST");
-            string myCurrentlySelectedSize = getValueOFXMLForBoxies(tagName, "sizeFontOfOST");
-            fontDialog1.Font = new System.Drawing.Font(myCurrentlySelectedFont, (float)Convert.ToInt32(myCurrentlySelectedSize));
+            {
+                var tagName = comboBoxSelectionWork.Text;
+                ReaderXML readerXML = new ReaderXML();
+                var dictionaryByTagName = readerXML.GetDictionaryPropertyOfXML(tagName);
+
+                if (!IsDictionaryEmpty(dictionaryByTagName))
+                {
+                    editBoxLineSpacing.Text = getValueOFXMLForBoxies(tagName, "lineSpacingOfOST");
+                    editBoxLeftIndent.Text = getValueOFXMLForBoxies(tagName, "leftIndentOfOST");
+                    editBoxFirstLineIndent.Text = getValueOFXMLForBoxies(tagName, "firstLineIndentOfOST");
+                    string myCurrentlySelectedFont = getValueOFXMLForBoxies(tagName, "nameFontOfOST");
+                    string myCurrentlySelectedSize = getValueOFXMLForBoxies(tagName, "sizeFontOfOST");
+                    fontDialog1.Font = new System.Drawing.Font(myCurrentlySelectedFont, (float)Convert.ToInt32(myCurrentlySelectedSize));
+                    string selectedColorFromXML = getValueOFXMLForBoxies(tagName, "colorFontOfOST");
+                    System.Drawing.Color myCurrentlySelectedColor = System.Drawing.Color.FromName(selectedColorFromXML);
+                    fontDialog1.Color = myCurrentlySelectedColor;
+
+                }
+            }
         }
 
         private void comboBoxSelectionWork_SelectedIndexChanged(object sender, EventArgs e)
@@ -154,6 +169,9 @@ namespace FirstDocumentCustomization
             string myCurrentlySelectedFont = getValueOFXMLForBoxies(tagName, "nameFontOfOST");
             string myCurrentlySelectedSize = getValueOFXMLForBoxies(tagName, "sizeFontOfOST");
             fontDialog1.Font = new System.Drawing.Font(myCurrentlySelectedFont, (float)Convert.ToInt32(myCurrentlySelectedSize));
+            string selectedColorFromXML = getValueOFXMLForBoxies(tagName, "colorFontOfOST");
+            System.Drawing.Color myCurrentlySelectedColor = System.Drawing.Color.FromName(selectedColorFromXML);
+            fontDialog1.Color = myCurrentlySelectedColor;
 
         }
 
@@ -164,19 +182,19 @@ namespace FirstDocumentCustomization
 
         public GostOptions IniinitializeGostOptions()
         {
-          GostOptions gostOptions = new GostOptions(Globals.ThisAddIn.Application.ActiveDocument,
-                                                      fontDialog1.Font.Name.ToString(),
-                                                      fontDialog1.Color.Name.ToString(),
-                                                      (float)Convert.ToDouble(editBoxLineSpacing.Text),
-                                                      (float)Convert.ToInt32(fontDialog1.Font.Size),
-                                                      (float)43,
-                                                      (float)87,
-                                                      (float)Convert.ToDouble(editBoxLeftIndent.Text),
-                                                      (float)Convert.ToDouble(editBoxFirstLineIndent.Text),
-                                                      fontDialog1.Font.Name.ToString(),
-                                                      "0",
-                                                      "0",
-                                                      "0");
+            GostOptions gostOptions = new GostOptions(Globals.ThisAddIn.Application.ActiveDocument,
+                                                        fontDialog1.Font.Name.ToString(),
+                                                        fontDialog1.Color.Name.ToString(),
+                                                        (float)Convert.ToDouble(editBoxLineSpacing.Text),
+                                                        (float)Convert.ToInt32(fontDialog1.Font.Size),
+                                                        (float)43,
+                                                        (float)87,
+                                                        (float)Convert.ToDouble(editBoxLeftIndent.Text),
+                                                        (float)Convert.ToDouble(editBoxFirstLineIndent.Text),
+                                                        fontDialog1.Font.Name.ToString(),
+                                                        "0",
+                                                        "0",
+                                                        "0");
 
             //GostOptions gostOptions = new GostOptions();
             //gostOptions.SetCurrentDocument(Globals.ThisAddIn.Application.ActiveDocument);
@@ -202,6 +220,27 @@ namespace FirstDocumentCustomization
             {
                 editBoxLeftIndent.Text = string.Empty;
             }
+        }
+
+        private bool IsDictionaryEmpty(Dictionary<string, string> dictionaryOfXML)
+        {
+            int countEmptyElement=0;
+            bool isEmpty = true;
+
+            foreach (string value in dictionaryOfXML.Values)
+            {
+                if (value != "")
+                {
+                    countEmptyElement++;
+                }
+            }
+
+            if (countEmptyElement>0)
+            {
+                isEmpty = false;
+            }
+
+            return isEmpty;
         }
     }
 }

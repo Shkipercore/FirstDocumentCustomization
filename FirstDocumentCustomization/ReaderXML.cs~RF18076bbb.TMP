@@ -12,7 +12,7 @@ namespace FirstDocumentCustomization
     {
         private XmlDocument xDoc;
 
-        public Dictionary<string, string> GetDictionaryPropertyOfXML(string tagName)
+        public Dictionary<string, string> LoadPropertyOfXML(string tagName)
         {
             Dictionary<string,string> property = new Dictionary<string, string>();
             XDocument xdoc = XDocument.Load("Config.xml");
@@ -27,7 +27,7 @@ namespace FirstDocumentCustomization
                     property.Add("lineSpacingOfOST", xe.Element("lineSpacingOfOST").Value);
                     property.Add("leftIndentOfOST", xe.Element("leftIndentOfOST").Value);
                     property.Add("firstLineIndentOfOST", xe.Element("firstLineIndentOfOST").Value);
-                    property.Add("colorFontOfOST", xe.Element("colorFontOfOST").Value);
+
 
                 }
             }
@@ -35,6 +35,5 @@ namespace FirstDocumentCustomization
             return property;
 
         }
-
     }
 }
