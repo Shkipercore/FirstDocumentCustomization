@@ -59,49 +59,7 @@
     <alignmentHeader>
     </alignmentHeader>
   </Settings>
-  <Settings name="test">
-    <nameFontOfOST />
-    <colorFontOfOST />
-    <lineSpacingOfOST />
-    <sizeFontOfOST />
-    <widthOfOST />
-    <hightOfOST />
-    <leftIndentOfOST />
-    <firstLineIndentOfOST />
-    <nameFontForFooterOfOST />
-    <alignmentText />
-    <alignmentFooter />
-    <alignmentHeader />
-  </Settings>
-  <Settings name="bag">
-    <nameFontOfOST />
-    <colorFontOfOST />
-    <lineSpacingOfOST />
-    <sizeFontOfOST />
-    <widthOfOST />
-    <hightOfOST />
-    <leftIndentOfOST />
-    <firstLineIndentOfOST />
-    <nameFontForFooterOfOST />
-    <alignmentText />
-    <alignmentFooter />
-    <alignmentHeader />
-  </Settings>
-  <Settings name="hggf">
-    <nameFontOfOST />
-    <colorFontOfOST />
-    <lineSpacingOfOST />
-    <sizeFontOfOST />
-    <widthOfOST />
-    <hightOfOST />
-    <leftIndentOfOST />
-    <firstLineIndentOfOST />
-    <nameFontForFooterOfOST />
-    <alignmentText />
-    <alignmentFooter />
-    <alignmentHeader />
-  </Settings>
-  <Settings name="1234">
+  <Settings name="ВКР">
     <nameFontOfOST />
     <colorFontOfOST />
     <lineSpacingOfOST />

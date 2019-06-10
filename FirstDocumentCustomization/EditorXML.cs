@@ -17,7 +17,7 @@ namespace FirstDocumentCustomization
 
         public bool CreateNode(string nodeAttributeName)
         {
-            if(1>0)
+            if (1 > 0)
             {
                 XmlDocument xDoc = new XmlDocument();
                 xDoc.Load("Config.xml");
@@ -71,16 +71,16 @@ namespace FirstDocumentCustomization
         public string AddElement(string tagName,
                                  string nameFont,
                                  string colorFont,
-                                 string lineSpacing, 
+                                 string lineSpacing,
                                  string sizeFont,
                                  //string width,
                                  //string hight,
                                  string leftIndent,
                                  string firstLineIndent
                                  //string nameFontForFooter,
-                                 //string alignmentText,
-                                 //string alignmentFooter,
-                                 //string alignmentHeader
+                                 //string alignmentText
+                                                            //string alignmentFooter,
+                                                            //string alignmentHeader
                                                             )
         {
 
@@ -124,7 +124,7 @@ namespace FirstDocumentCustomization
 
                 if (xe.Element("name").Value == tagName)
                 {
-                xe.Remove();
+                    xe.Remove();
                 }
 
             xdoc.Save("Config.xml");
@@ -135,7 +135,37 @@ namespace FirstDocumentCustomization
             //xDoc.Save("users.xml");
 
             return false;
- 
+
         }
+
+        public string ConvertedComboBoxAlignmentTextForIndex(string tagName, string items)
+        {
+            XDocument xdoc = XDocument.Load("Config.xml");
+            XElement root = xdoc.Element("ConfigSettings");
+
+            if (items == ("По левому краю"))
+            {
+                return "0";
+            }
+
+            if (items == ("По центру"))
+            {
+                return "1";
+            }
+
+            if (items == ("По правому краю"))
+            {
+                return "2";
+            }
+
+            if (items == ("По ширине"))
+            {
+                return "3";
+            }
+            return items;
+        }
+
+
     }
+
 }
