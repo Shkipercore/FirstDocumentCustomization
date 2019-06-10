@@ -95,7 +95,8 @@ namespace FirstDocumentCustomization
                                  editBoxLineSpacing.Text,
                                  fontDialog1.Font.Size.ToString(),
                                  editBoxLeftIndent.Text,
-                                 editBoxFirstLineIndent.Text
+                                 editBoxFirstLineIndent.Text,
+                                 editorXML.ConvertedComboBoxAlignmentTextForIndex(comboBoxAlignmentText.Text)
                                  );
 
         }

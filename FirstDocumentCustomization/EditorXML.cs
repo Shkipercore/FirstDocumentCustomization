@@ -76,11 +76,11 @@ namespace FirstDocumentCustomization
                                  //string width,
                                  //string hight,
                                  string leftIndent,
-                                 string firstLineIndent
+                                 string firstLineIndent,
                                  //string nameFontForFooter,
-                                 //string alignmentText
-                                                            //string alignmentFooter,
-                                                            //string alignmentHeader
+                                 string alignmentText
+                                 //string alignmentFooter,
+                                 //string alignmentHeader
                                                             )
         {
 
@@ -103,7 +103,7 @@ namespace FirstDocumentCustomization
                     xe.Element("leftIndentOfOST").Value = leftIndent;
                     xe.Element("firstLineIndentOfOST").Value = firstLineIndent;
                     //xe.Element("nameFontForFooterOfOST").Value = nameFontForFooter;
-                    //xe.Element("alignmentTextOfOST").Value = alignmentText;
+                    xe.Element("alignmentTextOfOST").Value = alignmentText;
                     //xe.Element("alignmentFooterOfOST").Value = alignmentFooter;
                     //xe.Element("alignmentHeaderOfOST").Value = alignmentHeader;
 
@@ -138,31 +138,47 @@ namespace FirstDocumentCustomization
 
         }
 
-        public string ConvertedComboBoxAlignmentTextForIndex(string tagName, string items)
+        public string ConvertedComboBoxAlignmentTextForIndex(string items)
         {
-            XDocument xdoc = XDocument.Load("Config.xml");
-            XElement root = xdoc.Element("ConfigSettings");
 
-            if (items == ("По левому краю"))
+            //if (items == ("По левому краю"))
+            //{
+            //    return "0";
+            //}
+
+            //if (items == ("По центру"))
+            //{
+            //    return "1";
+            //}
+
+            //if (items == ("По правому краю"))
+            //{
+            //    return "2";
+            //}
+
+            //if (items == ("По ширине"))
+            //{
+            //    return "3";
+            //}
+            //return items;
+
+            switch (items)
             {
-                return "0";
+                case "По левому краю":
+                    return "0";
+
+                case "По центру":
+                    return "1";
+
+                case "По правому краю":
+                    return "2";
+
+                case "По ширине":
+                    return "3";
             }
 
-            if (items == ("По центру"))
-            {
-                return "1";
-            }
-
-            if (items == ("По правому краю"))
-            {
-                return "2";
-            }
-
-            if (items == ("По ширине"))
-            {
-                return "3";
-            }
             return items;
+
         }
 
 

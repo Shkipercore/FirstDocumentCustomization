@@ -5,72 +5,41 @@
     <colorFontOfOST>Black</colorFontOfOST>
     <lineSpacingOfOST>1,5</lineSpacingOfOST>
     <sizeFontOfOST>14</sizeFontOfOST>
-    <widthOfOST>
-    </widthOfOST>
-    <hightOfOST>
-    </hightOfOST>
+    <widthOfOST></widthOfOST>
+    <hightOfOST></hightOfOST>
     <leftIndentOfOST>1,5</leftIndentOfOST>
     <firstLineIndentOfOST>0,5</firstLineIndentOfOST>
     <nameFontForFooterOfOST>Times New Roman</nameFontForFooterOfOST>
-    <alignmentTextOfOST>
-    </alignmentTextOfOST>
-    <alignmentFooter>
-    </alignmentFooter>
-    <alignmentHeader>
-    </alignmentHeader>
+    <alignmentTextOfOST>3</alignmentTextOfOST>
+    <alignmentFooter></alignmentFooter>
+    <alignmentHeader></alignmentHeader>
   </Settings>
   <Settings name="Лабораторная работа">
     <nameFontOfOST>Calibri</nameFontOfOST>
     <colorFontOfOST>Blue</colorFontOfOST>
     <lineSpacingOfOST>4</lineSpacingOfOST>
     <sizeFontOfOST>12</sizeFontOfOST>
-    <widthOfOST>
-    </widthOfOST>
-    <hightOfOST>
-    </hightOfOST>
+    <widthOfOST></widthOfOST>
+    <hightOfOST></hightOfOST>
     <leftIndentOfOST>5</leftIndentOfOST>
     <firstLineIndentOfOST>6</firstLineIndentOfOST>
-    <nameFontForFooterOfOST>
-    </nameFontForFooterOfOST>
-    <alignmentTextOfOST>
-    </alignmentTextOfOST>
-    <alignmentFooter>
-    </alignmentFooter>
-    <alignmentHeader>
-    </alignmentHeader>
+    <nameFontForFooterOfOST></nameFontForFooterOfOST>
+    <alignmentTextOfOST>2</alignmentTextOfOST>
+    <alignmentFooter></alignmentFooter>
+    <alignmentHeader></alignmentHeader>
   </Settings>
   <Settings name="ВКР">
     <nameFontOfOST>Arial</nameFontOfOST>
     <colorFontOfOST>Red</colorFontOfOST>
     <lineSpacingOfOST>7</lineSpacingOfOST>
     <sizeFontOfOST>16</sizeFontOfOST>
-    <widthOfOST>
-    </widthOfOST>
-    <hightOfOST>
-    </hightOfOST>
+    <widthOfOST></widthOfOST>
+    <hightOfOST></hightOfOST>
     <leftIndentOfOST>8</leftIndentOfOST>
     <firstLineIndentOfOST>9</firstLineIndentOfOST>
-    <nameFontForFooterOfOST>
-    </nameFontForFooterOfOST>
-    <alignmentTextOfOST>
-    </alignmentTextOfOST>
-    <alignmentFooter>
-    </alignmentFooter>
-    <alignmentHeader>
-    </alignmentHeader>
-  </Settings>
-  <Settings name="ВКР">
-    <nameFontOfOST />
-    <colorFontOfOST />
-    <lineSpacingOfOST />
-    <sizeFontOfOST />
-    <widthOfOST />
-    <hightOfOST />
-    <leftIndentOfOST />
-    <firstLineIndentOfOST />
-    <nameFontForFooterOfOST />
-    <alignmentText />
-    <alignmentFooter />
-    <alignmentHeader />
+    <nameFontForFooterOfOST></nameFontForFooterOfOST>
+    <alignmentTextOfOST></alignmentTextOfOST>
+    <alignmentFooter></alignmentFooter>
+    <alignmentHeader></alignmentHeader>
   </Settings>
 </ConfigSettings>
