@@ -131,7 +131,13 @@ namespace FirstDocumentCustomization
 
         private void comboBoxSelectionWork_TextChanged(object sender, RibbonControlEventArgs e)
         {
-
+            var tagName = comboBoxSelectionWork.Text;
+            editBoxLineSpacing.Text = getValueOFXMLForBoxies(tagName, "lineSpacingOfOST");
+            editBoxLeftIndent.Text = getValueOFXMLForBoxies(tagName, "leftIndentOfOST");
+            editBoxFirstLineIndent.Text = getValueOFXMLForBoxies(tagName, "firstLineIndentOfOST");
+            string myCurrentlySelectedFont = getValueOFXMLForBoxies(tagName, "nameFontOfOST");
+            string myCurrentlySelectedSize = getValueOFXMLForBoxies(tagName, "sizeFontOfOST");
+            fontDialog1.Font = new System.Drawing.Font(myCurrentlySelectedFont, (float)Convert.ToInt32(myCurrentlySelectedSize));
         }
 
         private void comboBoxSelectionWork_SelectedIndexChanged(object sender, EventArgs e)
@@ -189,6 +195,13 @@ namespace FirstDocumentCustomization
 
             return gostOptions;
         }
-        
+
+        private void editBoxLeftIndent_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+            if (!Regex.IsMatch(editBoxLeftIndent.Text, "^([0-9]+([,]{1}[0-9]+)?)$"))
+            {
+                editBoxLeftIndent.Text = string.Empty;
+            }
+        }
     }
 }

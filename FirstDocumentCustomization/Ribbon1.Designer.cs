@@ -61,9 +61,9 @@
             this.buttonLoadProperty = this.Factory.CreateRibbonButton();
             this.buttonApply = this.Factory.CreateRibbonButton();
             this.buttonSaveSettings = this.Factory.CreateRibbonButton();
+            this.buttonTest = this.Factory.CreateRibbonButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.buttonTest = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.group3.SuspendLayout();
@@ -159,6 +159,7 @@
             this.editBoxLeftIndent.Label = "Отступ слева  ";
             this.editBoxLeftIndent.Name = "editBoxLeftIndent";
             this.editBoxLeftIndent.Text = null;
+            this.editBoxLeftIndent.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.editBoxLeftIndent_TextChanged);
             // 
             // editBoxRightIndent
             // 
