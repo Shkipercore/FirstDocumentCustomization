@@ -28,11 +28,34 @@ namespace FirstDocumentCustomization
                     property.Add("leftIndentOfOST", xe.Element("leftIndentOfOST").Value);
                     property.Add("firstLineIndentOfOST", xe.Element("firstLineIndentOfOST").Value);
                     property.Add("colorFontOfOST", xe.Element("colorFontOfOST").Value);
+                    property.Add("alignmentTextOfOST", xe.Element("alignmentTextOfOST").Value);
 
                 }
             }
 
             return property;
+
+        }
+
+        public string ConvertedIndexForComboBoxAlignmentText(string items)
+        {
+
+            switch (items)
+            {
+                case "0":
+                    return "По левому краю";
+
+                case "1":
+                    return "По центру";
+
+                case "2":
+                    return "По правому краю";
+
+                case "3":
+                    return "По ширине";
+            }
+
+            return items;
 
         }
 

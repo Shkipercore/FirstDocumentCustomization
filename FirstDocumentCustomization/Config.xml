@@ -10,7 +10,7 @@
     <leftIndentOfOST>1,5</leftIndentOfOST>
     <firstLineIndentOfOST>0,5</firstLineIndentOfOST>
     <nameFontForFooterOfOST>Times New Roman</nameFontForFooterOfOST>
-    <alignmentTextOfOST></alignmentTextOfOST>
+    <alignmentTextOfOST>1</alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
     <alignmentHeader></alignmentHeader>
     </Settings>
@@ -24,7 +24,7 @@
     <leftIndentOfOST>5</leftIndentOfOST>
     <firstLineIndentOfOST>6</firstLineIndentOfOST>
     <nameFontForFooterOfOST></nameFontForFooterOfOST>
-    <alignmentTextOfOST></alignmentTextOfOST>
+    <alignmentTextOfOST>2</alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
     <alignmentHeader></alignmentHeader>
   </Settings>
@@ -38,7 +38,7 @@
     <leftIndentOfOST>8</leftIndentOfOST>
     <firstLineIndentOfOST>9</firstLineIndentOfOST>
     <nameFontForFooterOfOST></nameFontForFooterOfOST>
-    <alignmentTextOfOST></alignmentTextOfOST>
+    <alignmentTextOfOST>3</alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
     <alignmentHeader></alignmentHeader>
   </Settings>

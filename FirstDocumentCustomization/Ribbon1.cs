@@ -151,6 +151,8 @@ namespace FirstDocumentCustomization
                     string selectedColorFromXML = getValueOFXMLForBoxies(tagName, "colorFontOfOST");
                     System.Drawing.Color myCurrentlySelectedColor = System.Drawing.Color.FromName(selectedColorFromXML);
                     fontDialog1.Color = myCurrentlySelectedColor;
+                    string selectedAligmentText = getValueOFXMLForBoxies(tagName, "alignmentTextOfOST");
+                    comboBoxAlignmentText.Text = readerXML.ConvertedIndexForComboBoxAlignmentText(selectedAligmentText);
 
                 }
             }

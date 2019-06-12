@@ -141,27 +141,6 @@ namespace FirstDocumentCustomization
         public string ConvertedComboBoxAlignmentTextForIndex(string items)
         {
 
-            //if (items == ("По левому краю"))
-            //{
-            //    return "0";
-            //}
-
-            //if (items == ("По центру"))
-            //{
-            //    return "1";
-            //}
-
-            //if (items == ("По правому краю"))
-            //{
-            //    return "2";
-            //}
-
-            //if (items == ("По ширине"))
-            //{
-            //    return "3";
-            //}
-            //return items;
-
             switch (items)
             {
                 case "По левому краю":
