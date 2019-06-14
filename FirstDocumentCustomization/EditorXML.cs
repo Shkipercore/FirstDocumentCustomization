@@ -35,9 +35,10 @@ namespace FirstDocumentCustomization
                 XmlElement widthOfOSTElem = xDoc.CreateElement("widthOfOST");
                 XmlElement hightOfOSTElem = xDoc.CreateElement("hightOfOST");
                 XmlElement leftIndentElem = xDoc.CreateElement("leftIndentOfOST");
+                XmlElement rightIndentElem = xDoc.CreateElement("rightIndentOfOST");
                 XmlElement firstLineIndent = xDoc.CreateElement("firstLineIndentOfOST");
                 XmlElement nameFontForFooterOfOSTElem = xDoc.CreateElement("nameFontForFooterOfOST");
-                XmlElement alignmentTextElem = xDoc.CreateElement("alignmentText");
+                XmlElement alignmentTextElem = xDoc.CreateElement("alignmentTextOfOST");
                 XmlElement alignmentFooterElem = xDoc.CreateElement("alignmentFooter");
                 XmlElement alignmentHeaderElem = xDoc.CreateElement("alignmentHeader");
 
@@ -55,6 +56,7 @@ namespace FirstDocumentCustomization
                 settingsElem.AppendChild(widthOfOSTElem);
                 settingsElem.AppendChild(hightOfOSTElem);
                 settingsElem.AppendChild(leftIndentElem);
+                settingsElem.AppendChild(rightIndentElem);
                 settingsElem.AppendChild(firstLineIndent);
                 settingsElem.AppendChild(nameFontForFooterOfOSTElem);
                 settingsElem.AppendChild(alignmentTextElem);
@@ -76,6 +78,7 @@ namespace FirstDocumentCustomization
                                  //string width,
                                  //string hight,
                                  string leftIndent,
+                                 string rightIndent,
                                  string firstLineIndent,
                                  //string nameFontForFooter,
                                  string alignmentText
@@ -101,6 +104,7 @@ namespace FirstDocumentCustomization
                     //xe.Element("widthOfOST").Value = width;
                     //xe.Element("hightOfOST").Value = hight;
                     xe.Element("leftIndentOfOST").Value = leftIndent;
+                    xe.Element("rightIndentOfOST").Value = rightIndent;
                     xe.Element("firstLineIndentOfOST").Value = firstLineIndent;
                     //xe.Element("nameFontForFooterOfOST").Value = nameFontForFooter;
                     xe.Element("alignmentTextOfOST").Value = alignmentText;

@@ -121,9 +121,21 @@ namespace FirstDocumentCustomization
             return leftIndentOfOST;
         }
 
-        public void SetLeftIndent(float value)
+        public void SetLefttIndent(float value)
         {
             leftIndentOfOST = value;
+        }
+
+        private float rightIndentOfOST;
+
+        public float GetRightIndent()
+        {
+            return rightIndentOfOST;
+        }
+
+        public void SetRightIndent(float value)
+        {
+            rightIndentOfOST = value;
         }
 
         private float firstLineIndentOfOST;
@@ -153,6 +165,7 @@ namespace FirstDocumentCustomization
                             float width,
                             float highest,
                             float leftIndent,
+                            float rightIndent,
                             float firstLineIndent,
                             String fontFooter,
                             String alignment,
@@ -166,6 +179,7 @@ namespace FirstDocumentCustomization
             this.widthOfOST = width;
             this.hightOfOST = highest;
             this.leftIndentOfOST = leftIndent;
+            this.rightIndentOfOST = rightIndent;
             this.firstLineIndentOfOST = firstLineIndent;
             this.nameFontForFooterOfOST = fontFooter;
             this.alignmentText = alignment;

@@ -190,6 +190,7 @@ namespace FirstDocumentCustomization
             {
                 var leftIndent = p.LeftIndent;  // дописать
                 var firstLineIndent = p.FirstLineIndent;
+                var rightIndent = p.RightIndent;
                 // var leftIndent = Range.Paragraphs.LeftIndent;
                 //  var firstLineIndent = curre.Paragraphs.FirstLineIndent;
                 var nameFont = range.Font.Name;
@@ -205,12 +206,18 @@ namespace FirstDocumentCustomization
                     StringBuilder texForComment = new StringBuilder("Текст не корректно оформлен согласно OST TUSUR: \n");
                     if (leftIndent != gostOptions.GetLeftIndent())
                     {
-                        texForComment.Append("\n Выступ выстовлен не корректно " + leftIndent + " необходимо установить выступ равный = " + gostOptions.GetLeftIndent());
+                        texForComment.Append("\n Отступ слева выстовлен не корректно " + leftIndent + " необходимо установить отступ слева равный = " + gostOptions.GetLeftIndent());
                     }
                     if (firstLineIndent != gostOptions.GetFirstLineIndent())
                     {
-                        texForComment.Append("\n Отступ первой строки выстовлен не корректно " + leftIndent + " необходимо установить отступ первой строки равный = " + gostOptions.GetLeftIndent());
+                        texForComment.Append("\n Отступ первой строки выстовлен не корректно " + firstLineIndent + " необходимо установить отступ первой строки равный = " + gostOptions.GetFirstLineIndent());
                     }
+
+                    if (rightIndent != gostOptions.GetRightIndent())
+                    {
+                        texForComment.Append("\n Отступ справа выстовлен не корректно " + rightIndent + " необходимо установить отступ справа равный = " + gostOptions.GetRightIndent());
+                    }
+
                     if (nameFont != gostOptions.GetNameFontOfOST())
                     {
                         texForComment.Append("\n Текущие имя шрифта " + nameFont + ", а должен быть установлен" + gostOptions.GetNameFontOfOST());

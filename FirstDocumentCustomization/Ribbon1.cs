@@ -16,49 +16,15 @@ namespace FirstDocumentCustomization
 {
     public partial class Ribbon1
     {
+        private Dictionary<string, Dictionary<string, string>> cashOFXML;
 
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
             fontDialog1.ShowColor = true;
-
         }
 
         private void buttonApply_Click(object sender, RibbonControlEventArgs e)
         {
-            //Word.Document currentDocument = Globals.ThisAddIn.Application.ActiveDocument;
-            //var nameFont = ConfigurationManager.AppSettings.Get("nameFontOfOST");
-            //var colorFont = ConfigurationManager.AppSettings.Get("colorFontOfOST");
-            //var lineSpacing = ConfigurationManager.AppSettings.Get("lineSpacing");
-            //var sizeFont = ConfigurationManager.AppSettings.Get("sizeFont");
-            //var width = ConfigurationManager.AppSettings.Get("wight");
-            //var highest = ConfigurationManager.AppSettings.Get("highest");
-            //var leftIndent = ConfigurationManager.AppSettings.Get("leftIndent");
-            //var firstLineIndent = ConfigurationManager.AppSettings.Get("firstLineIndent");
-            //var fontFooter = ConfigurationManager.AppSettings.Get("fontFooter");
-            //var alignment = ConfigurationManager.AppSettings.Get("alignment");
-            //var alignmentHeader = ConfigurationManager.AppSettings.Get("alignmentHeader");
-            //var alignmentFooter = ConfigurationManager.AppSettings.Get("alignmentFooter");
-            //var pointOfCentimetrLine = Globals.ThisAddIn.Application.CentimetersToPoints(1.5f);
-            //var widthSpacing = Globals.ThisAddIn.Application.CentimetersToPoints(1.5f);
-            //var hightSpacing = Globals.ThisAddIn.Application.CentimetersToPoints(1.5f);
-
-            //GostOptions gostOptions = new GostOptions(currentDocument,
-            //                                          nameFont,
-            //                                          colorFont,
-            //                                          Convert.ToInt32(lineSpacing),
-            //                                          Convert.ToInt32(sizeFont),
-            //                                          Convert.ToInt32(width),
-            //                                          Convert.ToInt32(highest),
-            //                                          Convert.ToInt32(leftIndent),
-            //                                          Convert.ToInt32(firstLineIndent),
-            //                                          fontFooter,
-            //                                          alignment,
-            //                                          alignmentHeader,
-            //                                          alignmentFooter);
-
-
-            //Checker checker = new Checker(gostOptions);
-
             var options = IniinitializeGostOptions();
 
             Checker checker = new Checker(options);
@@ -72,22 +38,8 @@ namespace FirstDocumentCustomization
                 return;
         }
 
-        private void comboBoxAlignmentText_TextChanged(object sender, RibbonControlEventArgs e)
-        {
-            System.Configuration.Configuration currentConfig = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            var items = comboBoxAlignmentText.Items;
-
-            var aligmentTextValue = items[0];
-            if (aligmentTextValue.Label.Contains("По левому краю"))
-            {
-                currentConfig.AppSettings.Settings["alignmentText"].Value = "0";
-            }
-
-        }
-
         private void buttonSaveSettings_Click(object sender, RibbonControlEventArgs e)
         {
-
             EditorXML editorXML = new EditorXML();
             editorXML.AddElement(comboBoxSelectionWork.Text,
                                  fontDialog1.Font.Name.ToString(),
@@ -95,34 +47,37 @@ namespace FirstDocumentCustomization
                                  editBoxLineSpacing.Text,
                                  fontDialog1.Font.Size.ToString(),
                                  editBoxLeftIndent.Text,
+                                 editBoxRightIndent.Text,
                                  editBoxFirstLineIndent.Text,
                                  editorXML.ConvertedComboBoxAlignmentTextForIndex(comboBoxAlignmentText.Text)
                                  );
-
         }
 
         private void buttonAddWork_Click(object sender, RibbonControlEventArgs e)
         {
             if (editBoxAddWork.Text.Length > 0)
             {
-                RibbonDropDownItem item1 = Factory.CreateRibbonDropDownItem();
-                comboBoxSelectionWork.Items.Add(item1);
-                item1.Label = editBoxAddWork.Text;
+                RibbonDropDownItem insertItem = Factory.CreateRibbonDropDownItem();
+                insertItem.Label = editBoxAddWork.Text;
+                bool isItemNotPresent = true;
+                foreach (var item in comboBoxSelectionWork.Items)
+                {
+                    if (item.Label.Equals(insertItem.Label))
+                        isItemNotPresent = false;
+                }
+                if (isItemNotPresent)
+                {
+                    comboBoxSelectionWork.Items.Add(insertItem);
 
-                EditorXML editorXML = new EditorXML();
-                editorXML.CreateNode(editBoxAddWork.Text);
-
+                    EditorXML editorXML = new EditorXML();
+                    editorXML.CreateNode(editBoxAddWork.Text);
+                }
             }
-
         }
 
-        private string getValueOFXMLForBoxies(string tagName, string elementName)
+        private string getValueOFXMLForBoxies(Dictionary<string, string> dictionary, string elementName)
         {
-            ReaderXML readerXML = new ReaderXML();
-            var dictionary = readerXML.GetDictionaryPropertyOfXML(tagName);
-
             string valueOfDictionary = "";
-
 
             if (dictionary.TryGetValue(elementName, out valueOfDictionary))
             {
@@ -135,46 +90,29 @@ namespace FirstDocumentCustomization
 
         private void comboBoxSelectionWork_TextChanged(object sender, RibbonControlEventArgs e)
         {
+            var tagName = comboBoxSelectionWork.Text;
+            LoadOfXMLForCash();
+   
+            if (cashOFXML.Keys.Contains(tagName))
             {
-                var tagName = comboBoxSelectionWork.Text;
-                ReaderXML readerXML = new ReaderXML();
-                var dictionaryByTagName = readerXML.GetDictionaryPropertyOfXML(tagName);
-
-                if (!IsDictionaryEmpty(dictionaryByTagName))
-                {
-                    editBoxLineSpacing.Text = getValueOFXMLForBoxies(tagName, "lineSpacingOfOST");
-                    editBoxLeftIndent.Text = getValueOFXMLForBoxies(tagName, "leftIndentOfOST");
-                    editBoxFirstLineIndent.Text = getValueOFXMLForBoxies(tagName, "firstLineIndentOfOST");
-                    string myCurrentlySelectedFont = getValueOFXMLForBoxies(tagName, "nameFontOfOST");
-                    string myCurrentlySelectedSize = getValueOFXMLForBoxies(tagName, "sizeFontOfOST");
-                    fontDialog1.Font = new System.Drawing.Font(myCurrentlySelectedFont, (float)Convert.ToInt32(myCurrentlySelectedSize));
-                    string selectedColorFromXML = getValueOFXMLForBoxies(tagName, "colorFontOfOST");
-                    System.Drawing.Color myCurrentlySelectedColor = System.Drawing.Color.FromName(selectedColorFromXML);
-                    fontDialog1.Color = myCurrentlySelectedColor;
-                    string selectedAligmentText = getValueOFXMLForBoxies(tagName, "alignmentTextOfOST");
-                    comboBoxAlignmentText.Text = readerXML.ConvertedIndexForComboBoxAlignmentText(selectedAligmentText);
-
-                }
+                var propertyOfXML = cashOFXML[tagName];
+                editBoxLineSpacing.Text = propertyOfXML["lineSpacingOfOST"];
+                editBoxLeftIndent.Text = propertyOfXML["leftIndentOfOST"];
+                editBoxRightIndent.Text = propertyOfXML["rightIndentOfOST"];
+                editBoxFirstLineIndent.Text = propertyOfXML["firstLineIndentOfOST"];
+                string myCurrentlySelectedFont = propertyOfXML["nameFontOfOST"];
+                string myCurrentlySelectedSize = propertyOfXML["sizeFontOfOST"];
+                fontDialog1.Font = new System.Drawing.Font(myCurrentlySelectedFont, (float)Convert.ToInt32(myCurrentlySelectedSize));
+                string selectedColorFromXML = propertyOfXML["colorFontOfOST"];
+                System.Drawing.Color myCurrentlySelectedColor = System.Drawing.Color.FromName(selectedColorFromXML);
+                fontDialog1.Color = myCurrentlySelectedColor;
+                string selectedAligmentText = propertyOfXML["alignmentTextOfOST"];
+                comboBoxAlignmentText.Text = ConvertedIndexForComboBoxAlignmentText(selectedAligmentText);
             }
         }
 
         private void comboBoxSelectionWork_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttonLoadProperty_Click(object sender, RibbonControlEventArgs e)
-        {
-            var tagName = comboBoxSelectionWork.Text;
-            editBoxLineSpacing.Text = getValueOFXMLForBoxies(tagName, "lineSpacingOfOST");
-            editBoxLeftIndent.Text = getValueOFXMLForBoxies(tagName, "leftIndentOfOST");
-            editBoxFirstLineIndent.Text = getValueOFXMLForBoxies(tagName, "firstLineIndentOfOST");
-            string myCurrentlySelectedFont = getValueOFXMLForBoxies(tagName, "nameFontOfOST");
-            string myCurrentlySelectedSize = getValueOFXMLForBoxies(tagName, "sizeFontOfOST");
-            fontDialog1.Font = new System.Drawing.Font(myCurrentlySelectedFont, (float)Convert.ToInt32(myCurrentlySelectedSize));
-            string selectedColorFromXML = getValueOFXMLForBoxies(tagName, "colorFontOfOST");
-            System.Drawing.Color myCurrentlySelectedColor = System.Drawing.Color.FromName(selectedColorFromXML);
-            fontDialog1.Color = myCurrentlySelectedColor;
 
         }
 
@@ -193,6 +131,7 @@ namespace FirstDocumentCustomization
                                                         (float)595.3,
                                                         (float)841.9,
                                                         (float)Convert.ToDouble(editBoxLeftIndent.Text),
+                                                        (float)Convert.ToDouble(editBoxRightIndent.Text),
                                                         (float)Convert.ToDouble(editBoxFirstLineIndent.Text),
                                                         fontDialog1.Font.Name.ToString(),
                                                         "0",
@@ -225,25 +164,38 @@ namespace FirstDocumentCustomization
             }
         }
 
-        private bool IsDictionaryEmpty(Dictionary<string, string> dictionaryOfXML)
+        public string ConvertedIndexForComboBoxAlignmentText(string items)
         {
-            int countEmptyElement=0;
-            bool isEmpty = true;
 
-            foreach (string value in dictionaryOfXML.Values)
+            switch (items)
             {
-                if (value != "")
-                {
-                    countEmptyElement++;
-                }
+                case "0":
+                    return "По левому краю";
+
+                case "1":
+                    return "По центру";
+
+                case "2":
+                    return "По правому краю";
+
+                case "3":
+                    return "По ширине";
             }
 
-            if (countEmptyElement>0)
-            {
-                isEmpty = false;
-            }
+            return items;
 
-            return isEmpty;
+        }
+
+        public void LoadOfXMLForCash()
+        {
+            var readerXML = new ReaderXML();
+
+            List<string> listTagNames = new List<string>();
+            foreach (var item in comboBoxSelectionWork.Items)
+            {
+                listTagNames.Add(item.Label);
+            }
+            cashOFXML = readerXML.GetDictionaryPropertyOfXML(listTagNames);
         }
     }
 }

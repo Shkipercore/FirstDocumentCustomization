@@ -12,50 +12,38 @@ namespace FirstDocumentCustomization
     {
         private XmlDocument xDoc;
 
-        public Dictionary<string, string> GetDictionaryPropertyOfXML(string tagName)
+        public Dictionary<string,Dictionary<string, string>> GetDictionaryPropertyOfXML( List<String>  listTagName)
         {
-            Dictionary<string,string> property = new Dictionary<string, string>();
+            var dictionaryDictionaries = new Dictionary<string, Dictionary<string, string>>();
+
+
             XDocument xdoc = XDocument.Load("Config.xml");
             XElement root = xdoc.Element("ConfigSettings");
         
             foreach (XElement xe in root.Elements("Settings").ToList())
             {
-                if (xe.Attribute("name").Value == tagName)
+                foreach(var tagName in listTagName)
                 {
-                    property.Add("nameFontOfOST", xe.Element("nameFontOfOST").Value);
-                    property.Add("sizeFontOfOST", xe.Element("sizeFontOfOST").Value);
-                    property.Add("lineSpacingOfOST", xe.Element("lineSpacingOfOST").Value);
-                    property.Add("leftIndentOfOST", xe.Element("leftIndentOfOST").Value);
-                    property.Add("firstLineIndentOfOST", xe.Element("firstLineIndentOfOST").Value);
-                    property.Add("colorFontOfOST", xe.Element("colorFontOfOST").Value);
-                    property.Add("alignmentTextOfOST", xe.Element("alignmentTextOfOST").Value);
+                    if (xe.Attribute("name").Value.Equals(tagName))
+                    {
+                        var propertyDictionary = new Dictionary<string, string>();
 
+                        propertyDictionary.Add("nameFontOfOST", xe.Element("nameFontOfOST").Value);
+                        propertyDictionary.Add("sizeFontOfOST", xe.Element("sizeFontOfOST").Value);
+                        propertyDictionary.Add("lineSpacingOfOST", xe.Element("lineSpacingOfOST").Value);
+                        propertyDictionary.Add("leftIndentOfOST", xe.Element("leftIndentOfOST").Value);
+                        propertyDictionary.Add("rightIndentOfOST", xe.Element("rightIndentOfOST").Value);
+                        propertyDictionary.Add("firstLineIndentOfOST", xe.Element("firstLineIndentOfOST").Value);
+                        propertyDictionary.Add("colorFontOfOST", xe.Element("colorFontOfOST").Value);
+                        propertyDictionary.Add("alignmentTextOfOST", xe.Element("alignmentTextOfOST").Value);
+
+                        dictionaryDictionaries.Add(tagName, propertyDictionary);
+                    }
                 }
+                
             }
 
-            return property;
-
-        }
-
-        public string ConvertedIndexForComboBoxAlignmentText(string items)
-        {
-
-            switch (items)
-            {
-                case "0":
-                    return "По левому краю";
-
-                case "1":
-                    return "По центру";
-
-                case "2":
-                    return "По правому краю";
-
-                case "3":
-                    return "По ширине";
-            }
-
-            return items;
+            return dictionaryDictionaries;
 
         }
 

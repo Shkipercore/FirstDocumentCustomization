@@ -140,7 +140,6 @@
             this.comboBoxAlignmentText.Label = "Выравнивание текста";
             this.comboBoxAlignmentText.Name = "comboBoxAlignmentText";
             this.comboBoxAlignmentText.Text = null;
-            this.comboBoxAlignmentText.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.comboBoxAlignmentText_TextChanged);
             // 
             // group4
             // 
@@ -207,7 +206,6 @@
             // 
             this.buttonLoadProperty.Label = "Загрузить";
             this.buttonLoadProperty.Name = "buttonLoadProperty";
-            this.buttonLoadProperty.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonLoadProperty_Click);
             // 
             // buttonApply
             // 
