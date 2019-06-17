@@ -36,6 +36,7 @@
             // 
             // checkedListBoxTypeWork
             // 
+            this.checkedListBoxTypeWork.CheckOnClick = true;
             this.checkedListBoxTypeWork.FormattingEnabled = true;
             this.checkedListBoxTypeWork.Items.AddRange(new object[] {
             "Курсовая работа",
@@ -43,7 +44,7 @@
             "ВКР"});
             this.checkedListBoxTypeWork.Location = new System.Drawing.Point(28, 29);
             this.checkedListBoxTypeWork.Name = "checkedListBoxTypeWork";
-            this.checkedListBoxTypeWork.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBoxTypeWork.Size = new System.Drawing.Size(180, 94);
             this.checkedListBoxTypeWork.TabIndex = 0;
             // 
             // buttonAddTypeWork
@@ -67,7 +68,7 @@
             // 
             // textBoxAddTypeWork
             // 
-            this.textBoxAddTypeWork.Location = new System.Drawing.Point(110, 130);
+            this.textBoxAddTypeWork.Location = new System.Drawing.Point(108, 131);
             this.textBoxAddTypeWork.Name = "textBoxAddTypeWork";
             this.textBoxAddTypeWork.Size = new System.Drawing.Size(100, 20);
             this.textBoxAddTypeWork.TabIndex = 4;

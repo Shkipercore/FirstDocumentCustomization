@@ -77,4 +77,19 @@
     <alignmentFooter />
     <alignmentHeader />
   </Settings>
+  <Settings name="test">
+    <nameFontOfOST />
+    <colorFontOfOST />
+    <lineSpacingOfOST />
+    <sizeFontOfOST />
+    <widthOfOST />
+    <hightOfOST />
+    <leftIndentOfOST />
+    <rightIndentOfOST />
+    <firstLineIndentOfOST />
+    <nameFontForFooterOfOST />
+    <alignmentTextOfOST />
+    <alignmentFooter />
+    <alignmentHeader />
+  </Settings>
 </ConfigSettings>

@@ -25,10 +25,70 @@ namespace FirstDocumentCustomization
 
         private void buttonApply_Click(object sender, RibbonControlEventArgs e)
         {
-            var options = IniinitializeGostOptions();
+            if (editBoxLeftIndent.Text != "" && editBoxRightIndent.Text != "" && editBoxFirstLineIndent.Text != "" && editBoxLineSpacing.Text != "" && editBoxIntervalBefore.Text != "" && editBoxIntervalAfter.Text != "")
+            {
+                var options = IniinitializeGostOptions();
 
-            Checker checker = new Checker(options);
-            checker.Check();
+                Checker checker = new Checker(options);
+                checker.Check();
+            }
+            else
+            {
+                if (editBoxLeftIndent.Text == "")
+                {
+                    editBoxLeftIndent.OfficeImageId = "AdpStoredProcedureQueryDelete";
+                }
+                else
+                {
+                    editBoxLeftIndent.OfficeImageId = "IndentClassic";
+                }
+
+                if (editBoxRightIndent.Text == "")
+                {
+                    editBoxRightIndent.OfficeImageId = "CancelRequest";
+                }
+                else
+                {
+                    editBoxRightIndent.OfficeImageId = "IndentRTL";
+                }
+
+                if (editBoxFirstLineIndent.Text == "")
+                {
+                    editBoxFirstLineIndent.OfficeImageId = "ChangeToDeclineInvitation";
+                }
+                else
+                {
+                    editBoxFirstLineIndent.OfficeImageId = "AlignJustifyMedium";
+                }
+
+                if (editBoxLineSpacing.Text == "")
+                {
+                    editBoxLineSpacing.OfficeImageId = "CloseComparison";
+                }
+                else
+                {
+                    editBoxLineSpacing.OfficeImageId = "LineSpacing";
+                }
+
+                if (editBoxIntervalBefore.Text == "")
+                {
+                    editBoxIntervalBefore.OfficeImageId = "ColorRed";
+                }
+                else
+                {
+                    editBoxIntervalBefore.OfficeImageId = "ParagraphSpacingBefore";
+                }
+
+                if (editBoxIntervalAfter.Text == "")
+                {
+                    editBoxIntervalAfter.OfficeImageId = "DeclineTask";
+                }
+                else
+                {
+                    editBoxIntervalAfter.OfficeImageId = "ParagraphSpacingAfter";
+                }
+
+            }
 
         }
 
@@ -118,7 +178,6 @@ namespace FirstDocumentCustomization
 
         private void buttonTest_Click(object sender, RibbonControlEventArgs e)
         {
-
         }
 
         public GostOptions IniinitializeGostOptions()
