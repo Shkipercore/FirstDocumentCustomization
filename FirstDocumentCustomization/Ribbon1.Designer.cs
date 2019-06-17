@@ -64,6 +64,9 @@
             this.buttonTest = this.Factory.CreateRibbonButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.buttonEditWork = this.Factory.CreateRibbonButton();
+            this.buttonDeleteWork = this.Factory.CreateRibbonButton();
+            this.label1 = this.Factory.CreateRibbonLabel();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.group3.SuspendLayout();
@@ -84,8 +87,10 @@
             // group1
             // 
             this.group1.Items.Add(this.comboBoxSelectionWork);
-            this.group1.Items.Add(this.editBoxAddWork);
             this.group1.Items.Add(this.buttonAddWork);
+            this.group1.Items.Add(this.buttonDeleteWork);
+            this.group1.Items.Add(this.label1);
+            this.group1.Items.Add(this.editBoxAddWork);
             this.group1.Name = "group1";
             // 
             // comboBoxSelectionWork
@@ -199,6 +204,7 @@
             this.group2.Items.Add(this.buttonLoadProperty);
             this.group2.Items.Add(this.buttonApply);
             this.group2.Items.Add(this.buttonSaveSettings);
+            this.group2.Items.Add(this.buttonEditWork);
             this.group2.Items.Add(this.buttonTest);
             this.group2.Name = "group2";
             // 
@@ -224,6 +230,24 @@
             this.buttonTest.Label = "Тест";
             this.buttonTest.Name = "buttonTest";
             this.buttonTest.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonTest_Click);
+            // 
+            // buttonEditWork
+            // 
+            this.buttonEditWork.Label = "Редактировать";
+            this.buttonEditWork.Name = "buttonEditWork";
+            this.buttonEditWork.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonEditWork_Click);
+            // 
+            // buttonDeleteWork
+            // 
+            this.buttonDeleteWork.Label = "Удалить";
+            this.buttonDeleteWork.Name = "buttonDeleteWork";
+            this.buttonDeleteWork.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonDeleteWork_Click);
+            // 
+            // label1
+            // 
+            this.label1.Label = " ";
+            this.label1.Name = "label1";
+            this.label1.ShowLabel = false;
             // 
             // Ribbon1
             // 
@@ -266,10 +290,13 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonComboBox comboBoxAlignmentText;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonSaveSettings;
         internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBoxFirstLineIndent;
-        internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBoxAddWork;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonAddWork;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonLoadProperty;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonTest;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonEditWork;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonDeleteWork;
+        internal Microsoft.Office.Tools.Ribbon.RibbonLabel label1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBoxAddWork;
     }
 
     partial class ThisRibbonCollection

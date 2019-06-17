@@ -197,5 +197,18 @@ namespace FirstDocumentCustomization
             }
             cashOFXML = readerXML.GetDictionaryPropertyOfXML(listTagNames);
         }
+
+        private void buttonEditWork_Click(object sender, RibbonControlEventArgs e)
+        {
+            FormEditWork formEditWork = new FormEditWork();
+            formEditWork.Show();
+        }
+
+        private void buttonDeleteWork_Click(object sender, RibbonControlEventArgs e)
+        {
+            //RibbonDropDownItem insertItem = Item;
+            //comboBoxSelectionWork.Items.Remove();
+
+        }
     }
 }
