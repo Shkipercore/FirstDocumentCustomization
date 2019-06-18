@@ -54,16 +54,49 @@ namespace FirstDocumentCustomization
             var itemLength = ribbon.comboBoxSelectionWork.Items.Count;
             var SelectedItem = checkedListBoxTypeWork.SelectedItem;
 
-            for (int i = 0; i < itemLength; i++)
+            List<RibbonDropDownItem> listForRemove = new List<RibbonDropDownItem>();
+            List<object> listForCheckBox = new List<object>();
+
+            foreach (var item in ribbon.comboBoxSelectionWork.Items)
             {
-                var item = ribbon.comboBoxSelectionWork.Items[i];
                 if (item.Label.Equals(SelectedItem))
                 {
-                    ribbon.comboBoxSelectionWork.Items.Remove(item);
-                    checkedListBoxTypeWork.Items.Remove(SelectedItem);
-                    editorXML.RemoveElement(SelectedItem.ToString());
+                    listForRemove.Add(item);
                 }
+
             }
+
+            foreach (var itemForRemove in listForRemove)
+            {
+                ribbon.comboBoxSelectionWork.Items.Remove(itemForRemove);
+            }
+
+            foreach (var item in checkedListBoxTypeWork.Items)
+            {
+                if (item == SelectedItem)
+                {
+                    listForCheckBox.Add(item);
+                } 
+
+            }
+
+            foreach (var itemForCheckBox in listForCheckBox)
+            {
+                checkedListBoxTypeWork.Items.Remove(itemForCheckBox);
+            }
+
+
+
+            //for (int i = 0; i < itemLength; i++)
+            //{
+            //    var item = ribbon.comboBoxSelectionWork.Items[i];
+            //    if (item.Label.Equals(SelectedItem))
+            //    {
+            //        ribbon.comboBoxSelectionWork.Items.Remove(item);
+            //        checkedListBoxTypeWork.Items.Remove(SelectedItem);
+            //        editorXML.RemoveElement(SelectedItem.ToString());
+            //    }
+            //}
         }
     }
 }
