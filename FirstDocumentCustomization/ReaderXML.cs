@@ -36,6 +36,8 @@ namespace FirstDocumentCustomization
                         propertyDictionary.Add("firstLineIndentOfOST", xe.Element("firstLineIndentOfOST").Value);
                         propertyDictionary.Add("colorFontOfOST", xe.Element("colorFontOfOST").Value);
                         propertyDictionary.Add("alignmentTextOfOST", xe.Element("alignmentTextOfOST").Value);
+                        propertyDictionary.Add("intervalBeforeOfOST", xe.Element("intervalBeforeOfOST").Value);
+                        propertyDictionary.Add("intervalAfterOfOST", xe.Element("intervalAfterOfOST").Value);
 
                         dictionaryDictionaries.Add(tagName, propertyDictionary);
                     }

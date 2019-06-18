@@ -25,6 +25,7 @@ namespace FirstDocumentCustomization
             XmlElement settingsElem = xDoc.CreateElement("Settings");
             // создаем атрибут name
             XmlAttribute nameAttr = xDoc.CreateAttribute("name");
+
             // создаем элементы
             XmlElement nameFontOfOSTElem = xDoc.CreateElement("nameFontOfOST");
             XmlElement colorFontOfOSTElem = xDoc.CreateElement("colorFontOfOST");
@@ -39,12 +40,23 @@ namespace FirstDocumentCustomization
             XmlElement alignmentTextElem = xDoc.CreateElement("alignmentTextOfOST");
             XmlElement alignmentFooterElem = xDoc.CreateElement("alignmentFooter");
             XmlElement alignmentHeaderElem = xDoc.CreateElement("alignmentHeader");
+            XmlElement intervalBeforeElem = xDoc.CreateElement("intervalBeforeOfOST");
+            XmlElement intervalAfterElem = xDoc.CreateElement("intervalAfterOfOST");
 
-            //создаем текстовые значения для элементов
+
+
+            //создаем текстовые значения для элементов и атрибута
             XmlText nameText = xDoc.CreateTextNode(nodeAttributeName);
+            XmlText nameFontText = xDoc.CreateTextNode("Microsoft Sans Serif");
+            XmlText colorFontText = xDoc.CreateTextNode("Black");
+            XmlText sizeFontText = xDoc.CreateTextNode("8");
 
             //добавляем узлы
             nameAttr.AppendChild(nameText);
+            nameFontOfOSTElem.AppendChild(nameFontText);
+            colorFontOfOSTElem.AppendChild(colorFontText);
+            sizeFontOfOSTElem.AppendChild(sizeFontText);
+
             settingsElem.Attributes.Append(nameAttr);
 
             settingsElem.AppendChild(nameFontOfOSTElem);
@@ -60,6 +72,8 @@ namespace FirstDocumentCustomization
             settingsElem.AppendChild(alignmentTextElem);
             settingsElem.AppendChild(alignmentFooterElem);
             settingsElem.AppendChild(alignmentHeaderElem);
+            settingsElem.AppendChild(intervalBeforeElem);
+            settingsElem.AppendChild(intervalAfterElem);
 
             xRoot.AppendChild(settingsElem);
             xDoc.Save("Config.xml");
@@ -76,9 +90,11 @@ namespace FirstDocumentCustomization
                                  string rightIndent,
                                  string firstLineIndent,
                                  //string nameFontForFooter,
-                                 string alignmentText
+                                 string alignmentText,
                                  //string alignmentFooter,
                                  //string alignmentHeader
+                                 string intervalBefore,
+                                 string intervalAfter
                                                             )
         {
 
@@ -104,7 +120,9 @@ namespace FirstDocumentCustomization
                     xe.Element("alignmentTextOfOST").Value = alignmentText;
                     //xe.Element("alignmentFooterOfOST").Value = alignmentFooter;
                     //xe.Element("alignmentHeaderOfOST").Value = alignmentHeader;
-
+                    xe.Element("alignmentTextOfOST").Value = alignmentText;
+                    xe.Element("intervalBeforeOfOST").Value = intervalBefore;
+                    xe.Element("intervalAfterOfOST").Value = intervalAfter;
                 }
             }
 

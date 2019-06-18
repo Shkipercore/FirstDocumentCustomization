@@ -109,7 +109,9 @@ namespace FirstDocumentCustomization
                                  editBoxLeftIndent.Text,
                                  editBoxRightIndent.Text,
                                  editBoxFirstLineIndent.Text,
-                                 editorXML.ConvertedComboBoxAlignmentTextForIndex(comboBoxAlignmentText.Text)
+                                 editorXML.ConvertedComboBoxAlignmentTextForIndex(comboBoxAlignmentText.Text),
+                                 editBoxIntervalBefore.Text,
+                                 editBoxIntervalAfter.Text
                                  );
         }
 
@@ -168,6 +170,8 @@ namespace FirstDocumentCustomization
                 fontDialog1.Color = myCurrentlySelectedColor;
                 string selectedAligmentText = propertyOfXML["alignmentTextOfOST"];
                 comboBoxAlignmentText.Text = ConvertedIndexForComboBoxAlignmentText(selectedAligmentText);
+                editBoxIntervalBefore.Text = propertyOfXML["intervalBeforeOfOST"];
+                editBoxIntervalAfter.Text = propertyOfXML["intervalAfterOfOST"];
             }
         }
 
