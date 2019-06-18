@@ -15,59 +15,54 @@ namespace FirstDocumentCustomization
         private XmlDocument xDoc;
         //string m_exePath = Environment.CurrentDirectory;
 
-        public bool CreateNode(string nodeAttributeName)
+        public void CreateNode(string nodeAttributeName)
         {
-            if (1 > 0)
-            {
-                XmlDocument xDoc = new XmlDocument();
-                xDoc.Load("Config.xml");
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load("Config.xml");
 
-                XmlElement xRoot = xDoc.DocumentElement;
-                // создаем объект settings
-                XmlElement settingsElem = xDoc.CreateElement("Settings");
-                // создаем атрибут name
-                XmlAttribute nameAttr = xDoc.CreateAttribute("name");
-                // создаем элементы
-                XmlElement nameFontOfOSTElem = xDoc.CreateElement("nameFontOfOST");
-                XmlElement colorFontOfOSTElem = xDoc.CreateElement("colorFontOfOST");
-                XmlElement lineSpacingElem = xDoc.CreateElement("lineSpacingOfOST");
-                XmlElement sizeFontOfOSTElem = xDoc.CreateElement("sizeFontOfOST");
-                XmlElement widthOfOSTElem = xDoc.CreateElement("widthOfOST");
-                XmlElement hightOfOSTElem = xDoc.CreateElement("hightOfOST");
-                XmlElement leftIndentElem = xDoc.CreateElement("leftIndentOfOST");
-                XmlElement rightIndentElem = xDoc.CreateElement("rightIndentOfOST");
-                XmlElement firstLineIndent = xDoc.CreateElement("firstLineIndentOfOST");
-                XmlElement nameFontForFooterOfOSTElem = xDoc.CreateElement("nameFontForFooterOfOST");
-                XmlElement alignmentTextElem = xDoc.CreateElement("alignmentTextOfOST");
-                XmlElement alignmentFooterElem = xDoc.CreateElement("alignmentFooter");
-                XmlElement alignmentHeaderElem = xDoc.CreateElement("alignmentHeader");
+            XmlElement xRoot = xDoc.DocumentElement;
+            // создаем объект settings
+            XmlElement settingsElem = xDoc.CreateElement("Settings");
+            // создаем атрибут name
+            XmlAttribute nameAttr = xDoc.CreateAttribute("name");
+            // создаем элементы
+            XmlElement nameFontOfOSTElem = xDoc.CreateElement("nameFontOfOST");
+            XmlElement colorFontOfOSTElem = xDoc.CreateElement("colorFontOfOST");
+            XmlElement lineSpacingElem = xDoc.CreateElement("lineSpacingOfOST");
+            XmlElement sizeFontOfOSTElem = xDoc.CreateElement("sizeFontOfOST");
+            XmlElement widthOfOSTElem = xDoc.CreateElement("widthOfOST");
+            XmlElement hightOfOSTElem = xDoc.CreateElement("hightOfOST");
+            XmlElement leftIndentElem = xDoc.CreateElement("leftIndentOfOST");
+            XmlElement rightIndentElem = xDoc.CreateElement("rightIndentOfOST");
+            XmlElement firstLineIndent = xDoc.CreateElement("firstLineIndentOfOST");
+            XmlElement nameFontForFooterOfOSTElem = xDoc.CreateElement("nameFontForFooterOfOST");
+            XmlElement alignmentTextElem = xDoc.CreateElement("alignmentTextOfOST");
+            XmlElement alignmentFooterElem = xDoc.CreateElement("alignmentFooter");
+            XmlElement alignmentHeaderElem = xDoc.CreateElement("alignmentHeader");
 
-                //создаем текстовые значения для элементов
-                XmlText nameText = xDoc.CreateTextNode(nodeAttributeName);
+            //создаем текстовые значения для элементов
+            XmlText nameText = xDoc.CreateTextNode(nodeAttributeName);
 
-                //добавляем узлы
-                nameAttr.AppendChild(nameText);
-                settingsElem.Attributes.Append(nameAttr);
+            //добавляем узлы
+            nameAttr.AppendChild(nameText);
+            settingsElem.Attributes.Append(nameAttr);
 
-                settingsElem.AppendChild(nameFontOfOSTElem);
-                settingsElem.AppendChild(colorFontOfOSTElem);
-                settingsElem.AppendChild(lineSpacingElem);
-                settingsElem.AppendChild(sizeFontOfOSTElem);
-                settingsElem.AppendChild(widthOfOSTElem);
-                settingsElem.AppendChild(hightOfOSTElem);
-                settingsElem.AppendChild(leftIndentElem);
-                settingsElem.AppendChild(rightIndentElem);
-                settingsElem.AppendChild(firstLineIndent);
-                settingsElem.AppendChild(nameFontForFooterOfOSTElem);
-                settingsElem.AppendChild(alignmentTextElem);
-                settingsElem.AppendChild(alignmentFooterElem);
-                settingsElem.AppendChild(alignmentHeaderElem);
+            settingsElem.AppendChild(nameFontOfOSTElem);
+            settingsElem.AppendChild(colorFontOfOSTElem);
+            settingsElem.AppendChild(lineSpacingElem);
+            settingsElem.AppendChild(sizeFontOfOSTElem);
+            settingsElem.AppendChild(widthOfOSTElem);
+            settingsElem.AppendChild(hightOfOSTElem);
+            settingsElem.AppendChild(leftIndentElem);
+            settingsElem.AppendChild(rightIndentElem);
+            settingsElem.AppendChild(firstLineIndent);
+            settingsElem.AppendChild(nameFontForFooterOfOSTElem);
+            settingsElem.AppendChild(alignmentTextElem);
+            settingsElem.AppendChild(alignmentFooterElem);
+            settingsElem.AppendChild(alignmentHeaderElem);
 
-                xRoot.AppendChild(settingsElem);
-                xDoc.Save("Config.xml");
-
-            }
-            return false;
+            xRoot.AppendChild(settingsElem);
+            xDoc.Save("Config.xml");
         }
 
         public string AddElement(string tagName,
@@ -86,7 +81,6 @@ namespace FirstDocumentCustomization
                                  //string alignmentHeader
                                                             )
         {
-
 
             XDocument xdoc = XDocument.Load("Config.xml");
             XElement root = xdoc.Element("ConfigSettings");
@@ -144,7 +138,6 @@ namespace FirstDocumentCustomization
 
         public string ConvertedComboBoxAlignmentTextForIndex(string items)
         {
-
             switch (items)
             {
                 case "По левому краю":
@@ -159,12 +152,7 @@ namespace FirstDocumentCustomization
                 case "По ширине":
                     return "3";
             }
-
             return items;
-
         }
-
-
     }
-
 }

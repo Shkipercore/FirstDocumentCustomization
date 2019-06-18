@@ -65,6 +65,7 @@
             this.buttonDeleteWork.TabIndex = 3;
             this.buttonDeleteWork.Text = "Удалить";
             this.buttonDeleteWork.UseVisualStyleBackColor = true;
+            this.buttonDeleteWork.Click += new System.EventHandler(this.buttonDeleteWork_Click);
             // 
             // textBoxAddTypeWork
             // 

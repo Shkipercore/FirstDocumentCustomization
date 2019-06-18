@@ -92,4 +92,64 @@
     <alignmentFooter />
     <alignmentHeader />
   </Settings>
+  <Settings name="test">
+    <nameFontOfOST />
+    <colorFontOfOST />
+    <lineSpacingOfOST />
+    <sizeFontOfOST />
+    <widthOfOST />
+    <hightOfOST />
+    <leftIndentOfOST />
+    <rightIndentOfOST />
+    <firstLineIndentOfOST />
+    <nameFontForFooterOfOST />
+    <alignmentTextOfOST />
+    <alignmentFooter />
+    <alignmentHeader />
+  </Settings>
+  <Settings name="test1">
+    <nameFontOfOST />
+    <colorFontOfOST />
+    <lineSpacingOfOST />
+    <sizeFontOfOST />
+    <widthOfOST />
+    <hightOfOST />
+    <leftIndentOfOST />
+    <rightIndentOfOST />
+    <firstLineIndentOfOST />
+    <nameFontForFooterOfOST />
+    <alignmentTextOfOST />
+    <alignmentFooter />
+    <alignmentHeader />
+  </Settings>
+  <Settings name="leshka krasavchik">
+    <nameFontOfOST />
+    <colorFontOfOST />
+    <lineSpacingOfOST />
+    <sizeFontOfOST />
+    <widthOfOST />
+    <hightOfOST />
+    <leftIndentOfOST />
+    <rightIndentOfOST />
+    <firstLineIndentOfOST />
+    <nameFontForFooterOfOST />
+    <alignmentTextOfOST />
+    <alignmentFooter />
+    <alignmentHeader />
+  </Settings>
+  <Settings name="ОС ТУСУР">
+    <nameFontOfOST />
+    <colorFontOfOST />
+    <lineSpacingOfOST />
+    <sizeFontOfOST />
+    <widthOfOST />
+    <hightOfOST />
+    <leftIndentOfOST />
+    <rightIndentOfOST />
+    <firstLineIndentOfOST />
+    <nameFontForFooterOfOST />
+    <alignmentTextOfOST />
+    <alignmentFooter />
+    <alignmentHeader />
+  </Settings>
 </ConfigSettings>

@@ -45,5 +45,24 @@ namespace FirstDocumentCustomization
                 }
             }
         }
+
+        private void buttonDeleteWork_Click(object sender, EventArgs e)
+        {
+            Ribbon1 ribbon = Globals.Ribbons.Ribbon1;
+            var itemLength = ribbon.comboBoxSelectionWork.Items.Count;
+
+            for (int i = 0; i < itemLength; i++)
+            {
+                var item = ribbon.comboBoxSelectionWork.Items[i];
+                if (item.Label.Equals(checkedListBoxTypeWork.SelectedItem))
+                {
+                    ribbon.comboBoxSelectionWork.Items.Remove(item);
+                    checkedListBoxTypeWork.Items.Remove(checkedListBoxTypeWork.SelectedItem);
+
+                }
+
+            }
+
+        }
     }
 }
