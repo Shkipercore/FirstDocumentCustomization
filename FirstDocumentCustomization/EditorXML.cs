@@ -113,27 +113,19 @@ namespace FirstDocumentCustomization
 
         }
 
-        public bool RemoveElement(string tagName, string tagProperty, string nodeAttributeName)
+        public void RemoveElement(string tagName)
         {
             XDocument xdoc = XDocument.Load("Config.xml");
             XElement root = xdoc.Element("ConfigSettings");
 
             foreach (XElement xe in root.Elements("Settings").ToList())
-
-                if (xe.Element("name").Value == tagName)
+            { 
+                if (xe.Attribute("name").Value == tagName)
                 {
                     xe.Remove();
                 }
-
+            }
             xdoc.Save("Config.xml");
-
-            // выбираем узел у которого атрибут name имеет значение nodeAttributeName
-            //XmlNode DeletedNode = xRoot.SelectSingleNode("Settings[@name="nodeAttributeName);
-            //xRoot.RemoveChild(DeletedNode);
-            //xDoc.Save("users.xml");
-
-            return false;
-
         }
 
         public string ConvertedComboBoxAlignmentTextForIndex(string items)

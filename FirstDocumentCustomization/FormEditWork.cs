@@ -48,21 +48,22 @@ namespace FirstDocumentCustomization
 
         private void buttonDeleteWork_Click(object sender, EventArgs e)
         {
+            EditorXML editorXML = new EditorXML();
             Ribbon1 ribbon = Globals.Ribbons.Ribbon1;
+
             var itemLength = ribbon.comboBoxSelectionWork.Items.Count;
+            var SelectedItem = checkedListBoxTypeWork.SelectedItem;
 
             for (int i = 0; i < itemLength; i++)
             {
                 var item = ribbon.comboBoxSelectionWork.Items[i];
-                if (item.Label.Equals(checkedListBoxTypeWork.SelectedItem))
+                if (item.Label.Equals(SelectedItem))
                 {
                     ribbon.comboBoxSelectionWork.Items.Remove(item);
-                    checkedListBoxTypeWork.Items.Remove(checkedListBoxTypeWork.SelectedItem);
-
+                    checkedListBoxTypeWork.Items.Remove(SelectedItem);
+                    editorXML.RemoveElement(SelectedItem.ToString());
                 }
-
             }
-
         }
     }
 }
