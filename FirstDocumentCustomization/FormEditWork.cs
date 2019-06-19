@@ -52,17 +52,36 @@ namespace FirstDocumentCustomization
             Ribbon1 ribbon = Globals.Ribbons.Ribbon1;
 
             var itemLength = ribbon.comboBoxSelectionWork.Items.Count;
-            var SelectedItem = checkedListBoxTypeWork.SelectedItem;
 
             List<RibbonDropDownItem> listForRemove = new List<RibbonDropDownItem>();
             List<object> listForCheckBox = new List<object>();
 
+            for (int i = 0; i < checkedListBoxTypeWork.Items.Count; i++)
+            {
+                if (checkedListBoxTypeWork.GetItemChecked(i))
+                {
+                    var item = checkedListBoxTypeWork.Items[i];
+                    listForCheckBox.Add(item);
+                }
+
+            }
+
+            foreach (var itemForCheckBox in listForCheckBox)
+            {
+                checkedListBoxTypeWork.Items.Remove(itemForCheckBox);
+                editorXML.RemoveElement(itemForCheckBox.ToString());
+            }
+
             foreach (var item in ribbon.comboBoxSelectionWork.Items)
             {
-                if (item.Label.Equals(SelectedItem))
+                foreach (var itemCheker in listForCheckBox)
                 {
-                    listForRemove.Add(item);
+                    if (item.Label.Equals(itemCheker))
+                    {
+                        listForRemove.Add(item);
+                    }
                 }
+                
 
             }
 
@@ -70,22 +89,6 @@ namespace FirstDocumentCustomization
             {
                 ribbon.comboBoxSelectionWork.Items.Remove(itemForRemove);
             }
-
-            foreach (var item in checkedListBoxTypeWork.Items)
-            {
-                if (item == SelectedItem)
-                {
-                    listForCheckBox.Add(item);
-                } 
-
-            }
-
-            foreach (var itemForCheckBox in listForCheckBox)
-            {
-                checkedListBoxTypeWork.Items.Remove(itemForCheckBox);
-            }
-
-
 
             //for (int i = 0; i < itemLength; i++)
             //{
