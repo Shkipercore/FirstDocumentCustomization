@@ -1,2 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ConfigSettings />
+<ConfigSettings>
+  <Settings name="Курсовая работа">
+    <nameFontOfOST>Times New Roman</nameFontOfOST>
+    <colorFontOfOST>Black</colorFontOfOST>
+    <lineSpacingOfOST>1,5</lineSpacingOfOST>
+    <sizeFontOfOST>14</sizeFontOfOST>
+    <widthOfOST></widthOfOST>
+    <hightOfOST></hightOfOST>
+    <leftIndentOfOST>1,5</leftIndentOfOST>
+    <rightIndentOfOST>1</rightIndentOfOST>
+    <firstLineIndentOfOST>0,5</firstLineIndentOfOST>
+    <nameFontForFooterOfOST>Times New Roman</nameFontForFooterOfOST>
+    <alignmentTextOfOST>wdAlignParagraphLeft</alignmentTextOfOST>
+    <alignmentFooter></alignmentFooter>
+    <alignmentHeader></alignmentHeader>
+    <intervalBeforeOfOST>0</intervalBeforeOfOST>
+    <intervalAfterOfOST>0</intervalAfterOfOST>
+  </Settings>
+  <Settings name="Лабораторная работа">
+    <nameFontOfOST>Calibri</nameFontOfOST>
+    <colorFontOfOST>Blue</colorFontOfOST>
+    <lineSpacingOfOST>4</lineSpacingOfOST>
+    <sizeFontOfOST>12</sizeFontOfOST>
+    <widthOfOST></widthOfOST>
+    <hightOfOST></hightOfOST>
+    <leftIndentOfOST>5</leftIndentOfOST>
+    <rightIndentOfOST></rightIndentOfOST>
+    <firstLineIndentOfOST>6</firstLineIndentOfOST>
+    <nameFontForFooterOfOST></nameFontForFooterOfOST>
+    <alignmentTextOfOST>wdAlignParagraphCenter</alignmentTextOfOST>
+    <alignmentFooter></alignmentFooter>
+    <alignmentHeader></alignmentHeader>
+    <intervalBeforeOfOST></intervalBeforeOfOST>
+    <intervalAfterOfOST></intervalAfterOfOST>
+  </Settings>
+  <Settings name="ВКР">
+    <nameFontOfOST>Arial</nameFontOfOST>
+    <colorFontOfOST>Red</colorFontOfOST>
+    <lineSpacingOfOST>7</lineSpacingOfOST>
+    <sizeFontOfOST>16</sizeFontOfOST>
+    <widthOfOST></widthOfOST>
+    <hightOfOST></hightOfOST>
+    <leftIndentOfOST>8</leftIndentOfOST>
+    <rightIndentOfOST></rightIndentOfOST>
+    <firstLineIndentOfOST>9</firstLineIndentOfOST>
+    <nameFontForFooterOfOST></nameFontForFooterOfOST>
+    <alignmentTextOfOST>wdAlignParagraphJustify</alignmentTextOfOST>
+    <alignmentFooter></alignmentFooter>
+    <alignmentHeader></alignmentHeader>
+    <intervalBeforeOfOST></intervalBeforeOfOST>
+    <intervalAfterOfOST></intervalAfterOfOST>
+  </Settings>
+</ConfigSettings>

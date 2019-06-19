@@ -11,7 +11,7 @@
     <rightIndentOfOST></rightIndentOfOST>
     <firstLineIndentOfOST>0,5</firstLineIndentOfOST>
     <nameFontForFooterOfOST>Times New Roman</nameFontForFooterOfOST>
-    <alignmentTextOfOST>1</alignmentTextOfOST>
+    <alignmentTextOfOST>wdAlignParagraphLeft</alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
     <alignmentHeader></alignmentHeader>
     <intervalBeforeOfOST></intervalBeforeOfOST>
@@ -28,7 +28,7 @@
     <rightIndentOfOST></rightIndentOfOST>
     <firstLineIndentOfOST>6</firstLineIndentOfOST>
     <nameFontForFooterOfOST></nameFontForFooterOfOST>
-    <alignmentTextOfOST>2</alignmentTextOfOST>
+    <alignmentTextOfOST>wdAlignParagraphCenter</alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
     <alignmentHeader></alignmentHeader>
     <intervalBeforeOfOST></intervalBeforeOfOST>
@@ -45,7 +45,7 @@
     <rightIndentOfOST></rightIndentOfOST>
     <firstLineIndentOfOST>9</firstLineIndentOfOST>
     <nameFontForFooterOfOST></nameFontForFooterOfOST>
-    <alignmentTextOfOST>3</alignmentTextOfOST>
+    <alignmentTextOfOST>wdAlignParagraphJustify</alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
     <alignmentHeader></alignmentHeader>
     <intervalBeforeOfOST></intervalBeforeOfOST>

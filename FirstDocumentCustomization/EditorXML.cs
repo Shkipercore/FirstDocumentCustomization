@@ -145,24 +145,5 @@ namespace FirstDocumentCustomization
             }
             xdoc.Save("Config.xml");
         }
-
-        public string ConvertedComboBoxAlignmentTextForIndex(string items)
-        {
-            switch (items)
-            {
-                case "По левому краю":
-                    return "0";
-
-                case "По центру":
-                    return "1";
-
-                case "По правому краю":
-                    return "2";
-
-                case "По ширине":
-                    return "3";
-            }
-            return items;
-        }
     }
 }

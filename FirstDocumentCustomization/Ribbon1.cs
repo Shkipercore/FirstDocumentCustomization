@@ -109,7 +109,7 @@ namespace FirstDocumentCustomization
                                  editBoxLeftIndent.Text,
                                  editBoxRightIndent.Text,
                                  editBoxFirstLineIndent.Text,
-                                 editorXML.ConvertedComboBoxAlignmentTextForIndex(comboBoxAlignmentText.Text),
+                                 ConvertedComboBoxAlignmentTextForIndex(comboBoxAlignmentText.Text),
                                  editBoxIntervalBefore.Text,
                                  editBoxIntervalAfter.Text
                                  );
@@ -186,6 +186,7 @@ namespace FirstDocumentCustomization
 
         public GostOptions IniinitializeGostOptions()
         {
+        
             GostOptions gostOptions = new GostOptions(Globals.ThisAddIn.Application.ActiveDocument,
                                                         fontDialog1.Font.Name.ToString(),
                                                         fontDialog1.Color.Name.ToString(),
@@ -197,9 +198,11 @@ namespace FirstDocumentCustomization
                                                         (float)Convert.ToDouble(editBoxRightIndent.Text),
                                                         (float)Convert.ToDouble(editBoxFirstLineIndent.Text),
                                                         fontDialog1.Font.Name.ToString(),
+                                                        ConvertedComboBoxAlignmentTextForIndex(comboBoxAlignmentText.Text),
                                                         "0",
                                                         "0",
-                                                        "0");
+                                                        (float)Convert.ToDouble(editBoxIntervalBefore.Text),
+                                                        (float)Convert.ToDouble(editBoxIntervalAfter.Text));
 
             //GostOptions gostOptions = new GostOptions();
             //gostOptions.SetCurrentDocument(Globals.ThisAddIn.Application.ActiveDocument);
@@ -232,21 +235,40 @@ namespace FirstDocumentCustomization
 
             switch (items)
             {
-                case "0":
+                case "wdAlignParagraphLeft":
                     return "По левому краю";
 
-                case "1":
+                case "wdAlignParagraphCenter":
                     return "По центру";
 
-                case "2":
+                case "wdAlignParagraphRight":
                     return "По правому краю";
 
-                case "3":
+                case "wdAlignParagraphJustify":
                     return "По ширине";
             }
 
             return items;
 
+        }
+
+        public string ConvertedComboBoxAlignmentTextForIndex(string items)
+        {
+            switch (items)
+            {
+                case "По левому краю":
+                    return "wdAlignParagraphLeft";
+
+                case "По центру":
+                    return "wdAlignParagraphCenter";
+
+                case "По правому краю":
+                    return "wdAlignParagraphRight";
+
+                case "По ширине":
+                    return "wdAlignParagraphJustify";
+            }
+            return items;
         }
 
         public void LoadOfXMLForCash()

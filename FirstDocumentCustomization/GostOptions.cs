@@ -156,6 +156,30 @@ namespace FirstDocumentCustomization
 
         public string alignmentHeader;
 
+        private float intervalBeforeOfOST;
+
+        public float GetIntervalBefore()
+        {
+            return intervalBeforeOfOST;
+        }
+
+        public void SetIntervalBefore(float value)
+        {
+            intervalBeforeOfOST = value;
+        }
+
+        private float intervalAfterOfOST;
+
+        public float GetIntervalAfter()
+        {
+            return intervalBeforeOfOST;
+        }
+
+        public void SetIntervalAfter(float value)
+        {
+            intervalBeforeOfOST = value;
+        }
+
         public GostOptions() { }
         public GostOptions(Word.Document document,
                             String nameFont,
@@ -170,7 +194,9 @@ namespace FirstDocumentCustomization
                             String fontFooter,
                             String alignment,
                             String alignmentHeader,
-                            String alignmentFooter)
+                            String alignmentFooter,
+                            float intervalBefore,
+                            float intervalAfter)
         {
             this.currentDocument = document;
             this.nameFontOfOST = nameFont;
@@ -184,6 +210,8 @@ namespace FirstDocumentCustomization
             this.nameFontForFooterOfOST = fontFooter;
             this.alignmentText = alignment;
             this.alignmentFooter = alignmentFooter;
+            this.intervalBeforeOfOST = intervalBefore;
+            this.intervalAfterOfOST = intervalAfter;
         }
     }
 }

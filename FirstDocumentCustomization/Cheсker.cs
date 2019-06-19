@@ -3,6 +3,7 @@ using System.Text;
 using Word = Microsoft.Office.Interop.Word;
 using Microsoft.Office.Interop.Word;
 using System.Text.RegularExpressions;
+using Application = Microsoft.Office.Interop.Word.Application;
 
 namespace FirstDocumentCustomization
 {
@@ -10,7 +11,7 @@ namespace FirstDocumentCustomization
     {
         private GostOptions gostOptions;
         private Word.Document currentDocument;
-
+        
         public Checker(GostOptions options)
         {
             gostOptions = options;
@@ -185,37 +186,47 @@ namespace FirstDocumentCustomization
 
         private void CheckTextPargraph(Word.Paragraph p)
         {
+
+
             Word.Range range = p.Range;
             if (range.OMaths.Count <= 0)
             {
-                var leftIndent = p.LeftIndent;  // дописать
-                var firstLineIndent = p.FirstLineIndent;
-                var rightIndent = p.RightIndent;
+                var leftIndent = Globals.ThisAddIn.Application.PointsToCentimeters(p.LeftIndent);  // дописать
+                var firstLineIndent = Globals.ThisAddIn.Application.PointsToCentimeters(p.FirstLineIndent);
+                var rightIndent = Globals.ThisAddIn.Application.PointsToCentimeters(p.RightIndent);
+                var intervalBefore = Globals.ThisAddIn.Application.PointsToCentimeters(p.SpaceBefore);
+                var intervalAfter = Globals.ThisAddIn.Application.PointsToCentimeters(p.SpaceAfter);
                 // var leftIndent = Range.Paragraphs.LeftIndent;
                 //  var firstLineIndent = curre.Paragraphs.FirstLineIndent;
                 var nameFont = range.Font.Name;
                 var colorFont = range.Font.Color.ToString();
-                var lineSpacing = p.LineSpacing;
+                var lineSpacing = Globals.ThisAddIn.Application.PointsToCentimeters(p.LineSpacing);
                 var fontSize = range.Font.Size;
-                var aligment = p.Alignment;
-                if (nameFont != gostOptions.GetNameFontOfOST() &&
-                    colorFont != gostOptions.GetColorFontOfOST() &&
-                    lineSpacing != gostOptions.GetLineSpacingOFOST() &&
-                    fontSize != gostOptions.GetSizeFontOfOST())
-                {
+                var aligmentText = p.Alignment;
+                if (nameFont != gostOptions.GetNameFontOfOST() ||
+                    colorFont != gostOptions.GetColorFontOfOST() ||
+                    lineSpacing != gostOptions.GetLineSpacingOFOST() ||
+                    fontSize != gostOptions.GetSizeFontOfOST() ||
+                    leftIndent != gostOptions.GetLeftIndent() ||
+                    firstLineIndent != gostOptions.GetFirstLineIndent() ||
+                    rightIndent != gostOptions.GetRightIndent() ||
+                    intervalBefore != gostOptions.GetIntervalBefore() ||
+                    intervalAfter != gostOptions.GetIntervalAfter() ||
+                    aligmentText.ToString() != gostOptions.alignmentText)
+                    {
                     StringBuilder texForComment = new StringBuilder("Текст не корректно оформлен согласно OST TUSUR: \n");
                     if (leftIndent != gostOptions.GetLeftIndent())
                     {
-                        texForComment.Append("\n Отступ слева выстовлен не корректно " + leftIndent + " необходимо установить отступ слева равный = " + gostOptions.GetLeftIndent());
+                        texForComment.Append("\n Отступ слева установлен не корректно " + leftIndent + " необходимо установить отступ слева равный = " + gostOptions.GetLeftIndent());
                     }
                     if (firstLineIndent != gostOptions.GetFirstLineIndent())
                     {
-                        texForComment.Append("\n Отступ первой строки выстовлен не корректно " + firstLineIndent + " необходимо установить отступ первой строки равный = " + gostOptions.GetFirstLineIndent());
+                        texForComment.Append("\n Отступ первой строки установлен не корректно " + firstLineIndent + " необходимо установить отступ первой строки равный = " + gostOptions.GetFirstLineIndent());
                     }
 
                     if (rightIndent != gostOptions.GetRightIndent())
                     {
-                        texForComment.Append("\n Отступ справа выстовлен не корректно " + rightIndent + " необходимо установить отступ справа равный = " + gostOptions.GetRightIndent());
+                        texForComment.Append("\n Отступ справа установлен не корректно " + rightIndent + " необходимо установить отступ справа равный = " + gostOptions.GetRightIndent());
                     }
 
                     if (nameFont != gostOptions.GetNameFontOfOST())
@@ -233,6 +244,18 @@ namespace FirstDocumentCustomization
                     if (gostOptions.GetSizeFontOfOST() != fontSize)
                     {
                         texForComment.Append("\n Не коррректен размер шрифта, установлен" + fontSize + ", а должен быть установлен " + gostOptions.GetSizeFontOfOST());
+                    }
+                    if (intervalBefore != gostOptions.GetIntervalBefore())
+                    {
+                        texForComment.Append("\n Интервал перед установлен не корректно " + intervalBefore + " необходимо установить интервал перед равный = " + gostOptions.GetIntervalBefore());
+                    }
+                    if (intervalAfter != gostOptions.GetIntervalAfter())
+                    {
+                        texForComment.Append("\n Интервал после установлен не корректно " + intervalAfter + " необходимо установить интервал перед равный = " + gostOptions.GetIntervalAfter());
+                    }
+                    if (aligmentText.ToString() != gostOptions.alignmentText)
+                    {
+                        texForComment.Append("\n Выравнивание текста установлено не корректно " + aligmentText.ToString() + " необходимо установить интервал перед равный = " + gostOptions.alignmentText);
                     }
 
                     AddComment(texForComment.ToString(), range);
