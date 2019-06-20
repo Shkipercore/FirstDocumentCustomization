@@ -3,15 +3,15 @@
   <Settings name="Курсовая работа">
     <nameFontOfOST>Times New Roman</nameFontOfOST>
     <colorFontOfOST>Black</colorFontOfOST>
-    <lineSpacingOfOST>1,5</lineSpacingOfOST>
+    <lineSpacingOfOST>18</lineSpacingOfOST>
     <sizeFontOfOST>14</sizeFontOfOST>
     <widthOfOST></widthOfOST>
     <hightOfOST></hightOfOST>
-    <leftIndentOfOST>1,5</leftIndentOfOST>
-    <rightIndentOfOST>1</rightIndentOfOST>
-    <firstLineIndentOfOST>0,5</firstLineIndentOfOST>
+    <leftIndentOfOST>0</leftIndentOfOST>
+    <rightIndentOfOST>0</rightIndentOfOST>
+    <firstLineIndentOfOST>1,5</firstLineIndentOfOST>
     <nameFontForFooterOfOST>Times New Roman</nameFontForFooterOfOST>
-    <alignmentTextOfOST>wdAlignParagraphLeft</alignmentTextOfOST>
+    <alignmentTextOfOST>wdAlignParagraphJustify</alignmentTextOfOST>
     <alignmentFooter></alignmentFooter>
     <alignmentHeader></alignmentHeader>
     <intervalBeforeOfOST>0</intervalBeforeOfOST>

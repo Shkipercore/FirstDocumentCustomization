@@ -70,7 +70,7 @@ namespace FirstDocumentCustomization
                 var aligment = footerRange.Paragraphs.Alignment;
                 if (!gostOptions.GetNameFontForFooterOfOST().Equals(fontName) && !gostOptions.alignmentFooter.Equals(aligment))
                 {
-                    footerRange.Text = footerRange.Text + "  " + " Не корректно офрмлен нижний колонтитул : стоит шрифт " + fontName + "  ,а должен стоять " + gostOptions.GetNameFontForFooterOfOST() + ", " + " стоит ориентация " + aligment.ToString() + ", должна стоять " + gostOptions.alignmentFooter;
+                    footerRange.Text = footerRange.Text + "  " + " Не корректно оформлен нижний колонтитул : стоит шрифт " + fontName + "  ,а должен стоять " + gostOptions.GetNameFontForFooterOfOST() + ", " + " стоит ориентация " + aligment.ToString() + ", должна стоять " + gostOptions.alignmentFooter;
 
                 }
             }
@@ -89,7 +89,7 @@ namespace FirstDocumentCustomization
                     var alignmentImage = shap.Range.Paragraphs.Alignment;
                     if (alignmentImage != WdParagraphAlignment.wdAlignParagraphCenter)
                     {
-                        AddComment("Необходимо установить орентацию по " + WdParagraphAlignment.wdAlignParagraphCenter.ToString() + " для данного рисунка", shap.Range);
+                        AddComment("Необходимо установить орентацию по центру для данного рисунка", shap.Range);
                     }
                 }
             }
@@ -105,11 +105,11 @@ namespace FirstDocumentCustomization
 
                 if (fontNameTable != gostOptions.GetNameFontOfOST())
                 {
-                    AddComment("Не коректно выбран шрифт для таблицы", table.Range);
+                    AddComment("Не корректно выбран шрифт для таблицы", table.Range);
                 }
                 if (sizeFontTable != gostOptions.GetSizeFontOfOST())
                 {
-                    AddComment("Не коректно выбран шрифт для таблицы", table.Range);
+                    AddComment("Не корректно выбран шрифт для таблицы", table.Range);
                 }
 
 
@@ -186,24 +186,26 @@ namespace FirstDocumentCustomization
 
         private void CheckTextPargraph(Word.Paragraph p)
         {
-
+            Ribbon1 ribbon = new Ribbon1();
 
             Word.Range range = p.Range;
             if (range.OMaths.Count <= 0)
             {
-                var leftIndent = Globals.ThisAddIn.Application.PointsToCentimeters(p.LeftIndent);  // дописать
-                var firstLineIndent = Globals.ThisAddIn.Application.PointsToCentimeters(p.FirstLineIndent);
-                var rightIndent = Globals.ThisAddIn.Application.PointsToCentimeters(p.RightIndent);
-                var intervalBefore = Globals.ThisAddIn.Application.PointsToCentimeters(p.SpaceBefore);
-                var intervalAfter = Globals.ThisAddIn.Application.PointsToCentimeters(p.SpaceAfter);
+                var leftIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.LeftIndent),1);
+                var firstLineIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.FirstLineIndent),1);
+                var rightIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.RightIndent),1);
+                var intervalBefore = p.SpaceBefore;
+                var intervalAfter = p.SpaceAfter;
                 // var leftIndent = Range.Paragraphs.LeftIndent;
                 //  var firstLineIndent = curre.Paragraphs.FirstLineIndent;
                 var nameFont = range.Font.Name;
                 var colorFont = range.Font.Color.ToString();
-                var lineSpacing = Globals.ThisAddIn.Application.PointsToCentimeters(p.LineSpacing);
+                var lineSpacing = p.LineSpacing;
                 var fontSize = range.Font.Size;
                 var aligmentText = p.Alignment;
-                if (nameFont != gostOptions.GetNameFontOfOST() ||
+                var text = range.Text;
+
+                if ((nameFont != gostOptions.GetNameFontOfOST() ||
                     colorFont != gostOptions.GetColorFontOfOST() ||
                     lineSpacing != gostOptions.GetLineSpacingOFOST() ||
                     fontSize != gostOptions.GetSizeFontOfOST() ||
@@ -212,7 +214,7 @@ namespace FirstDocumentCustomization
                     rightIndent != gostOptions.GetRightIndent() ||
                     intervalBefore != gostOptions.GetIntervalBefore() ||
                     intervalAfter != gostOptions.GetIntervalAfter() ||
-                    aligmentText.ToString() != gostOptions.alignmentText)
+                    aligmentText.ToString() != gostOptions.alignmentText) && !(text == "/\r" || text == "\r"))
                     {
                     StringBuilder texForComment = new StringBuilder("Текст не корректно оформлен согласно OST TUSUR: \n");
                     if (leftIndent != gostOptions.GetLeftIndent())
@@ -223,19 +225,17 @@ namespace FirstDocumentCustomization
                     {
                         texForComment.Append("\n Отступ первой строки установлен не корректно " + firstLineIndent + " необходимо установить отступ первой строки равный = " + gostOptions.GetFirstLineIndent());
                     }
-
                     if (rightIndent != gostOptions.GetRightIndent())
                     {
                         texForComment.Append("\n Отступ справа установлен не корректно " + rightIndent + " необходимо установить отступ справа равный = " + gostOptions.GetRightIndent());
                     }
-
                     if (nameFont != gostOptions.GetNameFontOfOST())
                     {
                         texForComment.Append("\n Текущие имя шрифта " + nameFont + ", а должен быть установлен" + gostOptions.GetNameFontOfOST());
                     }
                     if (colorFont != gostOptions.GetColorFontOfOST())
                     {
-                        texForComment.Append("\n Не коректен цвет шрифта, должен быть " + gostOptions.GetColorFontOfOST().ToString());
+                        texForComment.Append("\n Не корректен цвет шрифта, должен быть " + gostOptions.GetColorFontOfOST().ToString());
                     }
                     if (lineSpacing != gostOptions.GetLineSpacingOFOST())
                     {
@@ -251,11 +251,11 @@ namespace FirstDocumentCustomization
                     }
                     if (intervalAfter != gostOptions.GetIntervalAfter())
                     {
-                        texForComment.Append("\n Интервал после установлен не корректно " + intervalAfter + " необходимо установить интервал перед равный = " + gostOptions.GetIntervalAfter());
+                        texForComment.Append("\n Интервал после установлен не корректно " + intervalAfter + " необходимо установить интервал после равный = " + gostOptions.GetIntervalAfter());
                     }
                     if (aligmentText.ToString() != gostOptions.alignmentText)
                     {
-                        texForComment.Append("\n Выравнивание текста установлено не корректно " + aligmentText.ToString() + " необходимо установить интервал перед равный = " + gostOptions.alignmentText);
+                        texForComment.Append("\n Выравнивание текста установлено " + ribbon.ConvertedIndexForComboBoxAlignmentText(aligmentText.ToString()) + " необходимо установить выравнивание текста " + ribbon.ConvertedIndexForComboBoxAlignmentText(gostOptions.alignmentText));
                     }
 
                     AddComment(texForComment.ToString(), range);

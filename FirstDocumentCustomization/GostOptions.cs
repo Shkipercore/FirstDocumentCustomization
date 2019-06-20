@@ -201,6 +201,7 @@ namespace FirstDocumentCustomization
             this.currentDocument = document;
             this.nameFontOfOST = nameFont;
             this.colorFontOfOST = colorFont;
+            this.lineSpacingOFOST = lineSpacing;
             this.sizeFontOfOST = sizeFont;
             this.widthOfOST = width;
             this.hightOfOST = highest;
