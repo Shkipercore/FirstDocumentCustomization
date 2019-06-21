@@ -4,6 +4,7 @@ using Word = Microsoft.Office.Interop.Word;
 using Microsoft.Office.Interop.Word;
 using System.Text.RegularExpressions;
 using Application = Microsoft.Office.Interop.Word.Application;
+using System.Drawing;
 
 namespace FirstDocumentCustomization
 {
@@ -198,15 +199,15 @@ namespace FirstDocumentCustomization
                 var intervalAfter = p.SpaceAfter;
                 // var leftIndent = Range.Paragraphs.LeftIndent;
                 //  var firstLineIndent = curre.Paragraphs.FirstLineIndent;
-                var nameFont = range.Font.Name;
-                var colorFont = range.Font.Color.ToString();
-                var lineSpacing = p.LineSpacing;
+                var nameFont = range.Font.Name; 
+                var colorFont = range.Font.ColorIndex.ToString();
+                var lineSpacing = p.LineSpacing / 12;
                 var fontSize = range.Font.Size;
                 var aligmentText = p.Alignment;
                 var text = range.Text;
 
                 if ((nameFont != gostOptions.GetNameFontOfOST() ||
-                    colorFont != gostOptions.GetColorFontOfOST() ||
+                    (colorFont != ("wd" + gostOptions.GetColorFontOfOST()) && colorFont != "wdNoHighlight") ||
                     lineSpacing != gostOptions.GetLineSpacingOFOST() ||
                     fontSize != gostOptions.GetSizeFontOfOST() ||
                     leftIndent != gostOptions.GetLeftIndent() ||
@@ -216,49 +217,49 @@ namespace FirstDocumentCustomization
                     intervalAfter != gostOptions.GetIntervalAfter() ||
                     aligmentText.ToString() != gostOptions.alignmentText) && !(text == "/\r" || text == "\r"))
                     {
-                    StringBuilder texForComment = new StringBuilder("Текст не корректно оформлен согласно OST TUSUR: \n");
+                    StringBuilder textForComment = new StringBuilder("Текст не корректно оформлен согласно OST TUSUR: \n");
                     if (leftIndent != gostOptions.GetLeftIndent())
                     {
-                        texForComment.Append("\n Отступ слева установлен не корректно " + leftIndent + " необходимо установить отступ слева равный = " + gostOptions.GetLeftIndent());
+                        textForComment.Append("\n Отступ слева установлен не корректно " + leftIndent + " необходимо установить отступ слева равный = " + gostOptions.GetLeftIndent());
                     }
                     if (firstLineIndent != gostOptions.GetFirstLineIndent())
                     {
-                        texForComment.Append("\n Отступ первой строки установлен не корректно " + firstLineIndent + " необходимо установить отступ первой строки равный = " + gostOptions.GetFirstLineIndent());
+                        textForComment.Append("\n Отступ первой строки установлен не корректно " + firstLineIndent + " необходимо установить отступ первой строки равный = " + gostOptions.GetFirstLineIndent());
                     }
                     if (rightIndent != gostOptions.GetRightIndent())
                     {
-                        texForComment.Append("\n Отступ справа установлен не корректно " + rightIndent + " необходимо установить отступ справа равный = " + gostOptions.GetRightIndent());
+                        textForComment.Append("\n Отступ справа установлен не корректно " + rightIndent + " необходимо установить отступ справа равный = " + gostOptions.GetRightIndent());
                     }
                     if (nameFont != gostOptions.GetNameFontOfOST())
                     {
-                        texForComment.Append("\n Текущие имя шрифта " + nameFont + ", а должен быть установлен" + gostOptions.GetNameFontOfOST());
+                        textForComment.Append("\n Текущие имя шрифта " + nameFont + ", а должен быть установлен" + gostOptions.GetNameFontOfOST());
                     }
-                    if (colorFont != gostOptions.GetColorFontOfOST())
+                    if (colorFont != ("wd" + gostOptions.GetColorFontOfOST()) && colorFont != "wdNoHighlight")
                     {
-                        texForComment.Append("\n Не корректен цвет шрифта, должен быть " + gostOptions.GetColorFontOfOST().ToString());
+                        textForComment.Append("\n Не корректен цвет шрифта, должен быть " + gostOptions.GetColorFontOfOST().ToString());
                     }
                     if (lineSpacing != gostOptions.GetLineSpacingOFOST())
                     {
-                        texForComment.Append("\n Не корректно установлен межстрочный интервал");
+                        textForComment.Append("\n Не корректно установлен межстрочный интервал");
                     }
                     if (gostOptions.GetSizeFontOfOST() != fontSize)
                     {
-                        texForComment.Append("\n Не коррректен размер шрифта, установлен" + fontSize + ", а должен быть установлен " + gostOptions.GetSizeFontOfOST());
+                        textForComment.Append("\n Не коррректен размер шрифта, установлен" + fontSize + ", а должен быть установлен " + gostOptions.GetSizeFontOfOST());
                     }
                     if (intervalBefore != gostOptions.GetIntervalBefore())
                     {
-                        texForComment.Append("\n Интервал перед установлен не корректно " + intervalBefore + " необходимо установить интервал перед равный = " + gostOptions.GetIntervalBefore());
+                        textForComment.Append("\n Интервал перед установлен не корректно " + intervalBefore + " необходимо установить интервал перед равный = " + gostOptions.GetIntervalBefore());
                     }
                     if (intervalAfter != gostOptions.GetIntervalAfter())
                     {
-                        texForComment.Append("\n Интервал после установлен не корректно " + intervalAfter + " необходимо установить интервал после равный = " + gostOptions.GetIntervalAfter());
+                        textForComment.Append("\n Интервал после установлен не корректно " + intervalAfter + " необходимо установить интервал после равный = " + gostOptions.GetIntervalAfter());
                     }
                     if (aligmentText.ToString() != gostOptions.alignmentText)
                     {
-                        texForComment.Append("\n Выравнивание текста установлено " + ribbon.ConvertedIndexForComboBoxAlignmentText(aligmentText.ToString()) + " необходимо установить выравнивание текста " + ribbon.ConvertedIndexForComboBoxAlignmentText(gostOptions.alignmentText));
+                        textForComment.Append("\n Выравнивание текста установлено " + ribbon.ConvertedIndexForComboBoxAlignmentText(aligmentText.ToString()) + " необходимо установить выравнивание текста " + ribbon.ConvertedIndexForComboBoxAlignmentText(gostOptions.alignmentText));
                     }
 
-                    AddComment(texForComment.ToString(), range);
+                    AddComment(textForComment.ToString(), range);
                 }
 
             }
