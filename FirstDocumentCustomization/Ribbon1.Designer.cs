@@ -44,10 +44,6 @@
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.comboBoxSelectionWork = this.Factory.CreateRibbonComboBox();
-            this.buttonAddWork = this.Factory.CreateRibbonButton();
-            this.buttonDeleteWork = this.Factory.CreateRibbonButton();
-            this.label1 = this.Factory.CreateRibbonLabel();
-            this.editBoxAddWork = this.Factory.CreateRibbonEditBox();
             this.group3 = this.Factory.CreateRibbonGroup();
             this.buttonFont = this.Factory.CreateRibbonButton();
             this.comboBoxAlignmentText = this.Factory.CreateRibbonComboBox();
@@ -59,19 +55,14 @@
             this.editBoxIntervalBefore = this.Factory.CreateRibbonEditBox();
             this.editBoxIntervalAfter = this.Factory.CreateRibbonEditBox();
             this.editBoxLineSpacing = this.Factory.CreateRibbonEditBox();
-            this.group2 = this.Factory.CreateRibbonGroup();
-            this.buttonLoadProperty = this.Factory.CreateRibbonButton();
             this.buttonApply = this.Factory.CreateRibbonButton();
-            this.buttonSaveSettings = this.Factory.CreateRibbonButton();
             this.buttonEditWork = this.Factory.CreateRibbonButton();
-            this.buttonTest = this.Factory.CreateRibbonButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.group3.SuspendLayout();
             this.group4.SuspendLayout();
-            this.group2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab1
@@ -80,17 +71,14 @@
             this.tab1.Groups.Add(this.group1);
             this.tab1.Groups.Add(this.group3);
             this.tab1.Groups.Add(this.group4);
-            this.tab1.Groups.Add(this.group2);
             this.tab1.Label = "Проверка оформления работ";
             this.tab1.Name = "tab1";
             // 
             // group1
             // 
             this.group1.Items.Add(this.comboBoxSelectionWork);
-            this.group1.Items.Add(this.buttonAddWork);
-            this.group1.Items.Add(this.buttonDeleteWork);
-            this.group1.Items.Add(this.label1);
-            this.group1.Items.Add(this.editBoxAddWork);
+            this.group1.Items.Add(this.buttonEditWork);
+            this.group1.Items.Add(this.buttonApply);
             this.group1.Name = "group1";
             // 
             // comboBoxSelectionWork
@@ -105,31 +93,6 @@
             this.comboBoxSelectionWork.Name = "comboBoxSelectionWork";
             this.comboBoxSelectionWork.Text = null;
             this.comboBoxSelectionWork.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.comboBoxSelectionWork_TextChanged);
-            // 
-            // buttonAddWork
-            // 
-            this.buttonAddWork.Label = "Добавить";
-            this.buttonAddWork.Name = "buttonAddWork";
-            this.buttonAddWork.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonAddWork_Click);
-            // 
-            // buttonDeleteWork
-            // 
-            this.buttonDeleteWork.Label = "Удалить";
-            this.buttonDeleteWork.Name = "buttonDeleteWork";
-            this.buttonDeleteWork.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonDeleteWork_Click);
-            // 
-            // label1
-            // 
-            this.label1.Label = " ";
-            this.label1.Name = "label1";
-            this.label1.ShowLabel = false;
-            // 
-            // editBoxAddWork
-            // 
-            this.editBoxAddWork.Label = "editBoxAddWork";
-            this.editBoxAddWork.Name = "editBoxAddWork";
-            this.editBoxAddWork.ShowLabel = false;
-            this.editBoxAddWork.Text = null;
             // 
             // group3
             // 
@@ -227,43 +190,17 @@
             this.editBoxLineSpacing.ShowImage = true;
             this.editBoxLineSpacing.Text = null;
             // 
-            // group2
-            // 
-            this.group2.Items.Add(this.buttonLoadProperty);
-            this.group2.Items.Add(this.buttonApply);
-            this.group2.Items.Add(this.buttonSaveSettings);
-            this.group2.Items.Add(this.buttonEditWork);
-            this.group2.Items.Add(this.buttonTest);
-            this.group2.Name = "group2";
-            // 
-            // buttonLoadProperty
-            // 
-            this.buttonLoadProperty.Label = "Загрузить";
-            this.buttonLoadProperty.Name = "buttonLoadProperty";
-            // 
             // buttonApply
             // 
             this.buttonApply.Label = "Применить";
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonApply_Click);
             // 
-            // buttonSaveSettings
-            // 
-            this.buttonSaveSettings.Label = "Сохранить";
-            this.buttonSaveSettings.Name = "buttonSaveSettings";
-            this.buttonSaveSettings.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonSaveSettings_Click);
-            // 
             // buttonEditWork
             // 
             this.buttonEditWork.Label = "Редактировать";
             this.buttonEditWork.Name = "buttonEditWork";
             this.buttonEditWork.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonEditWork_Click);
-            // 
-            // buttonTest
-            // 
-            this.buttonTest.Label = "Тест";
-            this.buttonTest.Name = "buttonTest";
-            this.buttonTest.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonTest_Click);
             // 
             // Ribbon1
             // 
@@ -279,8 +216,6 @@
             this.group3.PerformLayout();
             this.group4.ResumeLayout(false);
             this.group4.PerformLayout();
-            this.group2.ResumeLayout(false);
-            this.group2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -290,7 +225,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
         internal Microsoft.Office.Tools.Ribbon.RibbonComboBox comboBoxSelectionWork;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonApply;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group3;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonFont;
@@ -304,15 +238,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBoxLineSpacing;
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator1;
         internal Microsoft.Office.Tools.Ribbon.RibbonComboBox comboBoxAlignmentText;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonSaveSettings;
         internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBoxFirstLineIndent;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonAddWork;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonLoadProperty;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonTest;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonEditWork;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonDeleteWork;
-        internal Microsoft.Office.Tools.Ribbon.RibbonLabel label1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBoxAddWork;
     }
 
     partial class ThisRibbonCollection

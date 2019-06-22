@@ -36,7 +36,7 @@ namespace FirstDocumentCustomization
             {
                 if (editBoxLeftIndent.Text == "")
                 {
-                    editBoxLeftIndent.OfficeImageId = "AdpStoredProcedureQueryDelete";
+                    editBoxLeftIndent.OfficeImageId = "DeclineTask";
                 }
                 else
                 {
@@ -45,7 +45,7 @@ namespace FirstDocumentCustomization
 
                 if (editBoxRightIndent.Text == "")
                 {
-                    editBoxRightIndent.OfficeImageId = "CancelRequest";
+                    editBoxRightIndent.OfficeImageId = "DeclineTask";
                 }
                 else
                 {
@@ -54,7 +54,7 @@ namespace FirstDocumentCustomization
 
                 if (editBoxFirstLineIndent.Text == "")
                 {
-                    editBoxFirstLineIndent.OfficeImageId = "ChangeToDeclineInvitation";
+                    editBoxFirstLineIndent.OfficeImageId = "DeclineTask";
                 }
                 else
                 {
@@ -63,7 +63,7 @@ namespace FirstDocumentCustomization
 
                 if (editBoxLineSpacing.Text == "")
                 {
-                    editBoxLineSpacing.OfficeImageId = "CloseComparison";
+                    editBoxLineSpacing.OfficeImageId = "DeclineTask";
                 }
                 else
                 {
@@ -72,7 +72,7 @@ namespace FirstDocumentCustomization
 
                 if (editBoxIntervalBefore.Text == "")
                 {
-                    editBoxIntervalBefore.OfficeImageId = "ColorRed";
+                    editBoxIntervalBefore.OfficeImageId = "DeclineTask";
                 }
                 else
                 {
@@ -87,9 +87,7 @@ namespace FirstDocumentCustomization
                 {
                     editBoxIntervalAfter.OfficeImageId = "ParagraphSpacingAfter";
                 }
-
             }
-
         }
 
         private void buttonFont_Click(object sender, RibbonControlEventArgs e)
@@ -115,28 +113,6 @@ namespace FirstDocumentCustomization
                                  );
         }
 
-        private void buttonAddWork_Click(object sender, RibbonControlEventArgs e)
-        {
-            if (editBoxAddWork.Text.Length > 0)
-            {
-                RibbonDropDownItem insertItem = Factory.CreateRibbonDropDownItem();
-                insertItem.Label = editBoxAddWork.Text;
-                bool isItemNotPresent = true;
-                foreach (var item in comboBoxSelectionWork.Items)
-                {
-                    if (item.Label.Equals(insertItem.Label))
-                        isItemNotPresent = false;
-                }
-                if (isItemNotPresent)
-                {
-                    comboBoxSelectionWork.Items.Add(insertItem);
-
-                    EditorXML editorXML = new EditorXML();
-                    editorXML.CreateNode(editBoxAddWork.Text);
-                }
-            }
-        }
-
         private string getValueOFXMLForBoxies(Dictionary<string, string> dictionary, string elementName)
         {
             string valueOfDictionary = "";
@@ -145,16 +121,14 @@ namespace FirstDocumentCustomization
             {
                 ///write to log
             }
-
             return valueOfDictionary;
         }
-
 
         private void comboBoxSelectionWork_TextChanged(object sender, RibbonControlEventArgs e)
         {
             var tagName = comboBoxSelectionWork.Text;
             LoadOfXMLForCash();
-   
+
             if (cashOFXML.Keys.Contains(tagName))
             {
                 var propertyOfXML = cashOFXML[tagName];
@@ -175,18 +149,8 @@ namespace FirstDocumentCustomization
             }
         }
 
-        private void comboBoxSelectionWork_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonTest_Click(object sender, RibbonControlEventArgs e)
-        {
-        }
-
         public GostOptions IniinitializeGostOptions()
         {
-        
             GostOptions gostOptions = new GostOptions(Globals.ThisAddIn.Application.ActiveDocument,
                                                         fontDialog1.Font.Name.ToString(),
                                                         fontDialog1.Color.Name.ToString(),
@@ -232,7 +196,6 @@ namespace FirstDocumentCustomization
 
         public string ConvertedIndexForComboBoxAlignmentText(string items)
         {
-
             switch (items)
             {
                 case "wdAlignParagraphLeft":
@@ -247,9 +210,7 @@ namespace FirstDocumentCustomization
                 case "wdAlignParagraphJustify":
                     return "По ширине";
             }
-
             return items;
-
         }
 
         public string ConvertedComboBoxAlignmentTextForIndex(string items)
@@ -293,9 +254,8 @@ namespace FirstDocumentCustomization
         {
             string vkr = "ВКР";
             var itemLength = comboBoxSelectionWork.Items.Count;
-          
 
-            for (int i=0;i< itemLength; i++)
+            for (int i = 0; i < itemLength; i++)
             {
                 var item = comboBoxSelectionWork.Items[i];
                 if (item.Label.Equals(vkr))
