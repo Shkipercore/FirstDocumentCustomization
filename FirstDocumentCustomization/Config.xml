@@ -3,17 +3,17 @@
   <Settings name ="Курсовая работа">
     <nameFontOfOST>Times New Roman</nameFontOfOST>
     <colorFontOfOST>Black</colorFontOfOST>
-    <lineSpacingOfOST>18</lineSpacingOfOST>
+    <lineSpacingOfOST>1,5</lineSpacingOfOST>
     <sizeFontOfOST>14</sizeFontOfOST>
-    <widthOfOST></widthOfOST>
-    <hightOfOST></hightOfOST>
+    <widthOfOST>210</widthOfOST>
+    <hightOfOST>297</hightOfOST>
     <leftIndentOfOST>0</leftIndentOfOST>
     <rightIndentOfOST>0</rightIndentOfOST>
     <firstLineIndentOfOST>1,5</firstLineIndentOfOST>
     <nameFontForFooterOfOST>Times New Roman</nameFontForFooterOfOST>
     <alignmentTextOfOST>wdAlignParagraphJustify</alignmentTextOfOST>
-    <alignmentFooter></alignmentFooter>
-    <alignmentHeader></alignmentHeader>
+    <alignmentFooter>wdAlignParagraphCenter</alignmentFooter>
+    <alignmentHeader>wdAlignParagraphCenter</alignmentHeader>
     <intervalBeforeOfOST>0</intervalBeforeOfOST>
     <intervalAfterOfOST>0</intervalAfterOfOST>
     </Settings>

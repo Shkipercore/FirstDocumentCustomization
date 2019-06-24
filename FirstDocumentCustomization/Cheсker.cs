@@ -90,7 +90,7 @@ namespace FirstDocumentCustomization
                     var alignmentImage = shap.Range.Paragraphs.Alignment;
                     if (alignmentImage != WdParagraphAlignment.wdAlignParagraphCenter)
                     {
-                        AddComment("Необходимо установить орентацию по центру для данного рисунка", shap.Range);
+                        AddComment("Необходимо установить выравнивание по центру для данного рисунка", shap.Range);
                     }
                 }
             }
@@ -110,7 +110,7 @@ namespace FirstDocumentCustomization
                 }
                 if (sizeFontTable != gostOptions.GetSizeFontOfOST())
                 {
-                    AddComment("Не корректно выбран шрифт для таблицы", table.Range);
+                    AddComment("Не корректно размер шрифта для таблицы", table.Range);
                 }
 
 
@@ -217,7 +217,7 @@ namespace FirstDocumentCustomization
                     intervalAfter != gostOptions.GetIntervalAfter() ||
                     aligmentText.ToString() != gostOptions.alignmentText) && !(text == "/\r" || text == "\r"))
                     {
-                    StringBuilder textForComment = new StringBuilder("Текст не корректно оформлен согласно OST TUSUR: \n");
+                    StringBuilder textForComment = new StringBuilder("Текст не корректно оформлен согласно ОС ТУСУР 01-2013: \n");
                     if (leftIndent != gostOptions.GetLeftIndent())
                     {
                         textForComment.Append("\n Отступ слева установлен не корректно " + leftIndent + " необходимо установить отступ слева равный = " + gostOptions.GetLeftIndent());
@@ -232,7 +232,7 @@ namespace FirstDocumentCustomization
                     }
                     if (nameFont != gostOptions.GetNameFontOfOST())
                     {
-                        textForComment.Append("\n Текущие имя шрифта " + nameFont + ", а должен быть установлен" + gostOptions.GetNameFontOfOST());
+                        textForComment.Append("\n Текущие имя шрифта " + nameFont + ", а должен быть установлен " + gostOptions.GetNameFontOfOST());
                     }
                     if (colorFont != ("wd" + gostOptions.GetColorFontOfOST()) && colorFont != "wdNoHighlight")
                     {
@@ -244,7 +244,7 @@ namespace FirstDocumentCustomization
                     }
                     if (gostOptions.GetSizeFontOfOST() != fontSize)
                     {
-                        textForComment.Append("\n Не коррректен размер шрифта, установлен" + fontSize + ", а должен быть установлен " + gostOptions.GetSizeFontOfOST());
+                        textForComment.Append("\n Не корректен размер шрифта, установлен " + fontSize + ", а должен быть установлен " + gostOptions.GetSizeFontOfOST());
                     }
                     if (intervalBefore != gostOptions.GetIntervalBefore())
                     {
@@ -285,7 +285,7 @@ namespace FirstDocumentCustomization
                 }
                 if (p.Range.Font.Size != gostOptions.GetSizeFontOfOST())
                 {
-                    textForComment.Append("\n Не корректно указан размер шрифта " + p.Range.Font.Size + ", необходимо установить " + gostOptions.GetNameFontOfOST());
+                    textForComment.Append("\n Не корректно указан размер шрифта " + p.Range.Font.Size + ", необходимо установить " + gostOptions.GetSizeFontOfOST());
                 }
                 AddComment(textForComment.ToString(), p.Range);
             }

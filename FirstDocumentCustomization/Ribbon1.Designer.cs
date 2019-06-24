@@ -44,6 +44,8 @@
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.comboBoxSelectionWork = this.Factory.CreateRibbonComboBox();
+            this.buttonEditWork = this.Factory.CreateRibbonButton();
+            this.buttonApply = this.Factory.CreateRibbonButton();
             this.group3 = this.Factory.CreateRibbonGroup();
             this.buttonFont = this.Factory.CreateRibbonButton();
             this.comboBoxAlignmentText = this.Factory.CreateRibbonComboBox();
@@ -55,8 +57,6 @@
             this.editBoxIntervalBefore = this.Factory.CreateRibbonEditBox();
             this.editBoxIntervalAfter = this.Factory.CreateRibbonEditBox();
             this.editBoxLineSpacing = this.Factory.CreateRibbonEditBox();
-            this.buttonApply = this.Factory.CreateRibbonButton();
-            this.buttonEditWork = this.Factory.CreateRibbonButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.tab1.SuspendLayout();
@@ -90,9 +90,22 @@
             this.comboBoxSelectionWork.Items.Add(ribbonDropDownItemImpl2);
             this.comboBoxSelectionWork.Items.Add(ribbonDropDownItemImpl3);
             this.comboBoxSelectionWork.Label = "Тип работы";
+            this.comboBoxSelectionWork.MaxLength = 200;
             this.comboBoxSelectionWork.Name = "comboBoxSelectionWork";
             this.comboBoxSelectionWork.Text = null;
             this.comboBoxSelectionWork.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.comboBoxSelectionWork_TextChanged);
+            // 
+            // buttonEditWork
+            // 
+            this.buttonEditWork.Label = "Редактировать";
+            this.buttonEditWork.Name = "buttonEditWork";
+            this.buttonEditWork.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonEditWork_Click);
+            // 
+            // buttonApply
+            // 
+            this.buttonApply.Label = "Применить";
+            this.buttonApply.Name = "buttonApply";
+            this.buttonApply.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonApply_Click);
             // 
             // group3
             // 
@@ -189,18 +202,6 @@
             this.editBoxLineSpacing.OfficeImageId = "LineSpacing";
             this.editBoxLineSpacing.ShowImage = true;
             this.editBoxLineSpacing.Text = null;
-            // 
-            // buttonApply
-            // 
-            this.buttonApply.Label = "Применить";
-            this.buttonApply.Name = "buttonApply";
-            this.buttonApply.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonApply_Click);
-            // 
-            // buttonEditWork
-            // 
-            this.buttonEditWork.Label = "Редактировать";
-            this.buttonEditWork.Name = "buttonEditWork";
-            this.buttonEditWork.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonEditWork_Click);
             // 
             // Ribbon1
             // 
