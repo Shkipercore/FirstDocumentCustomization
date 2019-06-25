@@ -12,7 +12,7 @@ namespace FirstDocumentCustomization
     {
         private GostOptions gostOptions;
         private Word.Document currentDocument;
-        
+
         public Checker(GostOptions options)
         {
             gostOptions = options;
@@ -113,7 +113,6 @@ namespace FirstDocumentCustomization
                     AddComment("Не корректно размер шрифта для таблицы", table.Range);
                 }
 
-
             }
 
         }
@@ -139,7 +138,9 @@ namespace FirstDocumentCustomization
                     {
                         CheckDocumentContents(p);
                     }
+
                     else
+                       if (p.Range.Tables.Count == 0)
                     {
                         if (IsHeader(p))
                         {
@@ -192,14 +193,14 @@ namespace FirstDocumentCustomization
             Word.Range range = p.Range;
             if (range.OMaths.Count <= 0)
             {
-                var leftIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.LeftIndent),1);
-                var firstLineIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.FirstLineIndent),1);
-                var rightIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.RightIndent),1);
+                var leftIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.LeftIndent), 1);
+                var firstLineIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.FirstLineIndent), 1);
+                var rightIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.RightIndent), 1);
                 var intervalBefore = p.SpaceBefore;
                 var intervalAfter = p.SpaceAfter;
                 // var leftIndent = Range.Paragraphs.LeftIndent;
                 //  var firstLineIndent = curre.Paragraphs.FirstLineIndent;
-                var nameFont = range.Font.Name; 
+                var nameFont = range.Font.Name;
                 var colorFont = range.Font.ColorIndex.ToString();
                 var lineSpacing = p.LineSpacing / 12;
                 var fontSize = range.Font.Size;
@@ -216,7 +217,7 @@ namespace FirstDocumentCustomization
                     intervalBefore != gostOptions.GetIntervalBefore() ||
                     intervalAfter != gostOptions.GetIntervalAfter() ||
                     aligmentText.ToString() != gostOptions.alignmentText) && !(text == "/\r" || text == "\r"))
-                    {
+                {
                     StringBuilder textForComment = new StringBuilder("Текст не корректно оформлен согласно ОС ТУСУР 01-2013: \n");
                     if (leftIndent != gostOptions.GetLeftIndent())
                     {
