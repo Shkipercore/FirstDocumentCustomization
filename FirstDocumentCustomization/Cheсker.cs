@@ -140,21 +140,31 @@ namespace FirstDocumentCustomization
                     }
 
                     else
+
                        if (p.Range.Tables.Count == 0)
-                    {
-                        if (IsHeader(p))
-                        {
+                       {
+                            if (IsHeader(p))
+                            {
                             CheckHeaderText(p);
-                        }
-                        else
-                        {
+                            }
+                            else
+                            {
                             if (IsMathText(p))
                             {
                                 CheckMathText(p);
                             }
                             else
-                                CheckTextPargraph(p);
-                        }
+                            {
+                                if (IsSignatureImage(p))
+                                {
+                                    CheckSigurateImage(p);
+                                }
+                                else
+                                {
+                                    CheckTextPargraph(p);
+                                }
+                            }
+                       }
                     }
                 }
             }
@@ -355,6 +365,26 @@ namespace FirstDocumentCustomization
         private int GetPageNumber(Word.Range range)
         {
             return (int)range.get_Information(Word.WdInformation.wdActiveEndPageNumber);
+        }
+
+        private bool IsSignatureImage(Word.Paragraph p)
+        {
+
+            if (Regex.IsMatch(p.Range.Text, " ^(Рисунок ([1-9]+)([.]{1}[1-9]+) - [а-я]*[a-z]*)$"))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private void CheckSigurateImage(Word.Paragraph p)
+        {
+            StringBuilder textForComment = new StringBuilder("Не корректно задана подпись к рисунку");
+
+            textForComment.Append(" \n  Не корректно оформлена подпись к рисунку согласно ОС ТУСУР 01-2013");
+            AddComment(textForComment.ToString(), p.Range);
+
         }
 
     }
