@@ -1,3 +1,4 @@
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Release\Config.xml
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Release\FirstDocumentCustomization.dll
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Release\FirstDocumentCustomization.pdb
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Release\FirstDocumentCustomization.dll.manifest
