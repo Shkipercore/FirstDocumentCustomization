@@ -155,9 +155,18 @@ namespace FirstDocumentCustomization
                             }
                             else
                             {
+                                if (IsSignatureTable(p))
+                                {
+                                    CheckSignatureTable(p);
+                                }
+                                else
+                                {
+                                    CheckTextPargraph(p);
+                                }
+
                                 if (IsSignatureImage(p))
                                 {
-                                    CheckSigurateImage(p);
+                                    CheckSignatureImage(p);
                                 }
                                 else
                                 {
@@ -370,7 +379,7 @@ namespace FirstDocumentCustomization
         private bool IsSignatureImage(Word.Paragraph p)
         {
 
-            if (Regex.IsMatch(p.Range.Text, " ^(Рисунок ([1-9]+)([.]{1}[1-9]+) - [а-я]*[a-z]*)$"))
+            if (Regex.IsMatch(p.Range.Text, "^Рисунок ([1-9]+)([.]{1}[1-9]+) ([–]|[-]){1} .*"))
             {
                 return true;
             }
@@ -378,7 +387,7 @@ namespace FirstDocumentCustomization
             return false;
         }
 
-        private void CheckSigurateImage(Word.Paragraph p)
+        private void CheckSignatureImage(Word.Paragraph p)
         {
             StringBuilder textForComment = new StringBuilder("Не корректно задана подпись к рисунку");
 
@@ -387,5 +396,24 @@ namespace FirstDocumentCustomization
 
         }
 
+        private bool IsSignatureTable(Word.Paragraph p)
+        {
+
+            if (Regex.IsMatch(p.Range.Text, "^Таблица ([1-9]+)([.]{1}[1-9]+) ([–]|[-]){1} .*"))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private void CheckSignatureTable(Word.Paragraph p)
+        {
+            StringBuilder textForComment = new StringBuilder("Не корректно задана подпись к таблице");
+
+            textForComment.Append(" \n  Не корректно оформлена подпись к таблице согласно ОС ТУСУР 01-2013");
+            AddComment(textForComment.ToString(), p.Range);
+
+        }
     }
 }
