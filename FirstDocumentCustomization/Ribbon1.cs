@@ -250,20 +250,5 @@ namespace FirstDocumentCustomization
             formEditWork.Show();
         }
 
-        private void buttonDeleteWork_Click(object sender, RibbonControlEventArgs e)
-        {
-            string vkr = "ВКР";
-            var itemLength = comboBoxSelectionWork.Items.Count;
-
-            for (int i = 0; i < itemLength; i++)
-            {
-                var item = comboBoxSelectionWork.Items[i];
-                if (item.Label.Equals(vkr))
-                {
-                    comboBoxSelectionWork.Items.Remove(item);
-                }
-
-            }
-        }
     }
 }
