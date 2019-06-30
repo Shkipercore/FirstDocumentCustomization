@@ -161,17 +161,16 @@ namespace FirstDocumentCustomization
                                 }
                                 else
                                 {
-                                    CheckTextPargraph(p);
+                                    if (IsSignatureImage(p))
+                                    {
+                                        CheckSignatureImage(p);
+                                    }
+                                    else
+                                    {
+                                        CheckTextPargraph(p);
+                                    }
                                 }
 
-                                if (IsSignatureImage(p))
-                                {
-                                    CheckSignatureImage(p);
-                                }
-                                else
-                                {
-                                    CheckTextPargraph(p);
-                                }
                             }
                        }
                     }
