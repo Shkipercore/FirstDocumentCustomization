@@ -38,6 +38,8 @@ C:\Users\Shkiper\Documents\FirstDocumentCustomization\FirstDocumentCustomization
 C:\Users\Shkiper\Documents\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.dll
 C:\Users\Shkiper\Documents\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.pdb
 C:\Users\Shkiper\Documents\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csprojAssemblyReference.cache
+C:\Users\Shkiper\Documents\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\Config.xml
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\Config.xml
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.dll
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.pdb
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.dll.manifest
@@ -51,4 +53,3 @@ C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustom
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csproj.CopyComplete
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.dll
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.pdb
-C:\Users\Shkiper\Documents\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\Config.xml

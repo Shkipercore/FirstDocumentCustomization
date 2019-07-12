@@ -18,9 +18,11 @@ namespace FirstDocumentCustomization
         {
             var dictionaryDictionaries = new Dictionary<string, Dictionary<string, string>>();
 
-            string path = Path.GetDirectoryName((new System.Uri(Assembly.GetExecutingAssembly().CodeBase)).LocalPath);
+            //string path = Path.GetDirectoryName((new System.Uri(Assembly.GetExecutingAssembly().CodeBase)).LocalPath);
 
-            XDocument xdoc = XDocument.Load(path + "\\Config.xml");
+            //XDocument xdoc = XDocument.Load(path + "\\Config.xml");
+
+            XDocument xdoc = XDocument.Load("Config.xml");
             XElement root = xdoc.Element("ConfigSettings");
         
             foreach (XElement xe in root.Elements("Settings").ToList())
@@ -42,6 +44,8 @@ namespace FirstDocumentCustomization
                         propertyDictionary.Add("intervalBeforeOfOST", xe.Element("intervalBeforeOfOST").Value);
                         propertyDictionary.Add("intervalAfterOfOST", xe.Element("intervalAfterOfOST").Value);
 
+                        //propertyDictionary.Add("name", xe.Element("name").Value);
+
                         dictionaryDictionaries.Add(tagName, propertyDictionary);
                     }
                 }
@@ -49,8 +53,6 @@ namespace FirstDocumentCustomization
             }
 
             return dictionaryDictionaries;
-
         }
-
     }
 }

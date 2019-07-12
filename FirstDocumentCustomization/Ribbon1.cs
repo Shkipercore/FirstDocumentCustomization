@@ -11,6 +11,7 @@ using Application = Microsoft.Office.Interop.Word.Application;
 using System.Configuration;
 using System.Collections.Specialized;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace FirstDocumentCustomization
 {
@@ -21,6 +22,7 @@ namespace FirstDocumentCustomization
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
             fontDialog1.ShowColor = true;
+            LoadTypeWork();
         }
 
         private void buttonApply_Click(object sender, RibbonControlEventArgs e)
@@ -250,5 +252,21 @@ namespace FirstDocumentCustomization
             formEditWork.Show();
         }
 
+        public void LoadTypeWork()
+        {
+            XDocument xdoc = XDocument.Load("Config.xml");
+
+            foreach (XElement settingsElement in xdoc.Element("ConfigSettings").Elements("Settings"))
+            {
+                XAttribute nameAttribute = settingsElement.Attribute("name");
+                if (nameAttribute != null)
+                {
+                    RibbonDropDownItem insertItem = Factory.CreateRibbonDropDownItem();
+                    insertItem.Label = nameAttribute.Value;
+
+                    comboBoxSelectionWork.Items.Add(insertItem);
+                }
+            }
+        }
     }
 }
