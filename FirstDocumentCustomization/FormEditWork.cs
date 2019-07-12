@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Microsoft.Office.Tools;
 using Microsoft.Office.Tools.Ribbon;
 
@@ -18,6 +19,7 @@ namespace FirstDocumentCustomization
         public FormEditWork()
         {
             InitializeComponent();
+            LoadTypeWorkForRibbon();
         }
 
         private void buttonAddTypeWork_Click(object sender, EventArgs e)
@@ -63,7 +65,6 @@ namespace FirstDocumentCustomization
                     var item = checkedListBoxTypeWork.Items[i];
                     listForCheckBox.Add(item);
                 }
-
             }
 
             foreach (var itemForCheckBox in listForCheckBox)
@@ -81,25 +82,26 @@ namespace FirstDocumentCustomization
                         listForRemove.Add(item);
                     }
                 }
-                
-
             }
 
             foreach (var itemForRemove in listForRemove)
             {
                 ribbon.comboBoxSelectionWork.Items.Remove(itemForRemove);
             }
+        }
 
-            //for (int i = 0; i < itemLength; i++)
-            //{
-            //    var item = ribbon.comboBoxSelectionWork.Items[i];
-            //    if (item.Label.Equals(SelectedItem))
-            //    {
-            //        ribbon.comboBoxSelectionWork.Items.Remove(item);
-            //        checkedListBoxTypeWork.Items.Remove(SelectedItem);
-            //        editorXML.RemoveElement(SelectedItem.ToString());
-            //    }
-            //}
+        public void LoadTypeWorkForRibbon()
+        {
+            XDocument xdoc = XDocument.Load("Config.xml");
+
+            foreach (XElement settingsElement in xdoc.Element("ConfigSettings").Elements("Settings"))
+            {
+                XAttribute nameAttribute = settingsElement.Attribute("name");
+                if (nameAttribute != null)
+                {
+                    checkedListBoxTypeWork.Items.Add(nameAttribute.Value);
+                }
+            }
         }
     }
 }

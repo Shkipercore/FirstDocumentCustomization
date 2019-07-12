@@ -22,7 +22,7 @@ namespace FirstDocumentCustomization
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
             fontDialog1.ShowColor = true;
-            LoadTypeWork();
+            LoadTypeWorkForRibbon();
         }
 
         private void buttonApply_Click(object sender, RibbonControlEventArgs e)
@@ -252,7 +252,7 @@ namespace FirstDocumentCustomization
             formEditWork.Show();
         }
 
-        public void LoadTypeWork()
+        public void LoadTypeWorkForRibbon()
         {
             XDocument xdoc = XDocument.Load("Config.xml");
 

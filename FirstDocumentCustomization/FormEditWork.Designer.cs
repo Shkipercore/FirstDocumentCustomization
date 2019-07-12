@@ -38,10 +38,6 @@
             // 
             this.checkedListBoxTypeWork.CheckOnClick = true;
             this.checkedListBoxTypeWork.FormattingEnabled = true;
-            this.checkedListBoxTypeWork.Items.AddRange(new object[] {
-            "Курсовая работа",
-            "Лабораторная работа",
-            "ВКР"});
             this.checkedListBoxTypeWork.Location = new System.Drawing.Point(28, 29);
             this.checkedListBoxTypeWork.Name = "checkedListBoxTypeWork";
             this.checkedListBoxTypeWork.Size = new System.Drawing.Size(180, 94);
