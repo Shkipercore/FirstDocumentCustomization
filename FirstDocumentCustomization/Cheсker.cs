@@ -98,7 +98,6 @@ namespace FirstDocumentCustomization
 
         private void CheckTable()
         {
-
             foreach (Word.Table table in currentDocument.Tables)
             {
                 var fontNameTable = table.Range.Font.Name;
@@ -112,14 +111,18 @@ namespace FirstDocumentCustomization
                 {
                     AddComment("Не корректно размер шрифта для таблицы", table.Range);
                 }
-
             }
-
         }
 
         private void CheckText()
         {
             var paragraphs = gostOptions.GetCurrentDocument().Paragraphs;
+
+            FormProgressBar formProgressBar = new FormProgressBar();
+            formProgressBar.Show();
+
+            formProgressBar.progressBar1.Maximum = paragraphs.Count;
+            formProgressBar.progressBar1.Value = 0;
 
             bool titlePageflag = true;
 
@@ -138,9 +141,7 @@ namespace FirstDocumentCustomization
                     {
                         CheckDocumentContents(p);
                     }
-
                     else
-
                        if (p.Range.Tables.Count == 0)
                        {
                             if (IsHeader(p))
@@ -170,11 +171,17 @@ namespace FirstDocumentCustomization
                                         CheckTextPargraph(p);
                                     }
                                 }
-
                             }
                        }
                     }
                 }
+
+                formProgressBar.progressBar1.Value++;
+            }
+
+            if (formProgressBar.progressBar1.Value == formProgressBar.progressBar1.Maximum)
+            {
+                formProgressBar.Close();
             }
         }
 
@@ -198,10 +205,8 @@ namespace FirstDocumentCustomization
                             AddComment("Не корректен тип шрифта, должен стоять " + gostOptions.GetNameFontOfOST(), p.Range);
                         }
                     }
-
                 }
             }
-
         }
 
         private void CheckTextPargraph(Word.Paragraph p)
@@ -279,10 +284,9 @@ namespace FirstDocumentCustomization
                     }
 
                     AddComment(textForComment.ToString(), range);
+
                 }
-
             }
-
         }
 
         private void AddComment(String textComment, Word.Range range)
@@ -308,7 +312,6 @@ namespace FirstDocumentCustomization
                 }
                 AddComment(textForComment.ToString(), p.Range);
             }
-
         }
 
         private void CheckDocumentContents(Word.Paragraph p)
@@ -543,7 +546,6 @@ namespace FirstDocumentCustomization
 
                 AddComment(textForComment.ToString(), range);
             }
-
         }
     }
 }

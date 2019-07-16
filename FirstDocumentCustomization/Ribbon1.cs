@@ -33,6 +33,7 @@ namespace FirstDocumentCustomization
 
                 Checker checker = new Checker(options);
                 checker.Check();
+ 
             }
             else
             {
