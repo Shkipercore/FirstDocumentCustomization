@@ -414,7 +414,7 @@ namespace FirstDocumentCustomization
                intervalAfter != gostOptions.GetIntervalAfter() ||
                aligmentText != WdParagraphAlignment.wdAlignParagraphCenter))
             {
-                StringBuilder textForComment = new StringBuilder("Не корректн оформлена подпись к рисунку согласно ОС ТУСУР 01-2013: \n");
+                StringBuilder textForComment = new StringBuilder("Не корректно оформлена подпись к рисунку согласно ОС ТУСУР 01-2013: \n");
                 if (leftIndent != gostOptions.GetLeftIndent())
                 {
                     textForComment.Append("\n Отступ слева установлен не корректно " + leftIndent + " необходимо установить отступ слева равный = " + gostOptions.GetLeftIndent());
@@ -463,7 +463,7 @@ namespace FirstDocumentCustomization
         private bool IsSignatureTable(Word.Paragraph p)
         {
 
-            if (Regex.IsMatch(p.Range.Text, "^Таблица ([1-9]+)([.]{1}[1-9]+) ([–]|[-]){1} .*"))
+            if (Regex.IsMatch(p.Range.Text, "^Таблица ([1-9]+)([.]{1}[1-9]+) ([–]|[-]){1} .*") || Regex.IsMatch (p.Range.Text, "^Продолжение таблицы ([1-9]+)([.]{1}[1-9]+).*"))
             {
                 return true;
             }
@@ -473,10 +473,76 @@ namespace FirstDocumentCustomization
 
         private void CheckSignatureTable(Word.Paragraph p)
         {
-            StringBuilder textForComment = new StringBuilder("Не корректно задана подпись к таблице");
+            Ribbon1 ribbon = new Ribbon1();
+            Word.Range range = p.Range;
 
-            textForComment.Append(" \n  Не корректно оформлена подпись к таблице согласно ОС ТУСУР 01-2013");
-            AddComment(textForComment.ToString(), p.Range);
+            var leftIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.LeftIndent), 1);
+            var firstLineIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.FirstLineIndent), 1);
+            var rightIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.RightIndent), 1);
+            var intervalBefore = p.SpaceBefore;
+            var intervalAfter = p.SpaceAfter;
+            var nameFont = range.Font.Name;
+            var colorFont = range.Font.ColorIndex.ToString();
+            var lineSpacing = p.LineSpacing / 12;
+            var fontSize = range.Font.Size;
+            var aligmentText = p.Alignment;
+            var text = range.Text;
+
+            if ((nameFont != gostOptions.GetNameFontOfOST() ||
+                (colorFont != ("wd" + gostOptions.GetColorFontOfOST()) && colorFont != "wdNoHighlight" && colorFont != "9999999") ||
+                lineSpacing != gostOptions.GetLineSpacingOFOST() ||
+                fontSize != gostOptions.GetSizeFontOfOST() ||
+                leftIndent != gostOptions.GetLeftIndent() ||
+                firstLineIndent != 0 ||
+                rightIndent != gostOptions.GetRightIndent() ||
+                intervalBefore != gostOptions.GetIntervalBefore() ||
+                intervalAfter != gostOptions.GetIntervalAfter() ||
+                aligmentText!= WdParagraphAlignment.wdAlignParagraphLeft))
+            {
+                StringBuilder textForComment = new StringBuilder("Не корректно оформлена подпись к таблице согласно ОС ТУСУР 01-2013: \n");
+                if (leftIndent != gostOptions.GetLeftIndent())
+                {
+                    textForComment.Append("\n Отступ слева установлен не корректно " + leftIndent + " необходимо установить отступ слева равный = " + gostOptions.GetLeftIndent());
+                }
+                if (firstLineIndent != 0)
+                {
+                    textForComment.Append("\n Отступ первой строки установлен не корректно " + firstLineIndent + " необходимо установить отступ первой строки равный = " + gostOptions.GetFirstLineIndent());
+                }
+                if (rightIndent != gostOptions.GetRightIndent())
+                {
+                    textForComment.Append("\n Отступ справа установлен не корректно " + rightIndent + " необходимо установить отступ справа равный = " + gostOptions.GetRightIndent());
+                }
+                if (nameFont != gostOptions.GetNameFontOfOST())
+                {
+                    textForComment.Append("\n Текущие имя шрифта " + nameFont + ", а должен быть установлен " + gostOptions.GetNameFontOfOST());
+                }
+                if (colorFont != ("wd" + gostOptions.GetColorFontOfOST()) && colorFont != "wdNoHighlight" && colorFont != "9999999")
+                {
+                    textForComment.Append("\n Не корректен цвет шрифта, должен быть " + gostOptions.GetColorFontOfOST().ToString());
+                }
+                if (lineSpacing != gostOptions.GetLineSpacingOFOST())
+                {
+                    textForComment.Append("\n Не корректно установлен межстрочный интервал");
+                }
+                if (gostOptions.GetSizeFontOfOST() != fontSize)
+                {
+                    textForComment.Append("\n Не корректен размер шрифта, установлен " + fontSize + ", а должен быть установлен " + gostOptions.GetSizeFontOfOST());
+                }
+                if (intervalBefore != gostOptions.GetIntervalBefore())
+                {
+                    textForComment.Append("\n Интервал перед установлен не корректно " + intervalBefore + " необходимо установить интервал перед равный = " + gostOptions.GetIntervalBefore());
+                }
+                if (intervalAfter != gostOptions.GetIntervalAfter())
+                {
+                    textForComment.Append("\n Интервал после установлен не корректно " + intervalAfter + " необходимо установить интервал после равный = " + gostOptions.GetIntervalAfter());
+                }
+                if (aligmentText != WdParagraphAlignment.wdAlignParagraphLeft)
+                {
+                    textForComment.Append("\n Выравнивание подписи к таблице установлено " + ribbon.ConvertedIndexForComboBoxAlignmentText(aligmentText.ToString()) + " необходимо установить выравнивание текста по левому краю");
+                }
+
+                AddComment(textForComment.ToString(), range);
+            }
 
         }
     }
