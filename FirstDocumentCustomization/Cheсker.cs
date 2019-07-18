@@ -336,8 +336,11 @@ namespace FirstDocumentCustomization
 
         private bool IsTitlePage(Word.Paragraph p)
         {
+            Ribbon1 ribbon = Globals.Ribbons.Ribbon1;
+            int numberOfTitlePages = Convert.ToInt32(ribbon.editBoxNumberOfTitlePages.Text);
             var numberPage = GetPageNumber(p.Range);
-            if (numberPage == 1)
+
+            if (numberPage <= numberOfTitlePages)
             {
                 return true;
             }

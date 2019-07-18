@@ -58,6 +58,7 @@
             this.buttonApply = this.Factory.CreateRibbonButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.editBoxNumberOfTitlePages = this.Factory.CreateRibbonEditBox();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.group3.SuspendLayout();
@@ -99,6 +100,7 @@
             // 
             this.group3.Items.Add(this.buttonFont);
             this.group3.Items.Add(this.comboBoxAlignmentText);
+            this.group3.Items.Add(this.editBoxNumberOfTitlePages);
             this.group3.Label = "Текст";
             this.group3.Name = "group3";
             // 
@@ -209,6 +211,11 @@
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonApply_Click);
             // 
+            // editBoxNumberOfTitlePages
+            // 
+            this.editBoxNumberOfTitlePages.Label = "Титульных листов";
+            this.editBoxNumberOfTitlePages.Name = "editBoxNumberOfTitlePages";
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -251,6 +258,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonEditWork;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonSaveSettings;
+        internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBoxNumberOfTitlePages;
     }
 
     partial class ThisRibbonCollection
