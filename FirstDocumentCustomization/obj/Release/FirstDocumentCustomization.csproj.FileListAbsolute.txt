@@ -4,7 +4,6 @@ C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustom
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Release\FirstDocumentCustomization.dll.manifest
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Release\FirstDocumentCustomization.vsto
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Release\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
-C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Release\FirstDocumentCustomization.csprojAssemblyReference.cache
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Release\FirstDocumentCustomization.FormEditWork.resources
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Release\FirstDocumentCustomization.FormProgressBar.resources
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Release\FirstDocumentCustomization.Properties.Resources.resources

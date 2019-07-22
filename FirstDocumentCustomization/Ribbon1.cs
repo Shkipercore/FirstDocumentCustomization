@@ -5,6 +5,7 @@ using Microsoft.Office.Tools.Ribbon;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Media;
 
 namespace FirstDocumentCustomization
 {
@@ -33,6 +34,7 @@ namespace FirstDocumentCustomization
                 if (editBoxLeftIndent.Text == "")
                 {
                     editBoxLeftIndent.OfficeImageId = "DeclineTask";
+                    playSimpleSound();
                 }
                 else
                 {
@@ -42,6 +44,7 @@ namespace FirstDocumentCustomization
                 if (editBoxRightIndent.Text == "")
                 {
                     editBoxRightIndent.OfficeImageId = "DeclineTask";
+                    playSimpleSound();
                 }
                 else
                 {
@@ -51,6 +54,7 @@ namespace FirstDocumentCustomization
                 if (editBoxFirstLineIndent.Text == "")
                 {
                     editBoxFirstLineIndent.OfficeImageId = "DeclineTask";
+                    playSimpleSound();
                 }
                 else
                 {
@@ -60,6 +64,7 @@ namespace FirstDocumentCustomization
                 if (editBoxLineSpacing.Text == "")
                 {
                     editBoxLineSpacing.OfficeImageId = "DeclineTask";
+                    playSimpleSound();
                 }
                 else
                 {
@@ -69,6 +74,7 @@ namespace FirstDocumentCustomization
                 if (editBoxIntervalBefore.Text == "")
                 {
                     editBoxIntervalBefore.OfficeImageId = "DeclineTask";
+                    playSimpleSound();
                 }
                 else
                 {
@@ -78,6 +84,7 @@ namespace FirstDocumentCustomization
                 if (editBoxIntervalAfter.Text == "")
                 {
                     editBoxIntervalAfter.OfficeImageId = "DeclineTask";
+                    playSimpleSound();
                 }
                 else
                 {
@@ -87,6 +94,7 @@ namespace FirstDocumentCustomization
                 if (editBoxNumberOfTitlePages.Text == "")
                 {
                     editBoxNumberOfTitlePages.OfficeImageId = "DeclineTask";
+                    playSimpleSound();
                 }
                 else
                 {
@@ -319,6 +327,12 @@ namespace FirstDocumentCustomization
             {
                 editBoxNumberOfTitlePages.Text = string.Empty;
             }
+        }
+
+        private void playSimpleSound()
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\Windows Background.wav");
+            simpleSound.Play();
         }
     }
 }
