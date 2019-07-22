@@ -3,8 +3,6 @@ using System.Text;
 using Word = Microsoft.Office.Interop.Word;
 using Microsoft.Office.Interop.Word;
 using System.Text.RegularExpressions;
-using Application = Microsoft.Office.Interop.Word.Application;
-using System.Drawing;
 
 namespace FirstDocumentCustomization
 {
@@ -103,11 +101,11 @@ namespace FirstDocumentCustomization
                 var fontNameTable = table.Range.Font.Name;
                 var sizeFontTable = table.Range.Font.Size;
 
-                if (fontNameTable != gostOptions.GetNameFontOfOST())
+                if (fontNameTable != gostOptions.GetNameFontOfOST() && fontNameTable != "")
                 {
                     AddComment("Не корректно выбран шрифт для таблицы", table.Range);
                 }
-                if (sizeFontTable != gostOptions.GetSizeFontOfOST())
+                if (sizeFontTable != gostOptions.GetSizeFontOfOST() && sizeFontTable != 9999999)
                 {
                     AddComment("Не корректно размер шрифта для таблицы", table.Range);
                 }
@@ -124,19 +122,15 @@ namespace FirstDocumentCustomization
             formProgressBar.progressBar1.Maximum = paragraphs.Count;
             formProgressBar.progressBar1.Value = 0;
 
-            bool titlePageflag = true;
-
             foreach (Word.Paragraph p in paragraphs)
             {
 
-                if (titlePageflag && IsTitlePage(p))
+                if (IsTitlePage(p))
                 {
                     CheckTitlePageDocument(p);
                 }
                 else
                 {
-                    titlePageflag = false;
-
                     if (IsContentPage(p))
                     {
                         CheckDocumentContents(p);
@@ -187,25 +181,23 @@ namespace FirstDocumentCustomization
 
         private void CheckTitlePageDocument(Word.Paragraph p)
         {
+            var text = p.Range.Text;
 
-            if (p.Range.Text != "\r")
+            if (!(text == "/\r" || text == "\r"))
             {
-                if (p.Range.Text == "Федеральное государственное бюджетное образовательное учреждение высшего образования")
-                {
                     var fontName = p.Range.Font.Name;
                     var fontSize = p.Range.Font.Size;
                     if (fontName != gostOptions.GetNameFontOfOST() || fontSize != gostOptions.GetSizeFontOfOST())
                     {
-                        if (fontSize != gostOptions.GetSizeFontOfOST())
+                        if (fontSize != gostOptions.GetSizeFontOfOST() && fontSize != 9999999)
                         {
                             AddComment("Некорректен размер шрифта, должен стоять" + gostOptions.GetSizeFontOfOST(), p.Range);
                         }
-                        if (fontName != gostOptions.GetNameFontOfOST())
+                        if (fontName != gostOptions.GetNameFontOfOST() && fontName != "")
                         {
-                            AddComment("Не корректен тип шрифта, должен стоять " + gostOptions.GetNameFontOfOST(), p.Range);
+                            AddComment("Некорректен тип шрифта, должен стоять " + gostOptions.GetNameFontOfOST(), p.Range);
                         }
                     }
-                }
             }
         }
 
@@ -239,7 +231,8 @@ namespace FirstDocumentCustomization
                     rightIndent != gostOptions.GetRightIndent() ||
                     intervalBefore != gostOptions.GetIntervalBefore() ||
                     intervalAfter != gostOptions.GetIntervalAfter() ||
-                    aligmentText.ToString() != gostOptions.alignmentText) && !(text == "/\r" || text == "\r"))
+                    aligmentText.ToString() != gostOptions.alignmentText) &&
+                    !(text == "/\r" || text == "\r" || text == "\f\r"))
                 {
                     StringBuilder textForComment = new StringBuilder("Текст не корректно оформлен согласно ОС ТУСУР 01-2013: \n");
                     if (leftIndent != gostOptions.GetLeftIndent())
@@ -384,7 +377,7 @@ namespace FirstDocumentCustomization
         private bool IsSignatureImage(Word.Paragraph p)
         {
 
-            if (Regex.IsMatch(p.Range.Text, "^Рисунок ([1-9]+)([.]{1}[1-9]+) ([–]|[-]){1} .*"))
+            if (Regex.IsMatch(p.Range.Text, "^Рисунок ([0-9]+)([.]{1}[0-9]+) ([–]|[-]){1} .*") || Regex.IsMatch(p.Range.Text, "^/ Рисунок ([0-9]+)([.]{1}[0-9]+) ([–]|[-]){1} .*"))
             {
                 return true;
             }
@@ -469,7 +462,7 @@ namespace FirstDocumentCustomization
         private bool IsSignatureTable(Word.Paragraph p)
         {
 
-            if (Regex.IsMatch(p.Range.Text, "^Таблица ([1-9]+)([.]{1}[1-9]+) ([–]|[-]){1} .*") || Regex.IsMatch (p.Range.Text, "^Продолжение таблицы ([1-9]+)([.]{1}[1-9]+).*"))
+            if (Regex.IsMatch(p.Range.Text, "^Таблица ([0-9]+)([.]{1}[0-9]+) ([–]|[-]){1} .*") || Regex.IsMatch (p.Range.Text, "^Продолжение таблицы ([0-9]+)([.]{1}[0-9]+).*"))
             {
                 return true;
             }

@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Word = Microsoft.Office.Interop.Word;
 using Microsoft.Office.Tools.Ribbon;
-using Microsoft.Office.Interop.Word;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Application = Microsoft.Office.Interop.Word.Application;
-using System.Configuration;
-using System.Collections.Specialized;
-using System.Xml;
 using System.Xml.Linq;
 
 namespace FirstDocumentCustomization
