@@ -269,5 +269,53 @@ namespace FirstDocumentCustomization
                 }
             }
         }
+
+        private void editBoxRightIndent_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+            if (!Regex.IsMatch(editBoxRightIndent.Text, "^([0-9]+([,]{1}[0-9]+)?)$"))
+            {
+                editBoxRightIndent.Text = string.Empty;
+            }
+        }
+
+        private void editBoxFirstLineIndent_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+            if (!Regex.IsMatch(editBoxFirstLineIndent.Text, "^([0-9]+([,]{1}[0-9]+)?)$"))
+            {
+                editBoxFirstLineIndent.Text = string.Empty;
+            }
+        }
+
+        private void editBoxIntervalBefore_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+            if (!Regex.IsMatch(editBoxIntervalBefore.Text, "^([0-9]+([,]{1}[0-9]+)?)$"))
+            {
+                editBoxIntervalBefore.Text = string.Empty;
+            }
+        }
+
+        private void editBoxIntervalAfter_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+            if (!Regex.IsMatch(editBoxIntervalAfter.Text, "^([0-9]+([,]{1}[0-9]+)?)$"))
+            {
+                editBoxIntervalAfter.Text = string.Empty;
+            }
+        }
+
+        private void editBoxLineSpacing_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+            if (!Regex.IsMatch(editBoxLineSpacing.Text, "^([0-9]+([,]{1}[0-9]+)?)$"))
+            {
+                editBoxLineSpacing.Text = string.Empty;
+            }
+        }
+
+        private void editBoxNumberOfTitlePages_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+            if (!Regex.IsMatch(editBoxNumberOfTitlePages.Text, "^[0-9]+$"))
+            {
+                editBoxNumberOfTitlePages.Text = string.Empty;
+            }
+        }
     }
 }

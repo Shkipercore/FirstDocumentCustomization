@@ -45,6 +45,7 @@
             this.group3 = this.Factory.CreateRibbonGroup();
             this.buttonFont = this.Factory.CreateRibbonButton();
             this.comboBoxAlignmentText = this.Factory.CreateRibbonComboBox();
+            this.editBoxNumberOfTitlePages = this.Factory.CreateRibbonEditBox();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.editBoxLeftIndent = this.Factory.CreateRibbonEditBox();
             this.editBoxRightIndent = this.Factory.CreateRibbonEditBox();
@@ -58,7 +59,6 @@
             this.buttonApply = this.Factory.CreateRibbonButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.editBoxNumberOfTitlePages = this.Factory.CreateRibbonEditBox();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.group3.SuspendLayout();
@@ -128,6 +128,13 @@
             this.comboBoxAlignmentText.ShowImage = true;
             this.comboBoxAlignmentText.Text = null;
             // 
+            // editBoxNumberOfTitlePages
+            // 
+            this.editBoxNumberOfTitlePages.Label = "Титульных листов";
+            this.editBoxNumberOfTitlePages.Name = "editBoxNumberOfTitlePages";
+            this.editBoxNumberOfTitlePages.Text = null;
+            this.editBoxNumberOfTitlePages.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.editBoxNumberOfTitlePages_TextChanged);
+            // 
             // group4
             // 
             this.group4.Items.Add(this.editBoxLeftIndent);
@@ -156,6 +163,7 @@
             this.editBoxRightIndent.OfficeImageId = "IndentRTL";
             this.editBoxRightIndent.ShowImage = true;
             this.editBoxRightIndent.Text = null;
+            this.editBoxRightIndent.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.editBoxRightIndent_TextChanged);
             // 
             // editBoxFirstLineIndent
             // 
@@ -164,6 +172,7 @@
             this.editBoxFirstLineIndent.OfficeImageId = "AlignJustifyMedium";
             this.editBoxFirstLineIndent.ShowImage = true;
             this.editBoxFirstLineIndent.Text = null;
+            this.editBoxFirstLineIndent.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.editBoxFirstLineIndent_TextChanged);
             // 
             // separator1
             // 
@@ -176,6 +185,7 @@
             this.editBoxIntervalBefore.OfficeImageId = "ParagraphSpacingBefore";
             this.editBoxIntervalBefore.ShowImage = true;
             this.editBoxIntervalBefore.Text = null;
+            this.editBoxIntervalBefore.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.editBoxIntervalBefore_TextChanged);
             // 
             // editBoxIntervalAfter
             // 
@@ -184,6 +194,7 @@
             this.editBoxIntervalAfter.OfficeImageId = "ParagraphSpacingAfter";
             this.editBoxIntervalAfter.ShowImage = true;
             this.editBoxIntervalAfter.Text = null;
+            this.editBoxIntervalAfter.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.editBoxIntervalAfter_TextChanged);
             // 
             // editBoxLineSpacing
             // 
@@ -192,6 +203,7 @@
             this.editBoxLineSpacing.OfficeImageId = "LineSpacing";
             this.editBoxLineSpacing.ShowImage = true;
             this.editBoxLineSpacing.Text = null;
+            this.editBoxLineSpacing.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.editBoxLineSpacing_TextChanged);
             // 
             // group2
             // 
@@ -210,11 +222,6 @@
             this.buttonApply.Label = "Применить";
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonApply_Click);
-            // 
-            // editBoxNumberOfTitlePages
-            // 
-            this.editBoxNumberOfTitlePages.Label = "Титульных листов";
-            this.editBoxNumberOfTitlePages.Name = "editBoxNumberOfTitlePages";
             // 
             // Ribbon1
             // 
