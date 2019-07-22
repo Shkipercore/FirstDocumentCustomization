@@ -27,7 +27,7 @@ namespace FirstDocumentCustomization
 
         private void buttonApply_Click(object sender, RibbonControlEventArgs e)
         {
-            if (editBoxLeftIndent.Text != "" && editBoxRightIndent.Text != "" && editBoxFirstLineIndent.Text != "" && editBoxLineSpacing.Text != "" && editBoxIntervalBefore.Text != "" && editBoxIntervalAfter.Text != "")
+            if (editBoxLeftIndent.Text != "" && editBoxRightIndent.Text != "" && editBoxFirstLineIndent.Text != "" && editBoxLineSpacing.Text != "" && editBoxIntervalBefore.Text != "" && editBoxIntervalAfter.Text != "" && editBoxNumberOfTitlePages.Text != "")
             {
                 var options = IniinitializeGostOptions();
 
@@ -90,6 +90,16 @@ namespace FirstDocumentCustomization
                 {
                     editBoxIntervalAfter.OfficeImageId = "ParagraphSpacingAfter";
                 }
+
+                if (editBoxNumberOfTitlePages.Text == "")
+                {
+                    editBoxNumberOfTitlePages.OfficeImageId = "DeclineTask";
+                }
+                else
+                {
+                    editBoxNumberOfTitlePages.OfficeImageId = "Thesaurus";
+                }
+
             }
         }
 

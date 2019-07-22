@@ -46,6 +46,7 @@ C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustom
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\FirstDocumentCustomization.vsto
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.FormEditWork.resources
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.FormProgressBar.resources
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.Properties.Resources.resources
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.Ribbon1.resources
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csproj.GenerateResource.cache
@@ -53,5 +54,3 @@ C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustom
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csproj.CopyComplete
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.dll
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.pdb
-C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.csprojAssemblyReference.cache
-C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Debug\FirstDocumentCustomization.FormProgressBar.resources
