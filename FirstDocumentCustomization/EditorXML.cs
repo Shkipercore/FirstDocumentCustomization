@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -12,7 +13,7 @@ namespace FirstDocumentCustomization
         public void CreateNode(string nodeAttributeName)
         {
             XmlDocument xDoc = new XmlDocument();
-            xDoc.Load("Config.xml");
+            xDoc.Load(Environment.CurrentDirectory+ "//Config.xml");
 
             XmlElement xRoot = xDoc.DocumentElement;
             // создаем объект settings

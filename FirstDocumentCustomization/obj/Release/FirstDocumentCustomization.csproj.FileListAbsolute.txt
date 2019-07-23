@@ -13,3 +13,4 @@ C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustom
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Release\FirstDocumentCustomization.csproj.CopyComplete
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Release\FirstDocumentCustomization.dll
 C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Release\FirstDocumentCustomization.pdb
+C:\Users\Shkiper\Documents\GitHub\FirstDocumentCustomization\FirstDocumentCustomization\obj\Release\FirstDocumentCustomization.csprojAssemblyReference.cache

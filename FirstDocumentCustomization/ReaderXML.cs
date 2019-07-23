@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -14,11 +17,16 @@ namespace FirstDocumentCustomization
         {
             var dictionaryDictionaries = new Dictionary<string, Dictionary<string, string>>();
 
-            //string path = Path.GetDirectoryName((new System.Uri(Assembly.GetExecutingAssembly().CodeBase)).LocalPath);
+            string path = Environment.CurrentDirectory + "\\Config.xml";
+            MessageBox.Show(path);
+            if (!File.Exists(path))
+            {
+                File.Create(path);
+            }
 
-            //XDocument xdoc = XDocument.Load(path + "\\Config.xml");
+            XDocument xdoc = XDocument.Load(path);
 
-            XDocument xdoc = XDocument.Load("Config.xml");
+            //XDocument xdoc = XDocument.Load("Config.xml");
             XElement root = xdoc.Element("ConfigSettings");
         
             foreach (XElement xe in root.Elements("Settings").ToList())

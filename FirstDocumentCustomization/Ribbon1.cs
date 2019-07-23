@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Media;
+using System.IO;
 
 namespace FirstDocumentCustomization
 {
@@ -125,6 +126,7 @@ namespace FirstDocumentCustomization
                                  editBoxIntervalBefore.Text,
                                  editBoxIntervalAfter.Text
                                  );
+
         }
 
         private string getValueOFXMLForBoxies(Dictionary<string, string> dictionary, string elementName)
@@ -266,7 +268,15 @@ namespace FirstDocumentCustomization
 
         public void LoadTypeWorkForRibbon()
         {
-            XDocument xdoc = XDocument.Load("Config.xml");
+
+            string path = Environment.CurrentDirectory + "\\Config.xml";
+            MessageBox.Show(path);
+            if (!File.Exists(path))
+            {
+                File.Create(path);
+            }
+
+            XDocument xdoc = XDocument.Load(path);
 
             foreach (XElement settingsElement in xdoc.Element("ConfigSettings").Elements("Settings"))
             {
