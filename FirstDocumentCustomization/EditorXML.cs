@@ -9,11 +9,12 @@ namespace FirstDocumentCustomization
     {
         private XmlDocument xDoc;
         //string m_exePath = Environment.CurrentDirectory;
+        string userName = Environment.UserName;
 
         public void CreateNode(string nodeAttributeName)
         {
             XmlDocument xDoc = new XmlDocument();
-            xDoc.Load(Environment.CurrentDirectory+ "//Config.xml");
+            xDoc.Load("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
 
             XmlElement xRoot = xDoc.DocumentElement;
             // создаем объект settings
@@ -37,8 +38,6 @@ namespace FirstDocumentCustomization
             XmlElement alignmentHeaderElem = xDoc.CreateElement("alignmentHeader");
             XmlElement intervalBeforeElem = xDoc.CreateElement("intervalBeforeOfOST");
             XmlElement intervalAfterElem = xDoc.CreateElement("intervalAfterOfOST");
-
-
 
             //создаем текстовые значения для элементов и атрибута
             XmlText nameText = xDoc.CreateTextNode(nodeAttributeName);
@@ -71,7 +70,7 @@ namespace FirstDocumentCustomization
             settingsElem.AppendChild(intervalAfterElem);
 
             xRoot.AppendChild(settingsElem);
-            xDoc.Save("Config.xml");
+            xDoc.Save("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
         }
 
         public string AddElement(string tagName,
@@ -93,7 +92,7 @@ namespace FirstDocumentCustomization
                                                             )
         {
 
-            XDocument xdoc = XDocument.Load("Config.xml");
+            XDocument xdoc = XDocument.Load("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
             XElement root = xdoc.Element("ConfigSettings");
 
             foreach (XElement xe in root.Elements("Settings").ToList())
@@ -121,14 +120,14 @@ namespace FirstDocumentCustomization
                 }
             }
 
-            xdoc.Save("Config.xml");
+            xdoc.Save("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
             return nameFont;
 
         }
 
         public void RemoveElement(string tagName)
         {
-            XDocument xdoc = XDocument.Load("Config.xml");
+            XDocument xdoc = XDocument.Load("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
             XElement root = xdoc.Element("ConfigSettings");
 
             foreach (XElement xe in root.Elements("Settings").ToList())
@@ -138,7 +137,7 @@ namespace FirstDocumentCustomization
                     xe.Remove();
                 }
             }
-            xdoc.Save("Config.xml");
+            xdoc.Save("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
         }
     }
 }

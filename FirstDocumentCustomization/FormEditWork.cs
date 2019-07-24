@@ -85,7 +85,9 @@ namespace FirstDocumentCustomization
 
         public void LoadTypeWorkForRibbon()
         {
-            XDocument xdoc = XDocument.Load("Config.xml");
+            string userName = Environment.UserName;
+
+            XDocument xdoc = XDocument.Load("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
 
             foreach (XElement settingsElement in xdoc.Element("ConfigSettings").Elements("Settings"))
             {

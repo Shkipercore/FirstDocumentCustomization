@@ -7,16 +7,20 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Media;
 using System.IO;
+using System.Xml;
 
 namespace FirstDocumentCustomization
 {
     public partial class Ribbon1
     {
+        string userName = Environment.UserName;
+
         private Dictionary<string, Dictionary<string, string>> cashOFXML;
 
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
             fontDialog1.ShowColor = true;
+            CreateXMLFile();
             LoadTypeWorkForRibbon();
         }
 
@@ -266,17 +270,99 @@ namespace FirstDocumentCustomization
             formEditWork.Show();
         }
 
+        public void CreateXMLFile()
+        {
+
+            string path = "C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization";
+
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+            if (!dirInfo.Exists)
+            {
+                dirInfo.Create();
+            }
+
+            string pathfile = "C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml";
+
+            FileInfo fileInf = new FileInfo(pathfile);
+
+            if (!fileInf.Exists)
+            {
+                fileInf.Create();
+
+                XmlDocument xDoc = new XmlDocument();
+                xDoc.Load("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
+
+                XmlElement xRoot = xDoc.DocumentElement;
+                // создаем объект settings
+                XmlElement settingsElem = xDoc.CreateElement("Settings");
+                // создаем атрибут name
+                XmlAttribute nameAttr = xDoc.CreateAttribute("name");
+
+                // создаем элементы
+                XmlElement nameFontOfOSTElem = xDoc.CreateElement("nameFontOfOST");
+                XmlElement colorFontOfOSTElem = xDoc.CreateElement("colorFontOfOST");
+                XmlElement lineSpacingElem = xDoc.CreateElement("lineSpacingOfOST");
+                XmlElement sizeFontOfOSTElem = xDoc.CreateElement("sizeFontOfOST");
+                XmlElement widthOfOSTElem = xDoc.CreateElement("widthOfOST");
+                XmlElement hightOfOSTElem = xDoc.CreateElement("hightOfOST");
+                XmlElement leftIndentElem = xDoc.CreateElement("leftIndentOfOST");
+                XmlElement rightIndentElem = xDoc.CreateElement("rightIndentOfOST");
+                XmlElement firstLineIndent = xDoc.CreateElement("firstLineIndentOfOST");
+                XmlElement nameFontForFooterOfOSTElem = xDoc.CreateElement("nameFontForFooterOfOST");
+                XmlElement alignmentTextElem = xDoc.CreateElement("alignmentTextOfOST");
+                XmlElement alignmentFooterElem = xDoc.CreateElement("alignmentFooter");
+                XmlElement alignmentHeaderElem = xDoc.CreateElement("alignmentHeader");
+                XmlElement intervalBeforeElem = xDoc.CreateElement("intervalBeforeOfOST");
+                XmlElement intervalAfterElem = xDoc.CreateElement("intervalAfterOfOST");
+
+                //создаем текстовые значения для элементов и атрибута
+                XmlText nameText = xDoc.CreateTextNode("ОС ТУСУР");
+                XmlText nameFontText = xDoc.CreateTextNode("Microsoft Sans Serif");
+                XmlText colorFontText = xDoc.CreateTextNode("Black");
+                XmlText sizeFontText = xDoc.CreateTextNode("8");
+
+                //добавляем узлы
+                nameAttr.AppendChild(nameText);
+                nameFontOfOSTElem.AppendChild(nameFontText);
+                colorFontOfOSTElem.AppendChild(colorFontText);
+                sizeFontOfOSTElem.AppendChild(sizeFontText);
+
+                settingsElem.Attributes.Append(nameAttr);
+
+                settingsElem.AppendChild(nameFontOfOSTElem);
+                settingsElem.AppendChild(colorFontOfOSTElem);
+                settingsElem.AppendChild(lineSpacingElem);
+                settingsElem.AppendChild(sizeFontOfOSTElem);
+                settingsElem.AppendChild(widthOfOSTElem);
+                settingsElem.AppendChild(hightOfOSTElem);
+                settingsElem.AppendChild(leftIndentElem);
+                settingsElem.AppendChild(rightIndentElem);
+                settingsElem.AppendChild(firstLineIndent);
+                settingsElem.AppendChild(nameFontForFooterOfOSTElem);
+                settingsElem.AppendChild(alignmentTextElem);
+                settingsElem.AppendChild(alignmentFooterElem);
+                settingsElem.AppendChild(alignmentHeaderElem);
+                settingsElem.AppendChild(intervalBeforeElem);
+                settingsElem.AppendChild(intervalAfterElem);
+
+                xRoot.AppendChild(settingsElem);
+                xDoc.Save("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
+            }
+        }
+
         public void LoadTypeWorkForRibbon()
         {
 
-            string path = Environment.CurrentDirectory + "\\Config.xml";
-            MessageBox.Show(path);
-            if (!File.Exists(path))
-            {
-                File.Create(path);
-            }
+            //string path = Environment.CurrentDirectory + "\\Config.xml";
+            //MessageBox.Show(path);
+            //if (!File.Exists(path))
+            //{
+            //    File.Create(path);
+            //}
 
-            XDocument xdoc = XDocument.Load(path);
+            //XDocument xdoc = XDocument.Load(path);
+
+            XDocument xdoc = XDocument.Load("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
 
             foreach (XElement settingsElement in xdoc.Element("ConfigSettings").Elements("Settings"))
             {
@@ -341,7 +427,7 @@ namespace FirstDocumentCustomization
 
         private void playSimpleSound()
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\Windows Background.wav");
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Windows\Media\Windows Background.wav");
             simpleSound.Play();
         }
     }

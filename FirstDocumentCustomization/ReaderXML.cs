@@ -17,16 +17,16 @@ namespace FirstDocumentCustomization
         {
             var dictionaryDictionaries = new Dictionary<string, Dictionary<string, string>>();
 
-            string path = Environment.CurrentDirectory + "\\Config.xml";
-            MessageBox.Show(path);
-            if (!File.Exists(path))
-            {
-                File.Create(path);
-            }
+            //string path = Environment.CurrentDirectory + "\\Config.xml";
+            //MessageBox.Show(path);
+            //if (!File.Exists(path))
+            //{
+            //    File.Create(path);
+            //}
 
-            XDocument xdoc = XDocument.Load(path);
-
-            //XDocument xdoc = XDocument.Load("Config.xml");
+            //XDocument xdoc = XDocument.Load(path);
+            string userName = Environment.UserName;
+            XDocument xdoc = XDocument.Load("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
             XElement root = xdoc.Element("ConfigSettings");
         
             foreach (XElement xe in root.Elements("Settings").ToList())
