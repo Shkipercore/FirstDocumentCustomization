@@ -37,12 +37,12 @@ namespace FirstDocumentCustomization
 
             if (widthPage != gostOptions.GetWidthOfOST())
             {
-                AddComment("Не корректно указаны размеры страницы, указан Ширина " + widthPage + ",а нужна Ширина " + gostOptions.GetWidthOfOST(), rangeForAddCommit);
+                AddComment("Некорректно указаны размеры страницы, указана ширина " + widthPage + ", необходимо установить ширину " + gostOptions.GetWidthOfOST(), rangeForAddCommit);
             }
 
             if (gostOptions.GetHightOfOST() != highestPage)
             {
-                AddComment("Не корректно указаны размеры страницы, указан  Высота " + highestPage + ", а нужна Высота " + gostOptions.GetHightOfOST(), rangeForAddCommit);
+                AddComment("Некорректно указаны размеры страницы, указана высота " + highestPage + ", необходимо установить высоту " + gostOptions.GetHightOfOST(), rangeForAddCommit);
             }
         }
 
@@ -57,7 +57,7 @@ namespace FirstDocumentCustomization
                 if (gostOptions.alignmentHeader != null && !gostOptions.GetNameFontForHeaderOfOST().Equals(fontName) && !gostOptions.alignmentHeader.Equals(aligment))
                 {
 
-                    headerRange.Text = headerRange.Text + "  " + " Не корректно офрмлен верхний колонтитул : стоит шрифт " + fontName + "  ,а должен стоять " + gostOptions.GetNameFontForHeaderOfOST() + ", " + " стоит ориентация " + aligment.ToString() + ", должна стоять " + gostOptions.alignmentHeader;
+                    headerRange.Text = headerRange.Text + "  " + " Некорректно офрмлен верхний колонтитул: установлен шрифт " + fontName + ", необходимо установить " + gostOptions.GetNameFontForHeaderOfOST() + ", " + "установлена ориентация " + aligment.ToString() + ", необходимо установить " + gostOptions.alignmentHeader;
 
                 }
             }
@@ -69,7 +69,7 @@ namespace FirstDocumentCustomization
                 var aligment = footerRange.Paragraphs.Alignment;
                 if (!gostOptions.GetNameFontForFooterOfOST().Equals(fontName) && !gostOptions.alignmentFooter.Equals(aligment))
                 {
-                    footerRange.Text = footerRange.Text + "  " + " Не корректно оформлен нижний колонтитул : стоит шрифт " + fontName + "  ,а должен стоять " + gostOptions.GetNameFontForFooterOfOST() + ", " + " стоит ориентация " + aligment.ToString() + ", должна стоять " + gostOptions.alignmentFooter;
+                    footerRange.Text = footerRange.Text + "  " + " Некорректно оформлен нижний колонтитул: установлен шрифт " + fontName + ", необходимо установить " + gostOptions.GetNameFontForFooterOfOST() + ", " + "установлена ориентация " + aligment.ToString() + ", необходимо установить " + gostOptions.alignmentFooter;
 
                 }
             }
@@ -103,11 +103,11 @@ namespace FirstDocumentCustomization
 
                 if (fontNameTable != gostOptions.GetNameFontOfOST() && fontNameTable != "")
                 {
-                    AddComment("Не корректно выбран шрифт для таблицы", table.Range);
+                    AddComment("Некорректно установлен шрифт таблицы", table.Range);
                 }
                 if (sizeFontTable != gostOptions.GetSizeFontOfOST() && sizeFontTable != 9999999)
                 {
-                    AddComment("Не корректно размер шрифта для таблицы", table.Range);
+                    AddComment("Некорректно установлен размер шрифта таблицы", table.Range);
                 }
             }
         }
@@ -191,11 +191,11 @@ namespace FirstDocumentCustomization
                     {
                         if (fontSize != gostOptions.GetSizeFontOfOST() && fontSize != 9999999)
                         {
-                            AddComment("Некорректен размер шрифта, должен стоять" + gostOptions.GetSizeFontOfOST(), p.Range);
+                            AddComment("Некорректен размер шрифта, необходимо установить " + gostOptions.GetSizeFontOfOST(), p.Range);
                         }
                         if (fontName != gostOptions.GetNameFontOfOST() && fontName != "")
                         {
-                            AddComment("Некорректен тип шрифта, должен стоять " + gostOptions.GetNameFontOfOST(), p.Range);
+                            AddComment("Некорректен тип шрифта, необходимо установить " + gostOptions.GetNameFontOfOST(), p.Range);
                         }
                     }
             }
@@ -234,42 +234,42 @@ namespace FirstDocumentCustomization
                     aligmentText.ToString() != gostOptions.alignmentText) &&
                     !(text == "/\r" || text == "\r" || text == "\f\r"))
                 {
-                    StringBuilder textForComment = new StringBuilder("Текст не корректно оформлен согласно ОС ТУСУР 01-2013: \n");
+                    StringBuilder textForComment = new StringBuilder("Оформление текста не соответствует ОС ТУСУР 01-2013: \n");
                     if (leftIndent != gostOptions.GetLeftIndent())
                     {
-                        textForComment.Append("\n Отступ слева установлен не корректно " + leftIndent + " необходимо установить отступ слева равный = " + gostOptions.GetLeftIndent());
+                        textForComment.Append("\n Отступ слева установлен некорректно " + leftIndent + " необходимо установить отступ слева равный " + gostOptions.GetLeftIndent());
                     }
                     if (firstLineIndent != gostOptions.GetFirstLineIndent())
                     {
-                        textForComment.Append("\n Отступ первой строки установлен не корректно " + firstLineIndent + " необходимо установить отступ первой строки равный = " + gostOptions.GetFirstLineIndent());
+                        textForComment.Append("\n Отступ первой строки установлен некорректно " + firstLineIndent + " необходимо установить отступ первой строки равный " + gostOptions.GetFirstLineIndent());
                     }
                     if (rightIndent != gostOptions.GetRightIndent())
                     {
-                        textForComment.Append("\n Отступ справа установлен не корректно " + rightIndent + " необходимо установить отступ справа равный = " + gostOptions.GetRightIndent());
+                        textForComment.Append("\n Отступ справа установлен некорректно " + rightIndent + " необходимо установить отступ справа равный " + gostOptions.GetRightIndent());
                     }
                     if (nameFont != gostOptions.GetNameFontOfOST())
                     {
-                        textForComment.Append("\n Текущие имя шрифта " + nameFont + ", а должен быть установлен " + gostOptions.GetNameFontOfOST());
+                        textForComment.Append("\n Текущее имя шрифта " + nameFont + ", необходимо установить " + gostOptions.GetNameFontOfOST());
                     }
                     if (colorFont != ("wd" + gostOptions.GetColorFontOfOST()) && colorFont != "wdNoHighlight" && colorFont != "9999999")
                     {
-                        textForComment.Append("\n Не корректен цвет шрифта, должен быть " + gostOptions.GetColorFontOfOST().ToString());
+                        textForComment.Append("\n Некорректен цвет шрифта, необходимо установить " + gostOptions.GetColorFontOfOST().ToString());
                     }
                     if (lineSpacing != gostOptions.GetLineSpacingOFOST())
                     {
-                        textForComment.Append("\n Не корректно установлен межстрочный интервал");
+                        textForComment.Append("\n Некорректно установлен межстрочный интервал");
                     }
                     if (gostOptions.GetSizeFontOfOST() != fontSize)
                     {
-                        textForComment.Append("\n Не корректен размер шрифта, установлен " + fontSize + ", а должен быть установлен " + gostOptions.GetSizeFontOfOST());
+                        textForComment.Append("\n Некорректен размер шрифта, установлен " + fontSize + ", необходимо установить " + gostOptions.GetSizeFontOfOST());
                     }
                     if (intervalBefore != gostOptions.GetIntervalBefore())
                     {
-                        textForComment.Append("\n Интервал перед установлен не корректно " + intervalBefore + " необходимо установить интервал перед равный = " + gostOptions.GetIntervalBefore());
+                        textForComment.Append("\n Интервал перед установлен некорректно " + intervalBefore + " необходимо установить интервал перед равный " + gostOptions.GetIntervalBefore());
                     }
                     if (intervalAfter != gostOptions.GetIntervalAfter())
                     {
-                        textForComment.Append("\n Интервал после установлен не корректно " + intervalAfter + " необходимо установить интервал после равный = " + gostOptions.GetIntervalAfter());
+                        textForComment.Append("\n Интервал после установлен некорректно " + intervalAfter + " необходимо установить интервал после равный " + gostOptions.GetIntervalAfter());
                     }
                     if (aligmentText.ToString() != gostOptions.alignmentText)
                     {
@@ -294,14 +294,14 @@ namespace FirstDocumentCustomization
         {
             if (p.Range.Font.Name != gostOptions.GetNameFontOfOST() && p.Range.Font.Size != gostOptions.GetSizeFontOfOST())
             {
-                StringBuilder textForComment = new StringBuilder("Не корректно задан заголовок ");
+                StringBuilder textForComment = new StringBuilder("Некорректно задан заголовок ");
                 if (p.Range.Font.Name != gostOptions.GetNameFontOfOST())
                 {
-                    textForComment.Append(" \n  Не корректен выбранный шрифт " + p.Range.Font.Name + ", а необходим " + gostOptions.GetNameFontOfOST());
+                    textForComment.Append(" \n  Некорректен выбранный шрифт " + p.Range.Font.Name + ", необходимо установить " + gostOptions.GetNameFontOfOST());
                 }
                 if (p.Range.Font.Size != gostOptions.GetSizeFontOfOST())
                 {
-                    textForComment.Append("\n Не корректно указан размер шрифта " + p.Range.Font.Size + ", необходимо установить " + gostOptions.GetSizeFontOfOST());
+                    textForComment.Append("\n Некорректно указан размер шрифта " + p.Range.Font.Size + ", необходимо установить " + gostOptions.GetSizeFontOfOST());
                 }
                 AddComment(textForComment.ToString(), p.Range);
             }
@@ -413,42 +413,42 @@ namespace FirstDocumentCustomization
                intervalAfter != gostOptions.GetIntervalAfter() ||
                aligmentText != WdParagraphAlignment.wdAlignParagraphCenter))
             {
-                StringBuilder textForComment = new StringBuilder("Не корректно оформлена подпись к рисунку согласно ОС ТУСУР 01-2013: \n");
+                StringBuilder textForComment = new StringBuilder("Оформление подписи к рисунку не соответствует ОС ТУСУР 01-2013: \n");
                 if (leftIndent != gostOptions.GetLeftIndent())
                 {
-                    textForComment.Append("\n Отступ слева установлен не корректно " + leftIndent + " необходимо установить отступ слева равный = " + gostOptions.GetLeftIndent());
+                    textForComment.Append("\n Отступ слева установлен некорректно " + leftIndent + " необходимо установить отступ слева равный " + gostOptions.GetLeftIndent());
                 }
                 if (firstLineIndent != 0)
                 {
-                    textForComment.Append("\n Отступ первой строки установлен не корректно " + firstLineIndent + " необходимо установить отступ первой строки равный = 0");
+                    textForComment.Append("\n Отступ первой строки установлен некорректно " + firstLineIndent + " необходимо установить отступ первой строки равный 0");
                 }
                 if (rightIndent != gostOptions.GetRightIndent())
                 {
-                    textForComment.Append("\n Отступ справа установлен не корректно " + rightIndent + " необходимо установить отступ справа равный = " + gostOptions.GetRightIndent());
+                    textForComment.Append("\n Отступ справа установлен некорректно " + rightIndent + " необходимо установить отступ справа равный " + gostOptions.GetRightIndent());
                 }
                 if (nameFont != gostOptions.GetNameFontOfOST())
                 {
-                    textForComment.Append("\n Текущие имя шрифта " + nameFont + ", а должен быть установлен " + gostOptions.GetNameFontOfOST());
+                    textForComment.Append("\n Текущие имя шрифта " + nameFont + ", необходимо установить " + gostOptions.GetNameFontOfOST());
                 }
                 if (colorFont != ("wd" + gostOptions.GetColorFontOfOST()) && colorFont != "wdNoHighlight" && colorFont != "9999999")
                 {
-                    textForComment.Append("\n Не корректен цвет шрифта, должен быть " + gostOptions.GetColorFontOfOST().ToString());
+                    textForComment.Append("\n Некорректен цвет шрифта, необходимо установить " + gostOptions.GetColorFontOfOST().ToString());
                 }
                 if (lineSpacing != gostOptions.GetLineSpacingOFOST())
                 {
-                    textForComment.Append("\n Не корректно установлен межстрочный интервал");
+                    textForComment.Append("\n Некорректно установлен межстрочный интервал");
                 }
                 if (gostOptions.GetSizeFontOfOST() != fontSize)
                 {
-                    textForComment.Append("\n Не корректен размер шрифта, установлен " + fontSize + ", а должен быть установлен " + gostOptions.GetSizeFontOfOST());
+                    textForComment.Append("\n Некорректен размер шрифта, установлен " + fontSize + ", необходимо установить " + gostOptions.GetSizeFontOfOST());
                 }
                 if (intervalBefore != gostOptions.GetIntervalBefore())
                 {
-                    textForComment.Append("\n Интервал перед установлен не корректно " + intervalBefore + " необходимо установить интервал перед равный = " + gostOptions.GetIntervalBefore());
+                    textForComment.Append("\n Интервал перед установлен некорректно " + intervalBefore + " необходимо установить интервал перед равный " + gostOptions.GetIntervalBefore());
                 }
                 if (intervalAfter != gostOptions.GetIntervalAfter())
                 {
-                    textForComment.Append("\n Интервал после установлен не корректно " + intervalAfter + " необходимо установить интервал после равный = " + gostOptions.GetIntervalAfter());
+                    textForComment.Append("\n Интервал после установлен некорректно " + intervalAfter + " необходимо установить интервал после равный " + gostOptions.GetIntervalAfter());
                 }
                 if (aligmentText != WdParagraphAlignment.wdAlignParagraphCenter)
                 {
@@ -498,42 +498,42 @@ namespace FirstDocumentCustomization
                 intervalAfter != gostOptions.GetIntervalAfter() ||
                 aligmentText!= WdParagraphAlignment.wdAlignParagraphLeft))
             {
-                StringBuilder textForComment = new StringBuilder("Не корректно оформлена подпись к таблице согласно ОС ТУСУР 01-2013: \n");
+                StringBuilder textForComment = new StringBuilder("Оформление подписи к таблице не соответствует ОС ТУСУР 01-2013: \n");
                 if (leftIndent != gostOptions.GetLeftIndent())
                 {
-                    textForComment.Append("\n Отступ слева установлен не корректно " + leftIndent + " необходимо установить отступ слева равный = " + gostOptions.GetLeftIndent());
+                    textForComment.Append("\n Отступ слева установлен некорректно " + leftIndent + " необходимо установить отступ слева равный " + gostOptions.GetLeftIndent());
                 }
                 if (firstLineIndent != 0)
                 {
-                    textForComment.Append("\n Отступ первой строки установлен не корректно " + firstLineIndent + " необходимо установить отступ первой строки равный = " + gostOptions.GetFirstLineIndent());
+                    textForComment.Append("\n Отступ первой строки установлен некорректно " + firstLineIndent + " необходимо установить отступ первой строки равный " + gostOptions.GetFirstLineIndent());
                 }
                 if (rightIndent != gostOptions.GetRightIndent())
                 {
-                    textForComment.Append("\n Отступ справа установлен не корректно " + rightIndent + " необходимо установить отступ справа равный = " + gostOptions.GetRightIndent());
+                    textForComment.Append("\n Отступ справа установлен некорректно " + rightIndent + " необходимо установить отступ справа равный " + gostOptions.GetRightIndent());
                 }
                 if (nameFont != gostOptions.GetNameFontOfOST())
                 {
-                    textForComment.Append("\n Текущие имя шрифта " + nameFont + ", а должен быть установлен " + gostOptions.GetNameFontOfOST());
+                    textForComment.Append("\n Текущие имя шрифта " + nameFont + ", необходимо установить " + gostOptions.GetNameFontOfOST());
                 }
                 if (colorFont != ("wd" + gostOptions.GetColorFontOfOST()) && colorFont != "wdNoHighlight" && colorFont != "9999999")
                 {
-                    textForComment.Append("\n Не корректен цвет шрифта, должен быть " + gostOptions.GetColorFontOfOST().ToString());
+                    textForComment.Append("\n Некорректен цвет шрифта, необходимо установить " + gostOptions.GetColorFontOfOST().ToString());
                 }
                 if (lineSpacing != gostOptions.GetLineSpacingOFOST())
                 {
-                    textForComment.Append("\n Не корректно установлен межстрочный интервал");
+                    textForComment.Append("\n Некорректно установлен межстрочный интервал");
                 }
                 if (gostOptions.GetSizeFontOfOST() != fontSize)
                 {
-                    textForComment.Append("\n Не корректен размер шрифта, установлен " + fontSize + ", а должен быть установлен " + gostOptions.GetSizeFontOfOST());
+                    textForComment.Append("\n Некорректен размер шрифта, установлен " + fontSize + ", необходимо установить " + gostOptions.GetSizeFontOfOST());
                 }
                 if (intervalBefore != gostOptions.GetIntervalBefore())
                 {
-                    textForComment.Append("\n Интервал перед установлен не корректно " + intervalBefore + " необходимо установить интервал перед равный = " + gostOptions.GetIntervalBefore());
+                    textForComment.Append("\n Интервал перед установлен некорректно " + intervalBefore + " необходимо установить интервал перед равный " + gostOptions.GetIntervalBefore());
                 }
                 if (intervalAfter != gostOptions.GetIntervalAfter())
                 {
-                    textForComment.Append("\n Интервал после установлен не корректно " + intervalAfter + " необходимо установить интервал после равный = " + gostOptions.GetIntervalAfter());
+                    textForComment.Append("\n Интервал после установлен некорректно " + intervalAfter + " необходимо установить интервал после равный " + gostOptions.GetIntervalAfter());
                 }
                 if (aligmentText != WdParagraphAlignment.wdAlignParagraphLeft)
                 {
