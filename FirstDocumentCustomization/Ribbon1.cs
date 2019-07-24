@@ -290,13 +290,24 @@ namespace FirstDocumentCustomization
                 fileInf.Create();
 
                 XmlDocument xDoc = new XmlDocument();
-                xDoc.Load("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
 
-                XmlElement xRoot = xDoc.DocumentElement;
+                /*<?xml version="1.0" encoding="utf-8" ?> */
+                //создание объявления (декларации) документа
+                XmlDeclaration XmlDec = xDoc.CreateXmlDeclaration("1.0", "utf-8", null);
+                //добавляем в документ
+                xDoc.AppendChild(XmlDec);
+
+                //создание корневого элемента 
+                XmlElement rootElem = xDoc.CreateElement("ConfigSettings");
+                //добавляем в документ
+                xDoc.AppendChild(rootElem);
+  
                 // создаем объект settings
                 XmlElement settingsElem = xDoc.CreateElement("Settings");
                 // создаем атрибут name
                 XmlAttribute nameAttr = xDoc.CreateAttribute("name");
+                //добавляем в rootElem
+                rootElem.AppendChild(settingsElem);
 
                 // создаем элементы
                 XmlElement nameFontOfOSTElem = xDoc.CreateElement("nameFontOfOST");
@@ -345,23 +356,12 @@ namespace FirstDocumentCustomization
                 settingsElem.AppendChild(intervalBeforeElem);
                 settingsElem.AppendChild(intervalAfterElem);
 
-                xRoot.AppendChild(settingsElem);
                 xDoc.Save("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
             }
         }
 
         public void LoadTypeWorkForRibbon()
         {
-
-            //string path = Environment.CurrentDirectory + "\\Config.xml";
-            //MessageBox.Show(path);
-            //if (!File.Exists(path))
-            //{
-            //    File.Create(path);
-            //}
-
-            //XDocument xdoc = XDocument.Load(path);
-
             XDocument xdoc = XDocument.Load("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
 
             foreach (XElement settingsElement in xdoc.Element("ConfigSettings").Elements("Settings"))

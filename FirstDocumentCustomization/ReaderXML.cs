@@ -11,20 +11,10 @@ namespace FirstDocumentCustomization
 {
     public class ReaderXML
     {
-        private XmlDocument xDoc;
-
         public Dictionary<string,Dictionary<string, string>> GetDictionaryPropertyOfXML( List<String>  listTagName)
         {
             var dictionaryDictionaries = new Dictionary<string, Dictionary<string, string>>();
 
-            //string path = Environment.CurrentDirectory + "\\Config.xml";
-            //MessageBox.Show(path);
-            //if (!File.Exists(path))
-            //{
-            //    File.Create(path);
-            //}
-
-            //XDocument xdoc = XDocument.Load(path);
             string userName = Environment.UserName;
             XDocument xdoc = XDocument.Load("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
             XElement root = xdoc.Element("ConfigSettings");

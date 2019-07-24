@@ -7,7 +7,7 @@ namespace FirstDocumentCustomization
 {
     public class EditorXML
     {
-        private XmlDocument xDoc;
+        //private XmlDocument xDoc;
         //string m_exePath = Environment.CurrentDirectory;
         string userName = Environment.UserName;
 
@@ -122,7 +122,6 @@ namespace FirstDocumentCustomization
 
             xdoc.Save("C:\\Users\\" + userName + "\\AppData\\Local\\FirstDocumentCustomization\\Config.xml");
             return nameFont;
-
         }
 
         public void RemoveElement(string tagName)
