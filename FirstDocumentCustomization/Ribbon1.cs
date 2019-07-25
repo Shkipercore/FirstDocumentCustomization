@@ -287,7 +287,6 @@ namespace FirstDocumentCustomization
 
             if (!fileInf.Exists)
             {
-                fileInf.Create();
 
                 XmlDocument xDoc = new XmlDocument();
 
