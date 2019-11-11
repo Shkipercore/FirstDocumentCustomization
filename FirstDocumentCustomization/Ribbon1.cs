@@ -156,12 +156,15 @@ namespace FirstDocumentCustomization
                 editBoxLeftIndent.Text = propertyOfXML["leftIndentOfOST"];
                 editBoxRightIndent.Text = propertyOfXML["rightIndentOfOST"];
                 editBoxFirstLineIndent.Text = propertyOfXML["firstLineIndentOfOST"];
+
                 string myCurrentlySelectedFont = propertyOfXML["nameFontOfOST"];
                 string myCurrentlySelectedSize = propertyOfXML["sizeFontOfOST"];
-                fontDialog1.Font = new System.Drawing.Font(myCurrentlySelectedFont, (float)Convert.ToInt32(myCurrentlySelectedSize));
+                fontDialog1.Font = new System.Drawing.Font(myCurrentlySelectedFont, Convert.ToSingle(Math.Round(Convert.ToDouble(myCurrentlySelectedSize), 0)));
+
                 string selectedColorFromXML = propertyOfXML["colorFontOfOST"];
                 System.Drawing.Color myCurrentlySelectedColor = System.Drawing.Color.FromName(selectedColorFromXML);
                 fontDialog1.Color = myCurrentlySelectedColor;
+
                 string selectedAligmentText = propertyOfXML["alignmentTextOfOST"];
                 comboBoxAlignmentText.Text = ConvertedIndexForComboBoxAlignmentText(selectedAligmentText);
                 editBoxIntervalBefore.Text = propertyOfXML["intervalBeforeOfOST"];
