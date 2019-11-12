@@ -496,7 +496,7 @@ namespace FirstDocumentCustomization
                 rightIndent != gostOptions.GetRightIndent() ||
                 intervalBefore != gostOptions.GetIntervalBefore() ||
                 intervalAfter != gostOptions.GetIntervalAfter() ||
-                aligmentText!= WdParagraphAlignment.wdAlignParagraphLeft))
+                (aligmentText != WdParagraphAlignment.wdAlignParagraphLeft && aligmentText != WdParagraphAlignment.wdAlignParagraphJustify)))
             {
                 StringBuilder textForComment = new StringBuilder("Оформление подписи к таблице не соответствует ОС ТУСУР 01-2013: \n");
                 if (leftIndent != gostOptions.GetLeftIndent())
@@ -505,7 +505,7 @@ namespace FirstDocumentCustomization
                 }
                 if (firstLineIndent != 0)
                 {
-                    textForComment.Append("\n Отступ первой строки установлен некорректно " + firstLineIndent + " необходимо установить отступ первой строки равный " + gostOptions.GetFirstLineIndent());
+                    textForComment.Append("\n Отступ первой строки установлен некорректно " + firstLineIndent + " необходимо установить отступ первой строки равный 0");
                 }
                 if (rightIndent != gostOptions.GetRightIndent())
                 {
@@ -535,9 +535,9 @@ namespace FirstDocumentCustomization
                 {
                     textForComment.Append("\n Интервал после установлен некорректно " + intervalAfter + " необходимо установить интервал после равный " + gostOptions.GetIntervalAfter());
                 }
-                if (aligmentText != WdParagraphAlignment.wdAlignParagraphLeft)
+                if (aligmentText != WdParagraphAlignment.wdAlignParagraphLeft && aligmentText != WdParagraphAlignment.wdAlignParagraphJustify)
                 {
-                    textForComment.Append("\n Выравнивание подписи к таблице установлено " + ribbon.ConvertedIndexForComboBoxAlignmentText(aligmentText.ToString()) + " необходимо установить выравнивание текста по левому краю");
+                    textForComment.Append("\n Выравнивание подписи к таблице установлено некорректно");
                 }
 
                 AddComment(textForComment.ToString(), range);
