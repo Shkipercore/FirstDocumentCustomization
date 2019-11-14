@@ -232,7 +232,7 @@ namespace FirstDocumentCustomization
                     intervalBefore != gostOptions.GetIntervalBefore() ||
                     intervalAfter != gostOptions.GetIntervalAfter() ||
                     aligmentText.ToString() != gostOptions.alignmentText) &&
-                    !(text == "/\r" || text == "\r" || text == "\f\r"))
+                    !(text == "/\r" || text == "\r" || text == "\f\r" || text =="\u0001\r"))
                 {
                     StringBuilder textForComment = new StringBuilder("Оформление текста не соответствует ОС ТУСУР 01-2013: \n");
                     if (leftIndent != gostOptions.GetLeftIndent())
