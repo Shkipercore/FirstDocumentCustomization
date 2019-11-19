@@ -222,6 +222,8 @@ namespace FirstDocumentCustomization
                 var aligmentText = p.Alignment;
                 var text = range.Text;
 
+                //TestRegMatch();
+
                 if ((nameFont != gostOptions.GetNameFontOfOST() ||
                     (colorFont != ("wd" + gostOptions.GetColorFontOfOST()) && colorFont != "wdNoHighlight" && colorFont != "9999999") ||
                     lineSpacing != gostOptions.GetLineSpacingOFOST() ||
@@ -402,7 +404,7 @@ namespace FirstDocumentCustomization
             var aligmentText = p.Alignment;
             var text = range.Text;
 
-            if ((nameFont != gostOptions.GetNameFontOfOST() ||
+            if (nameFont != gostOptions.GetNameFontOfOST() ||
                (colorFont != ("wd" + gostOptions.GetColorFontOfOST()) && colorFont != "wdNoHighlight" && colorFont != "9999999") ||
                lineSpacing != gostOptions.GetLineSpacingOFOST() ||
                fontSize != gostOptions.GetSizeFontOfOST() ||
@@ -411,7 +413,8 @@ namespace FirstDocumentCustomization
                rightIndent != gostOptions.GetRightIndent() ||
                intervalBefore != gostOptions.GetIntervalBefore() ||
                intervalAfter != gostOptions.GetIntervalAfter() ||
-               aligmentText != WdParagraphAlignment.wdAlignParagraphCenter))
+               aligmentText != WdParagraphAlignment.wdAlignParagraphCenter ||
+               (Regex.IsMatch(p.Range.Text, "^Рисунок ([0-9]+)([.]{1}[0-9]+) ([–]|[-]){1} .*([.]{1}\r)$") || Regex.IsMatch(p.Range.Text, "^/ Рисунок ([0-9]+)([.]{1}[0-9]+) ([–]|[-]){1} .*([.]{1}\r)$")))
             {
                 StringBuilder textForComment = new StringBuilder("Оформление подписи к рисунку не соответствует ОС ТУСУР 01-2013: \n");
                 if (leftIndent != gostOptions.GetLeftIndent())
@@ -454,6 +457,11 @@ namespace FirstDocumentCustomization
                 {
                     textForComment.Append("\n Выравнивание подписи к рисунку установлено " + ribbon.ConvertedIndexForComboBoxAlignmentText(aligmentText.ToString()) + ", необходимо установить выравнивание текста по центру");
                 }
+                if (Regex.IsMatch(p.Range.Text, "^Рисунок ([0-9]+)([.]{1}[0-9]+) ([–]|[-]){1} .*([.]{1}\r)$") || Regex.IsMatch(p.Range.Text, "^/ Рисунок ([0-9]+)([.]{1}[0-9]+) ([–]|[-]){1} .*([.]{1}\r)$"))
+                {
+                    textForComment.Append("\n В конце подписи к рисунку установлена точка");
+                }
+
 
                 AddComment(textForComment.ToString(), range);
             }
@@ -542,6 +550,12 @@ namespace FirstDocumentCustomization
 
                 AddComment(textForComment.ToString(), range);
             }
+        }
+
+        public void TestRegMatch()
+        {
+            string st = "Рисунок 3.12 - Вкладка «Главный.\r";
+            Regex.IsMatch(st, @"^Рисунок ([0-9]+)([.]{1}[0-9]+) ([–]|[-]){1} .*([.]{1}\r)$");
         }
     }
 }
