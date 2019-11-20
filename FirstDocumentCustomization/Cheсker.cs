@@ -35,12 +35,12 @@ namespace FirstDocumentCustomization
             var widthPage = currentDocument.PageSetup.PageWidth;
             var highestPage = currentDocument.PageSetup.PageHeight;
 
-            if (widthPage != gostOptions.GetWidthOfOST())
+            if (widthPage != gostOptions.GetWidthOfOST() && widthPage !=9999999)
             {
                 AddComment("Некорректно указаны размеры страницы, указана ширина " + widthPage + ", необходимо установить ширину " + gostOptions.GetWidthOfOST(), rangeForAddCommit);
             }
 
-            if (gostOptions.GetHightOfOST() != highestPage)
+            if (highestPage != gostOptions.GetHightOfOST() && highestPage != 9999999)
             {
                 AddComment("Некорректно указаны размеры страницы, указана высота " + highestPage + ", необходимо установить высоту " + gostOptions.GetHightOfOST(), rangeForAddCommit);
             }
