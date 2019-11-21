@@ -208,9 +208,9 @@ namespace FirstDocumentCustomization
             Word.Range range = p.Range;
             if (range.OMaths.Count <= 0)
             {
-                var leftIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.LeftIndent), 1);
-                var firstLineIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.FirstLineIndent), 1);
-                var rightIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.RightIndent), 1);
+                var leftIndent = (float)Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.LeftIndent), 2);
+                var firstLineIndent = (float)Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.FirstLineIndent), 2);
+                var rightIndent = (float)Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.RightIndent), 2);
                 var intervalBefore = p.SpaceBefore;
                 var intervalAfter = p.SpaceAfter;
                 // var leftIndent = Range.Paragraphs.LeftIndent;
@@ -234,7 +234,7 @@ namespace FirstDocumentCustomization
                     intervalBefore != gostOptions.GetIntervalBefore() ||
                     intervalAfter != gostOptions.GetIntervalAfter() ||
                     aligmentText.ToString() != gostOptions.alignmentText) &&
-                    !(text == "/\r" || text == "\r" || text == "\f\r" || text =="\u0001\r"))
+                    !(text == "/\r" || text == "\r" || text == "\f\r" || text =="\u0001\r" || text == "\f"))
                 {
                     StringBuilder textForComment = new StringBuilder("Оформление текста не соответствует ОС ТУСУР 01-2013: \n");
                     if (leftIndent != gostOptions.GetLeftIndent())
@@ -392,9 +392,9 @@ namespace FirstDocumentCustomization
             Word.Range range = p.Range;
             Ribbon1 ribbon = new Ribbon1();
 
-            var leftIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.LeftIndent), 1);
-            var firstLineIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.FirstLineIndent), 1);
-            var rightIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.RightIndent), 1);
+            var leftIndent = (float)Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.LeftIndent), 2);
+            var firstLineIndent = (float)Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.FirstLineIndent), 2);
+            var rightIndent = (float)Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.RightIndent), 2);
             var intervalBefore = p.SpaceBefore;
             var intervalAfter = p.SpaceAfter;
             var nameFont = range.Font.Name;
@@ -483,9 +483,9 @@ namespace FirstDocumentCustomization
             Ribbon1 ribbon = new Ribbon1();
             Word.Range range = p.Range;
 
-            var leftIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.LeftIndent), 1);
-            var firstLineIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.FirstLineIndent), 1);
-            var rightIndent = Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.RightIndent), 1);
+            var leftIndent = (float)Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.LeftIndent), 2);
+            var firstLineIndent = (float)Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.FirstLineIndent), 2);
+            var rightIndent = (float)Math.Round(Globals.ThisAddIn.Application.PointsToCentimeters(p.RightIndent), 2);
             var intervalBefore = p.SpaceBefore;
             var intervalAfter = p.SpaceAfter;
             var nameFont = range.Font.Name;
